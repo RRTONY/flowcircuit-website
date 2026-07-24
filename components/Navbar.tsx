@@ -1,14 +1,16 @@
-import { Link, useLocation } from "wouter";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ClipboardCheck, BarChart3, LogIn, LogOut, User } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
+import { useAuth } from "@/hooks/useAuth";
 import { clearAllPersistedData } from "@/lib/assessmentPersistence";
 
 export default function Navbar() {
-  const [location] = useLocation();
+  const location = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated, loading, logout } = useAuth();
 
@@ -99,7 +101,7 @@ export default function Navbar() {
                   </Button>
                 </div>
               ) : (
-                <a href={getLoginUrl()}>
+                <a href="/login">
                   <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-foreground">
                     <LogIn className="mr-1 h-3.5 w-3.5" />
                     Sign In
@@ -192,7 +194,7 @@ export default function Navbar() {
                     </Button>
                   </div>
                 ) : (
-                  <a href={getLoginUrl()} className="block px-3 py-2">
+                  <a href="/login" className="block px-3 py-2">
                     <Button variant="outline" className="w-full">
                       <LogIn className="mr-2 h-4 w-4" />
                       Sign In

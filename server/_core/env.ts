@@ -1,3 +1,5 @@
+import "server-only";
+
 export const ENV = {
   databaseUrl: process.env.DATABASE_URL ?? "",
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",

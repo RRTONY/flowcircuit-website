@@ -1,3 +1,4 @@
+import "server-only";
 import { eq, and, desc, sql, count } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
@@ -91,6 +92,37 @@ export async function getUserByOpenId(openId: string) {
   const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
 
   return result.length > 0 ? result[0] : undefined;
+}
+
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.email, email.toLowerCase().trim())).limit(1);
+  return result[0] ?? undefined;
+}
+
+export async function createUserWithPassword(data: { email: string; name: string; passwordHash: string }) {
+  const db = await getDb();
+  if (!db) return null;
+  const email = data.email.toLowerCase().trim();
+  const role = email === ENV.ownerOpenId.toLowerCase() ? "admin" : "user";
+  const [user] = await db.insert(users).values({
+    openId: email,
+    email,
+    name: data.name,
+    passwordHash: data.passwordHash,
+    loginMethod: "credentials",
+    role,
+    lastSignedIn: new Date(),
+  }).returning();
+  return user ?? null;
+}
+
+export async function getUserById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
+  return result[0] ?? undefined;
 }
 
 // ─── Team Helpers ────────────────────────────────────────────────

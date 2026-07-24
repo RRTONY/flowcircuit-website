@@ -1,13 +1,16 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ClipboardCheck, Users, X, ArrowRight, Zap } from "lucide-react";
 
 export default function FloatingCTA() {
-  const [location] = useLocation();
-  const [, setLocation] = useLocation();
+  const location = usePathname();
+  const router = useRouter();
   const [showTeamInput, setShowTeamInput] = useState(false);
   const [domain, setDomain] = useState("");
   const [dismissed, setDismissed] = useState(false);
@@ -19,7 +22,7 @@ export default function FloatingCTA() {
   const handleJoinTeam = (e: React.FormEvent) => {
     e.preventDefault();
     if (domain.trim()) {
-      setLocation(`/assessment?domain=${encodeURIComponent(domain.trim())}`);
+      router.push(`/assessment?domain=${encodeURIComponent(domain.trim())}`);
     }
   };
 
