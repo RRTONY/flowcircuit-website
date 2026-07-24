@@ -6,7 +6,7 @@ import { describe, it, expect } from "vitest";
 describe("Survey Data Integrity", () => {
   it("should have surveyData module importable", async () => {
     // Verify the module structure exists
-    const mod = await import("../client/src/lib/surveyData");
+    const mod = await import("../lib/surveyData");
     expect(mod.surveyQuestions).toBeDefined();
     expect(mod.calculateRoleScores).toBeDefined();
     expect(mod.getDominantRole).toBeDefined();
@@ -17,12 +17,12 @@ describe("Survey Data Integrity", () => {
   });
 
   it("should have 12 survey questions", async () => {
-    const { surveyQuestions } = await import("../client/src/lib/surveyData");
+    const { surveyQuestions } = await import("../lib/surveyData");
     expect(surveyQuestions.length).toBe(12);
   });
 
   it("should have 5 options per question covering all roles", async () => {
-    const { surveyQuestions } = await import("../client/src/lib/surveyData");
+    const { surveyQuestions } = await import("../lib/surveyData");
     const ROLES = ["Spark", "Amplifier", "Filter", "Ground", "Conductor"];
     for (const q of surveyQuestions) {
       expect(q.options.length).toBe(5);
@@ -33,7 +33,7 @@ describe("Survey Data Integrity", () => {
 
   it("calculateRoleScores should return scores for all 5 roles", async () => {
     const { calculateRoleScores, surveyQuestions } = await import(
-      "../client/src/lib/surveyData"
+      "../lib/surveyData"
     );
     // Build answers: always pick the first option
     const answers: Record<number, string> = {};
@@ -54,7 +54,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("getDominantRole should return a valid role", async () => {
-    const { getDominantRole } = await import("../client/src/lib/surveyData");
+    const { getDominantRole } = await import("../lib/surveyData");
     const scores = { Spark: 30, Amplifier: 20, Filter: 15, Ground: 10, Conductor: 5 };
     const result = getDominantRole(scores);
     expect(result.role).toBe("Spark");
@@ -62,7 +62,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("getRolePercentages should sum to ~100%", async () => {
-    const { getRolePercentages } = await import("../client/src/lib/surveyData");
+    const { getRolePercentages } = await import("../lib/surveyData");
     const scores = { Spark: 30, Amplifier: 20, Filter: 15, Ground: 10, Conductor: 5 };
     const percentages = getRolePercentages(scores);
     const sum = percentages.reduce((acc, p) => acc + p.percentage, 0);
@@ -78,7 +78,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("getCombinationProfile should return primary and secondary roles", async () => {
-    const { getCombinationProfile } = await import("../client/src/lib/surveyData");
+    const { getCombinationProfile } = await import("../lib/surveyData");
     const scores = { Spark: 30, Amplifier: 20, Filter: 15, Ground: 10, Conductor: 5 };
     const profile = getCombinationProfile(scores);
     expect(profile.primary).toBe("Spark");
@@ -89,7 +89,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("getCombinationProfile should include purityScore between 0 and 100", async () => {
-    const { getCombinationProfile } = await import("../client/src/lib/surveyData");
+    const { getCombinationProfile } = await import("../lib/surveyData");
     const scores = { Spark: 30, Amplifier: 20, Filter: 15, Ground: 10, Conductor: 5 };
     const profile = getCombinationProfile(scores);
     expect(profile.purityScore).toBeGreaterThanOrEqual(0);
@@ -98,7 +98,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("getStressZones should return stress data for all 5 roles", async () => {
-    const { getStressZones, getCombinationProfile } = await import("../client/src/lib/surveyData");
+    const { getStressZones, getCombinationProfile } = await import("../lib/surveyData");
     const scores = { Spark: 30, Amplifier: 20, Filter: 15, Ground: 10, Conductor: 5 };
     const profile = getCombinationProfile(scores);
     const zones = getStressZones(profile);
@@ -110,7 +110,7 @@ describe("Survey Data Integrity", () => {
   });
 
   it("analyzeTeamStress should identify friction pairs", async () => {
-    const { analyzeTeamStress, getCombinationProfile, getStressZones } = await import("../client/src/lib/surveyData");
+    const { analyzeTeamStress, getCombinationProfile, getStressZones } = await import("../lib/surveyData");
     const aliceScores = { Spark: 40, Amplifier: 20, Filter: 15, Ground: 15, Conductor: 10 };
     const bobScores = { Spark: 10, Amplifier: 15, Filter: 15, Ground: 40, Conductor: 20 };
     const aliceProfile = getCombinationProfile(aliceScores);

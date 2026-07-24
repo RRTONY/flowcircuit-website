@@ -98,26 +98,14 @@ function createAuthContext(overrides?: Partial<AuthenticatedUser>): TrpcContext 
 
   return {
     user,
-    req: {
-      protocol: "https",
-      headers: {},
-    } as TrpcContext["req"],
-    res: {
-      clearCookie: vi.fn(),
-    } as unknown as TrpcContext["res"],
+    req: new Request("https://example.com"),
   };
 }
 
 function createPublicContext(): TrpcContext {
   return {
     user: null,
-    req: {
-      protocol: "https",
-      headers: {},
-    } as TrpcContext["req"],
-    res: {
-      clearCookie: vi.fn(),
-    } as unknown as TrpcContext["res"],
+    req: new Request("https://example.com"),
   };
 }
 

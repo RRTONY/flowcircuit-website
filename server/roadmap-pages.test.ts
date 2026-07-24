@@ -12,7 +12,7 @@ describe("Roadmap Pages - Route Registration", () => {
       "../client/src/pages/MAPlaybook",
       "../client/src/pages/MagicQuestions",
       "../client/src/pages/CredibilityTimeline",
-      "../client/src/components/BlogBridge",
+      "../components/BlogBridge",
     ];
 
     for (const page of pages) {
@@ -24,7 +24,7 @@ describe("Roadmap Pages - Route Registration", () => {
 
 describe("BlogBridge Component", () => {
   it("should export a valid component with blog article data", async () => {
-    const mod = await import("../client/src/components/BlogBridge");
+    const mod = await import("../components/BlogBridge");
     expect(mod.default).toBeDefined();
     expect(typeof mod.default).toBe("function");
   });

@@ -7,14 +7,18 @@ export default defineConfig({
   root: templateRoot,
   resolve: {
     alias: {
-      "@": path.resolve(templateRoot, "client", "src"),
+      "@": templateRoot,
       "@shared": path.resolve(templateRoot, "shared"),
-      "@assets": path.resolve(templateRoot, "attached_assets"),
+      // "server-only" guards against client-bundle imports via a Next.js/webpack
+      // specific condition that Vite's plain Node test runner doesn't set, so it
+      // throws unconditionally under vitest. Stub it out for tests only.
+      "server-only": path.resolve(templateRoot, "server/_core/test/server-only-stub.ts"),
     },
   },
   test: {
     environment: "node",
     include: ["server/**/*.test.ts", "server/**/*.spec.ts"],
+    setupFiles: ["./vitest.setup.ts"],
     testTimeout: 15000,
   },
 });

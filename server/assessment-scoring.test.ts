@@ -11,7 +11,7 @@ import {
   analyzeTeamStress,
   type Role,
   type TeamMemberProfile,
-} from "../client/src/lib/surveyData";
+} from "../lib/surveyData";
 
 // ═══════════════════════════════════════════════════════════════
 // ASSESSMENT INSTRUMENT INTEGRITY TESTS

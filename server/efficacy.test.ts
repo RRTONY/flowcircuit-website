@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import efficacyData from "../client/src/lib/efficacyData.json";
+import efficacyData from "../lib/efficacyData.json";
 
 describe("Efficacy Data Validation", () => {
   it("should have all required top-level keys", () => {

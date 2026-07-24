@@ -5,13 +5,7 @@ import type { TrpcContext } from "./_core/context";
 function createPublicContext(): { ctx: TrpcContext } {
   const ctx: TrpcContext = {
     user: null,
-    req: {
-      protocol: "https",
-      headers: {},
-    } as TrpcContext["req"],
-    res: {
-      clearCookie: vi.fn(),
-    } as unknown as TrpcContext["res"],
+    req: new Request("https://example.com"),
   };
 
   return { ctx };

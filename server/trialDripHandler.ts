@@ -1,19 +1,16 @@
 /**
- * Trial Email Drip Handler
- * Runs daily via Heartbeat cron. Checks all active trials and sends
+ * Trial Email Drip — runs daily via a Netlify Scheduled Function
+ * (netlify/functions/trial-drip.ts). Checks all active trials and sends
  * the appropriate email based on days since trial start.
  *
  * Schedule: Day 0 (welcome), Day 3 (nudge 360), Day 7 (team value),
  *           Day 25 (conversion warning), Day 30 (trial ended)
  */
-import type { Request, Response } from "express";
-import { sdk } from "./_core/sdk";
+import "server-only";
 import { sendEmail } from "./emailService";
 import { getDb } from "./db";
 import { tribeTrials } from "../drizzle/schema";
-import { eq, and, isNull } from "drizzle-orm";
-
-// ── Email Templates ──────────────────────────────────────────────
+import { eq } from "drizzle-orm";
 
 interface DripEmail {
   subject: string;
@@ -147,82 +144,46 @@ Thanks for trying Flow Circuit.
   }
 }
 
-// ── Handler ──────────────────────────────────────────────────────
+export type TrialDripResult = {
+  processed: number;
+  emailsSent: number;
+  trialsExpired: number;
+};
 
-export async function trialDripHandler(req: Request, res: Response) {
-  try {
-    const user = await sdk.authenticateRequest(req);
-    if (!user.isCron || !user.taskUid) {
-      return res.status(403).json({ error: "cron-only" });
+export async function runTrialDrip(): Promise<TrialDripResult> {
+  const db = await getDb();
+  if (!db) throw new Error("Database unavailable");
+
+  const activeTrials = await db.select().from(tribeTrials).where(eq(tribeTrials.status, "active"));
+
+  const now = Date.now();
+  const DAY_MS = 86400000;
+  let emailsSent = 0;
+  let trialsExpired = 0;
+
+  for (const trial of activeTrials) {
+    const daysSinceStart = Math.floor((now - trial.startedAt.getTime()) / DAY_MS);
+
+    if (daysSinceStart >= 30) {
+      await db.update(tribeTrials).set({ status: "expired" }).where(eq(tribeTrials.id, trial.id));
+      trialsExpired++;
     }
 
-    // Get all active trials
-    const db = await getDb();
-    if (!db) return res.status(500).json({ error: "Database unavailable" });
-    const activeTrials = await db
-      .select()
-      .from(tribeTrials)
-      .where(eq(tribeTrials.status, "active"));
+    const email = getDripEmail(daysSinceStart, trial.name, trial.email);
+    if (!email) continue;
 
-    const now = Date.now();
-    const DAY_MS = 86400000;
-    let emailsSent = 0;
-    let trialsExpired = 0;
+    if (trial.lastDripDay !== null && trial.lastDripDay >= daysSinceStart) continue;
 
-    for (const trial of activeTrials) {
-      const daysSinceStart = Math.floor((now - trial.startedAt.getTime()) / DAY_MS);
+    const sent = await sendEmail({ to: trial.email, subject: email.subject, text: email.body });
 
-      // Check if trial has expired
-      if (daysSinceStart >= 30) {
-        await db
-          .update(tribeTrials)
-          .set({ status: "expired" })
-          .where(eq(tribeTrials.id, trial.id));
-        trialsExpired++;
-      }
-
-      // Check if we should send an email today
-      const email = getDripEmail(daysSinceStart, trial.name, trial.email);
-      if (!email) continue;
-
-      // Check if we already sent this day's email (using lastDripDay field)
-      if (trial.lastDripDay !== null && trial.lastDripDay >= daysSinceStart) continue;
-
-      // Send email to the trial participant (Resend if configured, owner notification fallback)
-      const sent = await sendEmail({
-        to: trial.email,
-        subject: email.subject,
-        text: email.body,
-      });
-
-      if (!sent) {
-        console.warn(`[TrialDrip] Failed to send Day ${daysSinceStart} email to ${trial.email}`);
-        continue; // Don't update lastDripDay so we retry next run
-      }
-
-      // Update lastDripDay
-      await db
-        .update(tribeTrials)
-        .set({ lastDripDay: daysSinceStart })
-        .where(eq(tribeTrials.id, trial.id));
-
-      emailsSent++;
+    if (!sent) {
+      console.warn(`[TrialDrip] Failed to send Day ${daysSinceStart} email to ${trial.email}`);
+      continue; // Don't update lastDripDay so we retry next run
     }
 
-    res.json({
-      ok: true,
-      processed: activeTrials.length,
-      emailsSent,
-      trialsExpired,
-      timestamp: new Date().toISOString(),
-    });
-  } catch (error: any) {
-    console.error("[TrialDrip] Error:", error);
-    res.status(500).json({
-      error: error.message || "Unknown error",
-      stack: error.stack,
-      context: { url: req.url, taskUid: (error as any)?.taskUid },
-      timestamp: new Date().toISOString(),
-    });
+    await db.update(tribeTrials).set({ lastDripDay: daysSinceStart }).where(eq(tribeTrials.id, trial.id));
+    emailsSent++;
   }
+
+  return { processed: activeTrials.length, emailsSent, trialsExpired };
 }

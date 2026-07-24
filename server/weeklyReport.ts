@@ -1,3 +1,4 @@
+import "server-only";
 import { getDb } from "./db";
 import { teams, assessments, feedback } from "../drizzle/schema";
 import { eq, gte, and, desc, count } from "drizzle-orm";
@@ -199,29 +200,4 @@ export async function runWeeklyReport(): Promise<void> {
   } catch (error) {
     console.error("[WeeklyReport] Failed to generate weekly report:", error);
   }
-}
-
-/**
- * Schedule the weekly report to run every Monday at 9:00 AM UTC.
- * Uses setInterval with a check for the correct day/hour.
- */
-export function startWeeklyReportScheduler(): void {
-  // Check every hour if it's time to send the report
-  const CHECK_INTERVAL = 60 * 60 * 1000; // 1 hour
-  let lastRunDate: string | null = null;
-
-  setInterval(async () => {
-    const now = new Date();
-    const dayOfWeek = now.getUTCDay(); // 0 = Sunday, 1 = Monday
-    const hour = now.getUTCHours();
-    const dateKey = now.toISOString().split("T")[0];
-
-    // Run on Monday at 9:00 AM UTC (once per day)
-    if (dayOfWeek === 1 && hour === 9 && lastRunDate !== dateKey) {
-      lastRunDate = dateKey;
-      await runWeeklyReport();
-    }
-  }, CHECK_INTERVAL);
-
-  console.log("[WeeklyReport] Scheduler started. Reports will be sent every Monday at 9:00 AM UTC.");
 }

@@ -9,7 +9,7 @@ import { Resend } from "resend";
 import { notifyOwner } from "./_core/notification";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM_EMAIL = process.env.FROM_EMAIL || "Flow Circuit <noreply@flowcircuit.manus.space>";
+const FROM_EMAIL = process.env.FROM_EMAIL || "Flow Circuit <noreply@flow.tonygreenberg.com>";
 
 let resendClient: Resend | null = null;
 

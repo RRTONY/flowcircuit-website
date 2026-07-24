@@ -1,7 +1,7 @@
 import "server-only";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { getUserByEmail } from "@/server/db";
 

@@ -1,38 +1,34 @@
-import { Request, Response } from "express";
 import Stripe from "stripe";
 import { getStripe } from "./stripe";
 import { ENV } from "../_core/env";
 
 /**
  * Handle Stripe webhook events
- * Route: POST /api/stripe/webhook
- * Must use express.raw() body parser for signature verification
+ * Route: app/api/stripe/webhook/route.ts (POST)
+ * Requires the raw request body for signature verification.
  */
-export async function handleStripeWebhook(req: Request, res: Response) {
+export async function handleStripeWebhook(req: Request): Promise<Response> {
   const stripe = getStripe();
-  const sig = req.headers["stripe-signature"];
+  const sig = req.headers.get("stripe-signature");
 
   if (!sig) {
-    return res.status(400).json({ error: "Missing stripe-signature header" });
+    return Response.json({ error: "Missing stripe-signature header" }, { status: 400 });
   }
 
+  const rawBody = await req.text();
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
-      req.body,
-      sig,
-      ENV.stripeWebhookSecret
-    );
+    event = stripe.webhooks.constructEvent(rawBody, sig, ENV.stripeWebhookSecret);
   } catch (err: any) {
     console.error("[Webhook] Signature verification failed:", err.message);
-    return res.status(400).json({ error: `Webhook Error: ${err.message}` });
+    return Response.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
   }
 
   // Handle test events
   if (event.id.startsWith("evt_test_")) {
     console.log("[Webhook] Test event detected, returning verification response");
-    return res.json({ verified: true });
+    return Response.json({ verified: true });
   }
 
   console.log(`[Webhook] Received event: ${event.type} (${event.id})`);
@@ -79,7 +75,7 @@ export async function handleStripeWebhook(req: Request, res: Response) {
     // Stripe will retry on 5xx responses
   }
 
-  return res.json({ received: true });
+  return Response.json({ received: true });
 }
 
 /**
