@@ -1,0 +1,8 @@
+Status after Soulprint teaser + retake flow:
+- Server running clean, no errors
+- Homepage rendering correctly
+- Navbar: Home, The Protocol, Journey, Science, Testimonials, Bio, Intel, Sample Reports, Family
+- "Find Your Tribe" CTA in floating bar
+- Soulprint teaser card added to results page with retake flow
+- Stripe checkout wired to Pricing page
+- Next: Mobile responsiveness fixes, then norming, team comparison, API, white-label

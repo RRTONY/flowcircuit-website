@@ -1,0 +1,118 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1770410692080,
+      "tag": "0000_unknown_namor",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1770410883180,
+      "tag": "0001_conscious_machine_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1770412449114,
+      "tag": "0002_wet_karnak",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1771015873771,
+      "tag": "0003_quiet_onslaught",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1771021564539,
+      "tag": "0004_elite_harrier",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1771046912164,
+      "tag": "0005_absent_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1771051845225,
+      "tag": "0006_damp_human_cannonball",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1771053204207,
+      "tag": "0007_bent_magma",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1771186152606,
+      "tag": "0008_tearful_lester",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1773183107184,
+      "tag": "0009_natural_squadron_sinister",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1773186289663,
+      "tag": "0010_known_silver_fox",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1773330358986,
+      "tag": "0011_striped_catseye",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1776179413375,
+      "tag": "0012_quiet_fallen_one",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1778385085518,
+      "tag": "0013_parallel_silk_fever",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1778385720041,
+      "tag": "0014_smooth_azazel",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1778386275171,
+      "tag": "0015_ambiguous_next_avengers",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `tribe_trials` ADD `lastDripDay` int;

@@ -1,0 +1,9 @@
+Screenshot Feb 14 - After Stripe integration:
+- Homepage rendering correctly with "THE FLOW CIRCUIT" hero
+- Navbar shows: Home, The Protocol, Journey, Science, Testimonials, Bio, Intel, Sample Reports, Family
+- "Find Your Tribe" CTA visible in floating bar (bottom right)
+- No TypeScript errors, no build errors
+- Server running clean on port 3000
+- Stripe integration: webhook route registered, checkout session creation, subscription management
+- Pricing page updated with real Stripe checkout
+- Next: Soulprint teaser, retake flow, mobile audit, norming, team comparison, API, white-label

@@ -1,0 +1,84 @@
+{
+  "simulation": {
+    "n_respondents": 10000,
+    "n_retest": 2000,
+    "n_faking": 2000,
+    "seed": 42
+  },
+  "classification_accuracy": {
+    "likert": 50.9,
+    "forced_rank": 90.0,
+    "improvement": 39.1
+  },
+  "differentiation": {
+    "likert_avg_spread": 42.2,
+    "forced_avg_spread": 21.5,
+    "likert_median_spread": 41.6,
+    "forced_median_spread": 21.4
+  },
+  "entropy": {
+    "likert_avg": 1.772,
+    "forced_avg": 2.212,
+    "max_entropy": 2.322,
+    "description": "Lower entropy = sharper differentiation. Max entropy (2.322) = all roles equal."
+  },
+  "test_retest_reliability": {
+    "likert_avg_r": 0.518,
+    "forced_avg_r": 0.865,
+    "likert_median_r": 0.625,
+    "forced_median_r": 0.897
+  },
+  "faking_resistance": {
+    "likert_fake_success_rate": 99.6,
+    "forced_fake_success_rate": 98.1,
+    "description": "Percentage of fakers who successfully appeared as Spark (their target role)"
+  },
+  "role_distribution": {
+    "likert": {
+      "Spark": 3702,
+      "Amplifier": 2300,
+      "Conductor": 2839,
+      "Ground": 686,
+      "Filter": 473
+    },
+    "forced": {
+      "Spark": 2190,
+      "Amplifier": 2014,
+      "Ground": 1846,
+      "Conductor": 2082,
+      "Filter": 1868
+    }
+  },
+  "spread_histogram": {
+    "likert": {
+      "10-15": 74,
+      "15-20": 205,
+      "20-25": 474,
+      "25-30": 759,
+      "30-35": 1431,
+      "35-40": 1183,
+      "40-45": 2264,
+      "45-50": 965,
+      "5-10": 31,
+      "50-55": 1064,
+      "55-60": 739,
+      "60-65": 293,
+      "65-70": 317,
+      "70-75": 75,
+      "75-80": 81,
+      "80-85": 38,
+      "85-90": 4,
+      "90-95": 3
+    },
+    "forced": {
+      "0-5": 2,
+      "10-15": 779,
+      "15-20": 2671,
+      "20-25": 4078,
+      "25-30": 2126,
+      "30-35": 271,
+      "35-40": 1,
+      "5-10": 72
+    }
+  }
+}

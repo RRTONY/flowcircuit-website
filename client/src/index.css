@@ -1,0 +1,337 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Animations */
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes glitch {
+    2%, 64% { transform: translate(2px,0) skew(0deg); }
+    4%, 60% { transform: translate(-2px,0) skew(0deg); }
+    62% { transform: translate(0,0) skew(5deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    50% { opacity: 0.7; filter: brightness(1.2); }
+  }
+
+  /* Typography Overhaul */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Syne", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  /* Platinum & Obsidian Palette (Light Mode High Contrast) */
+  --primary: oklch(0.45 0.18 270); /* Deep Electric Purple */
+  --primary-foreground: oklch(0.98 0 0);
+  
+  --secondary: oklch(0.4 0.15 150); /* Deep Neon Green */
+  --secondary-foreground: oklch(0.98 0 0);
+  
+  --accent: oklch(0.55 0.15 30); /* Vibrant Burnt Orange */
+  --accent-foreground: oklch(0.98 0 0);
+  
+  --background: oklch(0.96 0.01 260); /* Platinum / Silver White */
+  --foreground: oklch(0.15 0.02 260); /* Obsidian / Deep Charcoal */
+  
+  --card: oklch(0.98 0.005 260); /* Pure White Card */
+  --card-foreground: oklch(0.15 0.02 260);
+  
+  --popover: oklch(0.98 0.005 260);
+  --popover-foreground: oklch(0.15 0.02 260);
+  
+  --muted: oklch(0.92 0.01 260); /* Light Silver */
+  --muted-foreground: oklch(0.4 0.02 260); /* Medium Grey */
+  
+  --destructive: oklch(0.6 0.2 20);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  --border: oklch(0.85 0.02 260); /* Crisp Silver Border */
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.45 0.18 270);
+  
+  --radius: 0.5rem;
+  
+  --sidebar: oklch(0.96 0.01 260);
+  --sidebar-foreground: oklch(0.15 0.02 260);
+  --sidebar-primary: oklch(0.45 0.18 270);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.92 0.01 260);
+  --sidebar-accent-foreground: oklch(0.15 0.02 260);
+  --sidebar-border: oklch(0.85 0.02 260);
+  --sidebar-ring: oklch(0.45 0.18 270);
+}
+
+.dark {
+  /* Keeping Dark Mode as an option, but default is now Light */
+  --primary: oklch(0.6 0.18 270);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.45 0.15 150);
+  --secondary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.7 0.15 30);
+  --accent-foreground: oklch(0.1 0 0);
+  --background: oklch(0.1 0.02 260);
+  --foreground: oklch(0.95 0.01 260);
+  --card: oklch(0.15 0.03 260);
+  --card-foreground: oklch(0.95 0.01 260);
+  --popover: oklch(0.12 0.03 260);
+  --popover-foreground: oklch(0.95 0.01 260);
+  --muted: oklch(0.25 0.02 260);
+  --muted-foreground: oklch(0.7 0.02 260);
+  --destructive: oklch(0.6 0.2 20);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.05 260);
+  --input: oklch(0.25 0.02 260);
+  --ring: oklch(0.6 0.18 270);
+  --sidebar: oklch(0.12 0.03 260);
+  --sidebar-foreground: oklch(0.95 0.01 260);
+  --sidebar-primary: oklch(0.6 0.18 270);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.25 0.02 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 260);
+  --sidebar-border: oklch(0.3 0.05 260);
+  --sidebar-ring: oklch(0.6 0.18 270);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Subtle Platinum Gradient */
+    background-image: 
+      radial-gradient(circle at 50% 0%, oklch(0.45 0.18 270 / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 50%, oklch(0.4 0.15 150 / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 50%, oklch(0.55 0.15 30 / 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+  
+  /* Typography Overhaul: Syne for Headers, Manrope for Body */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+    text-wrap: balance; /* Eliminates widows in headers */
+  }
+  
+  h1 {
+    /* Darker gradient for light mode readability */
+    @apply text-4xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent animate-pulse-glow;
+  }
+
+  p, li, blockquote {
+    @apply font-sans leading-relaxed;
+    text-wrap: pretty; /* Eliminates widows in body text */
+  }
+
+  /* Space Mono for Data/Tech elements */
+  code, pre, .font-mono {
+    @apply font-mono;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  .glitch-effect {
+    position: relative;
+  }
+  
+  .glitch-effect::before,
+  .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-effect::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch 3s infinite linear alternate-reverse;
+  }
+  
+  .glitch-effect::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch 2s infinite linear alternate-reverse;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  body {
+    background: white !important;
+    background-image: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  nav, .floating-cta, footer {
+    display: none !important;
+  }
+
+  /* Override animated gradient text for print */
+  h1, h2, h3, h4, h5, h6 {
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    color: black !important;
+    animation: none !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  section, div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* PRINT STYLES — For PDF Export of Flow Circuit Reports          */
+/* ═══════════════════════════════════════════════════════════════ */
+@media print {
+  /* Hide non-report elements */
+  nav, .print\\:hidden, [class*="FloatingCTA"],
+  button, .fixed, footer {
+    display: none !important;
+  }
+
+  /* Reset backgrounds for print */
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure colored backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 0.5in;
+    size: letter;
+  }
+
+  /* Prevent page breaks inside sections */
+  section, .rounded-2xl, .rounded-3xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure text is readable */
+  .text-gray-500, .text-gray-600, .text-muted-foreground {
+    color: #374151 !important;
+  }
+
+  /* Make sure canvas (shareable card) prints */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
