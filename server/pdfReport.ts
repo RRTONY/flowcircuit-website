@@ -745,7 +745,7 @@ export async function generateAssessmentPDF(data: PDFReportData): Promise<{ url:
 
   // ── Page 1 Footer ──
   doc.fillColor(TEXT_MUTED).fontSize(6).font("Helvetica")
-    .text("The Flow Circuit  |  Innovation Relay Assessment  |  flowcircuit.manus.space  |  Page 1", M, PH - 22, { width: CW, align: "center", lineBreak: false });
+    .text("The Flow Circuit  |  Innovation Relay Assessment  |  flow.tonygreenberg.com  |  Page 1", M, PH - 22, { width: CW, align: "center", lineBreak: false });
 
   // ════════════════════════════════════════════════════════════════
   // PAGE 2: COMMUNICATION PLAYBOOK
@@ -964,7 +964,7 @@ export async function generateAssessmentPDF(data: PDFReportData): Promise<{ url:
   doc.fillColor(TEXT_PRIMARY).fontSize(10).font("Helvetica-Bold")
     .text("Sign up for your free 30-day Tribe trial", M + 34, p3y + 10, { width: CW - 48 });
   doc.fillColor(TEXT_SECONDARY).fontSize(8.5).font("Helvetica")
-    .text("Go to flowcircuit.manus.space/tribe-trial — no credit card needed. Your trial begins immediately.", M + 34, p3y + 28, { width: CW - 48, lineGap: 2 });
+    .text("Go to flow.tonygreenberg.com/tribe-trial — no credit card needed. Your trial begins immediately.", M + 34, p3y + 28, { width: CW - 48, lineGap: 2 });
   p3y += 60;
 
   // Step 2
@@ -974,7 +974,7 @@ export async function generateAssessmentPDF(data: PDFReportData): Promise<{ url:
   doc.fillColor(TEXT_PRIMARY).fontSize(10).font("Helvetica-Bold")
     .text("Copy your unique 360 reviewer link", M + 34, p3y + 10, { width: CW - 48 });
   doc.fillColor(TEXT_SECONDARY).fontSize(8.5).font("Helvetica")
-    .text("From your results page, open \"My 360\" and copy your unique link. It looks like: flowcircuit.manus.space/360/your-token", M + 34, p3y + 28, { width: CW - 48, lineGap: 2 });
+    .text("From your results page, open \"My 360\" and copy your unique link. It looks like: flow.tonygreenberg.com/360/your-token", M + 34, p3y + 28, { width: CW - 48, lineGap: 2 });
   p3y += 60;
 
   // Step 3
@@ -1016,7 +1016,7 @@ export async function generateAssessmentPDF(data: PDFReportData): Promise<{ url:
   doc.fillColor(roleColor).fontSize(10).font("Helvetica-Bold")
     .text("START NOW:", M + 14, p3y + 12, { lineBreak: false });
   doc.fillColor(TEXT_PRIMARY).fontSize(9).font("Helvetica")
-    .text("flowcircuit.manus.space/tribe-trial", M + 14, p3y + 28, { width: CW - 28, underline: true });
+    .text("flow.tonygreenberg.com/tribe-trial", M + 14, p3y + 28, { width: CW - 28, underline: true });
   doc.fillColor(TEXT_MUTED).fontSize(7.5).font("Helvetica")
     .text("No credit card required. 30 days free.", M + 14, p3y + 40, { width: CW - 28 });
 

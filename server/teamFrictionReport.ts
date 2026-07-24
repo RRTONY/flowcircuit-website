@@ -161,7 +161,7 @@ function drawPageHeader(doc: PDFKit.PDFDocument, logo: Buffer | null, subtitle: 
 function drawPageFooter(doc: PDFKit.PDFDocument, page: number, totalPages: number, M: number, PH: number, CW: number) {
   doc.save();
   doc.fillColor(TEXT_MUTED).fontSize(5.5).font("Helvetica");
-  doc.text(`flowcircuit.manus.space  |  Page ${page} of ${totalPages}`, M, PH - 20, { width: CW, align: "center", lineBreak: false, height: 10 });
+  doc.text(`flow.tonygreenberg.com  |  Page ${page} of ${totalPages}`, M, PH - 20, { width: CW, align: "center", lineBreak: false, height: 10 });
   doc.restore();
 }
 
