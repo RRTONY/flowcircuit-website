@@ -1,6 +1,7 @@
 import { eq, and, desc, sql, count } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, teams, assessments, feedback, emailVerifications, peerReviews, emailDrips, soulprintOrders, calibrations, soulprintProfiles, teamAffiliations, InsertTeam, InsertAssessment, InsertFeedback, InsertEmailVerification, InsertPeerReview, InsertEmailDrip, InsertSoulprintOrder, SoulprintOrder, Team, Assessment, Feedback, EmailVerification, PeerReview, EmailDrip, InsertCalibration, Calibration, InsertSoulprintProfile, SoulprintProfile, TeamAffiliation, InsertTeamAffiliation } from "../drizzle/schema";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import { InsertUser, users, teams, assessments, feedback, emailVerifications, peerReviews, emailDrips, soulprintOrders, calibrations, soulprintProfiles, teamAffiliations, InsertTeam, InsertAssessment, InsertFeedback, InsertEmailVerification, InsertPeerReview, InsertEmailDrip, InsertSoulprintOrder, SoulprintOrder, Team, Assessment, Feedback, EmailVerification, PeerReview, EmailDrip, InsertCalibration, Calibration, InsertSoulprintProfile, SoulprintProfile, TeamAffiliation, InsertTeamAffiliation, flow360Sessions, flow360Responses, InsertFlow360Session, Flow360Session, InsertFlow360Response, Flow360Response, tribeTrials, InsertTribeTrial, TribeTrial } from "../drizzle/schema";
 import { ENV } from './_core/env';
 import { nanoid } from "nanoid";
 
@@ -10,7 +11,8 @@ let _db: ReturnType<typeof drizzle> | null = null;
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      const client = postgres(process.env.DATABASE_URL, { prepare: false });
+      _db = drizzle(client);
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
@@ -69,7 +71,8 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       updateSet.lastSignedIn = new Date();
     }
 
-    await db.insert(users).values(values).onDuplicateKeyUpdate({
+    await db.insert(users).values(values).onConflictDoUpdate({
+      target: users.openId,
       set: updateSet,
     });
   } catch (error) {
@@ -97,9 +100,8 @@ export async function createTeam(ownerId: number, name: string, companyName?: st
   if (!db) return null;
 
   const code = nanoid(8);
-  await db.insert(teams).values({ code, name, ownerId, companyName: companyName ?? null });
-  const result = await db.select().from(teams).where(eq(teams.code, code)).limit(1);
-  return result[0] ?? null;
+  const [team] = await db.insert(teams).values({ code, name, ownerId, companyName: companyName ?? null }).returning();
+  return team ?? null;
 }
 
 export async function getTeamByCode(code: string): Promise<Team | null> {
@@ -140,6 +142,7 @@ export async function updateTeamSettings(teamId: number, settings: {
   if (settings.weeklyReportEnabled !== undefined) updateSet.weeklyReportEnabled = settings.weeklyReportEnabled;
   if (settings.weeklyReportEmail !== undefined) updateSet.weeklyReportEmail = settings.weeklyReportEmail;
   if (Object.keys(updateSet).length > 0) {
+    updateSet.updatedAt = new Date();
     await db.update(teams).set(updateSet).where(eq(teams.id, teamId));
   }
 }
@@ -158,25 +161,25 @@ export async function getOrCreateTeamByDomain(domain: string): Promise<Team | nu
   const db = await getDb();
   if (!db) return null;
   const normalized = domain.toLowerCase().trim();
-  
-  // Check if team already exists for this domain
-  const existing = await getTeamByDomain(normalized);
-  if (existing) return existing;
-  
-  // Auto-create a team for this domain
-  const code = nanoid(8);
-  const companyName = normalized.split('.')[0].charAt(0).toUpperCase() + normalized.split('.')[0].slice(1);
-  // Use ownerId=0 for auto-created domain teams (no specific owner yet)
-  await db.insert(teams).values({
-    code,
-    domain: normalized,
-    name: `${companyName} Team`,
-    companyName,
-    ownerId: 0,
-    isAlpha: true,
+
+  return db.transaction(async (tx) => {
+    const existing = await tx.select().from(teams).where(eq(teams.domain, normalized)).limit(1);
+    if (existing[0]) return existing[0];
+
+    // Auto-create a team for this domain
+    const code = nanoid(8);
+    const companyName = normalized.split('.')[0].charAt(0).toUpperCase() + normalized.split('.')[0].slice(1);
+    // Use ownerId=0 for auto-created domain teams (no specific owner yet)
+    const [created] = await tx.insert(teams).values({
+      code,
+      domain: normalized,
+      name: `${companyName} Team`,
+      companyName,
+      ownerId: 0,
+      isAlpha: true,
+    }).returning();
+    return created ?? null;
   });
-  const result = await db.select().from(teams).where(eq(teams.domain, normalized)).limit(1);
-  return result[0] ?? null;
 }
 
 export async function getAllAssessments(): Promise<Assessment[]> {
@@ -204,10 +207,8 @@ export async function getAssessmentsByDomain(domain: string): Promise<Assessment
 export async function saveAssessment(data: InsertAssessment): Promise<Assessment | null> {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.insert(assessments).values(data);
-  const insertId = result[0].insertId;
-  const rows = await db.select().from(assessments).where(eq(assessments.id, insertId)).limit(1);
-  return rows[0] ?? null;
+  const [assessment] = await db.insert(assessments).values(data).returning();
+  return assessment ?? null;
 }
 
 export async function getAssessmentsByTeam(teamId: number): Promise<Assessment[]> {
@@ -248,10 +249,8 @@ export async function getAssessmentById(id: number): Promise<Assessment | null> 
 export async function saveFeedback(data: InsertFeedback): Promise<Feedback | null> {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.insert(feedback).values(data);
-  const insertId = result[0].insertId;
-  const rows = await db.select().from(feedback).where(eq(feedback.id, insertId)).limit(1);
-  return rows[0] ?? null;
+  const [row] = await db.insert(feedback).values(data).returning();
+  return row ?? null;
 }
 
 export async function getFeedbackByTeam(teamId: number): Promise<Feedback[]> {
@@ -272,7 +271,7 @@ export async function submitTestimonial(data: {
 }): Promise<Feedback | null> {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.insert(feedback).values({
+  const [row] = await db.insert(feedback).values({
     authorName: data.authorName,
     authorEmail: data.authorEmail ?? null,
     testimonialQuote: data.testimonialQuote,
@@ -282,10 +281,8 @@ export async function submitTestimonial(data: {
     assessmentId: data.assessmentId ?? null,
     isTestimonial: true,
     testimonialApproved: false,
-  });
-  const insertId = result[0].insertId;
-  const rows = await db.select().from(feedback).where(eq(feedback.id, insertId)).limit(1);
-  return rows[0] ?? null;
+  }).returning();
+  return row ?? null;
 }
 
 export async function getApprovedTestimonials(): Promise<Feedback[]> {
@@ -316,17 +313,14 @@ export async function createEmailVerification(email: string, assessmentId: numbe
   if (!db) return null;
   const code = String(Math.floor(100000 + Math.random() * 900000)); // 6-digit code
   const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
-  await db.insert(emailVerifications).values({
+  const [row] = await db.insert(emailVerifications).values({
     email: email.toLowerCase().trim(),
     code,
     assessmentId,
     verified: false,
     expiresAt,
-  });
-  const result = await db.select().from(emailVerifications)
-    .where(and(eq(emailVerifications.email, email.toLowerCase().trim()), eq(emailVerifications.code, code)))
-    .limit(1);
-  return result[0] ?? null;
+  }).returning();
+  return row ?? null;
 }
 
 export async function verifyEmailCode(email: string, code: string): Promise<boolean> {
@@ -369,7 +363,7 @@ export async function createPeerReviewInvite(targetAssessmentId: number, targetN
   const db = await getDb();
   if (!db) return null;
   const inviteToken = crypto.randomUUID().replace(/-/g, "").slice(0, 16);
-  await db.insert(peerReviews).values({
+  const [row] = await db.insert(peerReviews).values({
     targetAssessmentId,
     targetName,
     reviewerName: "",
@@ -377,11 +371,8 @@ export async function createPeerReviewInvite(targetAssessmentId: number, targetN
     perceivedRole: "",
     inviteToken,
     completed: false,
-  });
-  const result = await db.select().from(peerReviews)
-    .where(eq(peerReviews.inviteToken, inviteToken))
-    .limit(1);
-  return result[0] ?? null;
+  }).returning();
+  return row ?? null;
 }
 
 export async function getPeerReviewByToken(token: string): Promise<PeerReview | null> {
@@ -396,19 +387,21 @@ export async function getPeerReviewByToken(token: string): Promise<PeerReview | 
 export async function completePeerReview(token: string, reviewerName: string, perceivedRole: string, perceivedScores: Record<string, number>, answers: Record<number, string>): Promise<boolean> {
   const db = await getDb();
   if (!db) return false;
-  const review = await getPeerReviewByToken(token);
-  if (!review || review.completed) return false;
-  await db.update(peerReviews)
-    .set({
-      reviewerName,
-      perceivedRole,
-      perceivedScores,
-      answers,
-      completed: true,
-      completedAt: new Date(),
-    })
-    .where(eq(peerReviews.inviteToken, token));
-  return true;
+  return db.transaction(async (tx) => {
+    const [review] = await tx.select().from(peerReviews).where(eq(peerReviews.inviteToken, token)).limit(1);
+    if (!review || review.completed) return false;
+    await tx.update(peerReviews)
+      .set({
+        reviewerName,
+        perceivedRole,
+        perceivedScores,
+        answers,
+        completed: true,
+        completedAt: new Date(),
+      })
+      .where(eq(peerReviews.inviteToken, token));
+    return true;
+  });
 }
 
 export async function getPeerReviewsByAssessment(assessmentId: number): Promise<PeerReview[]> {
@@ -419,19 +412,13 @@ export async function getPeerReviewsByAssessment(assessmentId: number): Promise<
     .orderBy(desc(peerReviews.createdAt));
 }
 
-// ─── Slack Notification Helper ───────────────────────────────────
-
 // ─── Email Drip Helpers ─────────────────────────────────────────────────
 
 export async function createEmailDrip(data: InsertEmailDrip): Promise<EmailDrip | null> {
   const db = await getDb();
   if (!db) return null;
-  await db.insert(emailDrips).values(data);
-  const result = await db.select().from(emailDrips)
-    .where(eq(emailDrips.email, data.email))
-    .orderBy(desc(emailDrips.createdAt))
-    .limit(1);
-  return result[0] ?? null;
+  const [row] = await db.insert(emailDrips).values(data).returning();
+  return row ?? null;
 }
 
 export async function getPendingDrips(dripDay: 'day1' | 'day3' | 'day7'): Promise<EmailDrip[]> {
@@ -724,9 +711,9 @@ export async function createSoulprintOrder(data: {
     isAlpha: data.isAlpha,
     amountPaid: data.amountPaid,
     soulprintStatus: "pending",
-  });
-  if (!result.insertId) return null;
-  return { id: Number(result.insertId) };
+  }).returning({ id: soulprintOrders.id });
+  if (!result?.id) return null;
+  return { id: result.id };
 }
 
 export async function getSoulprintOrderById(orderId: number): Promise<SoulprintOrder | null> {
@@ -776,7 +763,7 @@ export async function saveCalibrationResult(data: {
 }): Promise<Calibration | null> {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.insert(calibrations).values({
+  const [row] = await db.insert(calibrations).values({
     assessmentId: data.assessmentId,
     userId: data.userId,
     rankings: data.rankings,
@@ -785,10 +772,8 @@ export async function saveCalibrationResult(data: {
     originalScores: data.originalScores,
     originalRole: data.originalRole,
     confidenceScore: data.confidenceScore,
-  });
-  const insertId = result[0].insertId;
-  const rows = await db.select().from(calibrations).where(eq(calibrations.id, insertId)).limit(1);
-  return rows[0] ?? null;
+  }).returning();
+  return row ?? null;
 }
 
 export async function getCalibrationByAssessment(assessmentId: number): Promise<Calibration | null> {
@@ -884,7 +869,7 @@ export async function updateResearchOptIn(assessmentId: number, optIn: boolean) 
 export async function saveSoulprintProfile(data: InsertSoulprintProfile): Promise<number | null> {
   const db = await getDb();
   if (!db) return null;
-  const [result] = await db.insert(soulprintProfiles).values(data).$returningId();
+  const [result] = await db.insert(soulprintProfiles).values(data).returning({ id: soulprintProfiles.id });
   return result?.id ?? null;
 }
 
@@ -960,18 +945,12 @@ export async function getTeamSoulprints(teamId: number): Promise<Array<Soulprint
 export async function addTeamAffiliation(teamDomain: string, assessmentId: number, label: string = "candidate"): Promise<TeamAffiliation | null> {
   const db = await getDb();
   if (!db) return null;
-  await db.insert(teamAffiliations).values({
+  const [row] = await db.insert(teamAffiliations).values({
     teamDomain: teamDomain.toLowerCase().trim(),
     assessmentId,
     label,
-  });
-  const rows = await db.select().from(teamAffiliations)
-    .where(and(
-      eq(teamAffiliations.teamDomain, teamDomain.toLowerCase().trim()),
-      eq(teamAffiliations.assessmentId, assessmentId)
-    ))
-    .limit(1);
-  return rows[0] ?? null;
+  }).returning();
+  return row ?? null;
 }
 
 export async function getTeamAffiliations(teamDomain: string): Promise<TeamAffiliation[]> {
@@ -1029,8 +1008,6 @@ export async function getTeamWithAffiliates(domain: string): Promise<{
 // 360 PEER REVIEW — Database Helpers
 // ═══════════════════════════════════════════════════════════════════════
 
-import { flow360Sessions, flow360Responses, InsertFlow360Session, Flow360Session, InsertFlow360Response, Flow360Response } from "../drizzle/schema";
-
 /**
  * Create a new 360 session for a subject.
  * Returns the session with its unique token.
@@ -1049,7 +1026,7 @@ export async function create360Session(data: {
   const token = nanoid(24);
   const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
 
-  const [result] = await db.insert(flow360Sessions).values({
+  const [session] = await db.insert(flow360Sessions).values({
     subjectName: data.subjectName,
     subjectEmail: data.subjectEmail || null,
     subjectAssessmentId: data.subjectAssessmentId || null,
@@ -1058,11 +1035,7 @@ export async function create360Session(data: {
     teamSlug: data.teamSlug || null,
     selfScores: data.selfScores || null,
     expiresAt,
-  }).$returningId();
-
-  const [session] = await db.select().from(flow360Sessions)
-    .where(eq(flow360Sessions.id, result.id))
-    .limit(1);
+  }).returning();
 
   return session || null;
 }
@@ -1112,7 +1085,7 @@ export async function submit360Response(data: {
   const db = await getDb();
   if (!db) return null;
 
-  const [result] = await db.insert(flow360Responses).values({
+  const [response] = await db.insert(flow360Responses).values({
     sessionId: data.sessionId,
     reviewerName: data.reviewerName || null,
     reviewerEmail: data.reviewerEmail || null,
@@ -1122,11 +1095,7 @@ export async function submit360Response(data: {
     filterRank: data.filterRank,
     groundRank: data.groundRank,
     conductorRank: data.conductorRank,
-  }).$returningId();
-
-  const [response] = await db.select().from(flow360Responses)
-    .where(eq(flow360Responses.id, result.id))
-    .limit(1);
+  }).returning();
 
   return response || null;
 }
@@ -1240,13 +1209,10 @@ export async function calculate360GapReport(sessionId: number): Promise<{
 // TRIBE TRIAL HELPERS
 // ═══════════════════════════════════════════════════════════════════════
 
-import { tribeTrials, InsertTribeTrial, TribeTrial } from "../drizzle/schema";
-
 export async function createTribeTrial(data: Omit<InsertTribeTrial, "id" | "createdAt">): Promise<TribeTrial | null> {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.insert(tribeTrials).values(data);
-  const [trial] = await db.select().from(tribeTrials).where(eq(tribeTrials.id, Number(result[0].insertId))).limit(1);
+  const [trial] = await db.insert(tribeTrials).values(data).returning();
   return trial || null;
 }
 

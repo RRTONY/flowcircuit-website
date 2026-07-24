@@ -1,1 +1,0 @@
-ALTER TABLE `assessments` ADD `researchOptIn` boolean DEFAULT false;
