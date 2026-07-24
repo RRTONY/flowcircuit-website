@@ -1,10 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useLocation } from "wouter";
+import { useRouter } from "next/navigation";
 import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import {
   CheckCircle2, ArrowRight, Users, Map, Sparkles, Copy, X, Zap, Activity, Shield, Anchor, Radio
@@ -49,7 +51,7 @@ const STEPS = [
 
 export default function OnboardingWizard({ role, score, teamCode, assessmentId, onClose }: OnboardingWizardProps) {
   const [step, setStep] = useState(0);
-  const [, setLocation] = useLocation();
+  const router = useRouter();
   const { user } = useAuth();
   const [invitesCopied, setInvitesCopied] = useState(false);
 
@@ -72,9 +74,9 @@ export default function OnboardingWizard({ role, score, teamCode, assessmentId, 
     } else {
       // Final step — go to team map
       if (teamCode) {
-        setLocation(`/team-map?team=${teamCode}`);
+        router.push(`/team-map?team=${teamCode}`);
       } else {
-        setLocation("/team-builder");
+        router.push("/team-builder");
       }
       onClose();
     }
