@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PeerAssessmentClient from "@/app/peer-assessment/PeerAssessmentClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "360° Peer Review | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 
 export default async function Page({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params;
-  return <PeerAssessmentClient token={token} />;
+  return (
+    <ClientOnly>
+      <PeerAssessmentClient token={token} />
+    </ClientOnly>
+  );
 }

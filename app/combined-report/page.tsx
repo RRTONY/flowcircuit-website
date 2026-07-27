@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CombinedReportClient from "./CombinedReportClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Combined Report — Flow Circuit DNA + SoulPrint",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CombinedReportClient />;
+  return (
+    <ClientOnly>
+      <CombinedReportClient />
+    </ClientOnly>
+  );
 }

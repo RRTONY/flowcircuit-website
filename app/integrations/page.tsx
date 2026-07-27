@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import IntegrationsClient from "./IntegrationsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Slack & Teams Integrations | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <IntegrationsClient />;
+  return (
+    <ClientOnly>
+      <IntegrationsClient />
+    </ClientOnly>
+  );
 }

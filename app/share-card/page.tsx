@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ShareCardClient from "./ShareCardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Your Flow Card | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ShareCardClient />;
+  return (
+    <ClientOnly>
+      <ShareCardClient />
+    </ClientOnly>
+  );
 }

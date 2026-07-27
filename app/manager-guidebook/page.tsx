@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ManagerGuidebookClient from "./ManagerGuidebookClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Team Captain's Protocol | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function ManagerGuidebookPage() {
-  return <ManagerGuidebookClient />;
+  return (
+    <ClientOnly>
+      <ManagerGuidebookClient />
+    </ClientOnly>
+  );
 }

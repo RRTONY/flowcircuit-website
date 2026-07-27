@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JourneyClient from "./JourneyClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Journey | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function JourneyPage() {
-  return <JourneyClient />;
+  return (
+    <ClientOnly>
+      <JourneyClient />
+    </ClientOnly>
+  );
 }

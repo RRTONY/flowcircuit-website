@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ResearchDashboardClient from "./ResearchDashboardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Live Research Dashboard | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ResearchDashboardClient />;
+  return (
+    <ClientOnly>
+      <ResearchDashboardClient />
+    </ClientOnly>
+  );
 }

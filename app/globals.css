@@ -293,7 +293,7 @@
 /* ═══════════════════════════════════════════════════════════════ */
 @media print {
   /* Hide non-report elements */
-  nav, .print\\:hidden, [class*="FloatingCTA"],
+  nav, .print\:hidden, [class*="FloatingCTA"],
   button, .fixed, footer {
     display: none !important;
   }

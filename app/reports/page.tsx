@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ReportsDashboardClient from "./ReportsDashboardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Reports Dashboard | The Flow Circuit",
@@ -10,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ReportsDashboardClient />;
+  return (
+    <ClientOnly>
+      <ReportsDashboardClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamBuilderClient from "./TeamBuilderClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Team Architecture | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function TeamBuilderPage() {
-  return <TeamBuilderClient />;
+  return (
+    <ClientOnly>
+      <TeamBuilderClient />
+    </ClientOnly>
+  );
 }

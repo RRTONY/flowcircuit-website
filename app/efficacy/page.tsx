@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EfficacyReportClient from "./EfficacyReportClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Efficacy Report | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <EfficacyReportClient />;
+  return (
+    <ClientOnly>
+      <EfficacyReportClient />
+    </ClientOnly>
+  );
 }

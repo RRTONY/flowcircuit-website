@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PricingClient from "./PricingClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Pricing | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  return <PricingClient />;
+  return (
+    <ClientOnly>
+      <PricingClient />
+    </ClientOnly>
+  );
 }

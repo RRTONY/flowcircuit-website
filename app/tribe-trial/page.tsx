@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TribeTrialClient from "./TribeTrialClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Start Your 30-Day Tribe Trial | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TribeTrialClient />;
+  return (
+    <ClientOnly>
+      <TribeTrialClient />
+    </ClientOnly>
+  );
 }

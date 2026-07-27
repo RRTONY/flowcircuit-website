@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SoulPrintClient from "./SoulPrintClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "SoulPrint | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <SoulPrintClient />;
+  return (
+    <ClientOnly>
+      <SoulPrintClient />
+    </ClientOnly>
+  );
 }

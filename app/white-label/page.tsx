@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import WhiteLabelClient from "./WhiteLabelClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "White-Label Configuration | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <WhiteLabelClient />;
+  return (
+    <ClientOnly>
+      <WhiteLabelClient />
+    </ClientOnly>
+  );
 }

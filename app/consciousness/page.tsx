@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SoulPrintLayerClient from "./SoulPrintLayerClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Consciousness Layer | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <SoulPrintLayerClient />;
+  return (
+    <ClientOnly>
+      <SoulPrintLayerClient />
+    </ClientOnly>
+  );
 }

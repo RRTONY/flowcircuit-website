@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamSettingsClient from "./TeamSettingsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Team Settings | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function TeamSettingsPage() {
-  return <TeamSettingsClient />;
+  return (
+    <ClientOnly>
+      <TeamSettingsClient />
+    </ClientOnly>
+  );
 }

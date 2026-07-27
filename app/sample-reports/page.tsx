@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SampleReportsClient from "./SampleReportsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Sample Reports | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function SampleReportsPage() {
-  return <SampleReportsClient />;
+  return (
+    <ClientOnly>
+      <SampleReportsClient />
+    </ClientOnly>
+  );
 }

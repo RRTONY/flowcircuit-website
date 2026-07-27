@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DeepCalibrationClient from "./DeepCalibrationClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Deep Calibration | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <DeepCalibrationClient />;
+  return (
+    <ClientOnly>
+      <DeepCalibrationClient />
+    </ClientOnly>
+  );
 }

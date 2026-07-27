@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ScienceClient from "./ScienceClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Science | Why Who You Are Matters More Than What You Know",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ScienceClient />;
+  return (
+    <ClientOnly>
+      <ScienceClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import IntelClient from "./IntelClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Mission Critical Intel | Signal in the Noise",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <IntelClient />;
+  return (
+    <ClientOnly>
+      <IntelClient />
+    </ClientOnly>
+  );
 }

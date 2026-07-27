@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MagicQuestionsClient from "./MagicQuestionsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "10 Magic Questions to Make Your Project Go Right",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <MagicQuestionsClient />;
+  return (
+    <ClientOnly>
+      <MagicQuestionsClient />
+    </ClientOnly>
+  );
 }

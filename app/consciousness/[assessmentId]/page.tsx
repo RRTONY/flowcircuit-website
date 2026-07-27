@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SoulPrintLayerClient from "@/app/consciousness/SoulPrintLayerClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Consciousness Layer | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 
 export default async function Page({ params }: { params: Promise<{ assessmentId: string }> }) {
   const { assessmentId } = await params;
-  return <SoulPrintLayerClient assessmentId={assessmentId} />;
+  return (
+    <ClientOnly>
+      <SoulPrintLayerClient assessmentId={assessmentId} />
+    </ClientOnly>
+  );
 }

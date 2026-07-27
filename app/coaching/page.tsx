@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CoachingClient from "./CoachingClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Weekly Coaching | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CoachingClient />;
+  return (
+    <ClientOnly>
+      <CoachingClient />
+    </ClientOnly>
+  );
 }

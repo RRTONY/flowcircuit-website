@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ComputeCoreClient from "./ComputeCoreClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Compute Core | Silicon Sanctuary Terminal",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ComputeCoreClient />;
+  return (
+    <ClientOnly>
+      <ComputeCoreClient />
+    </ClientOnly>
+  );
 }

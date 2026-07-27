@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EnterpriseDashboardClient from "./EnterpriseDashboardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Circuit Health Dashboard — Enterprise Team View",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <EnterpriseDashboardClient />;
+  return (
+    <ClientOnly>
+      <EnterpriseDashboardClient />
+    </ClientOnly>
+  );
 }

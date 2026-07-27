@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AlphaFeedbackClient from "./AlphaFeedbackClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Alpha Feedback | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function FeedbackPage() {
-  return <AlphaFeedbackClient />;
+  return (
+    <ClientOnly>
+      <AlphaFeedbackClient />
+    </ClientOnly>
+  );
 }

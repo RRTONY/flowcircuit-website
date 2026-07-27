@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MAPlaybookClient from "./MAPlaybookClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The M&A Integration Playbook — Flow Circuit for Mergers",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <MAPlaybookClient />;
+  return (
+    <ClientOnly>
+      <MAPlaybookClient />
+    </ClientOnly>
+  );
 }

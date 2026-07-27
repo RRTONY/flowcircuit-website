@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ConductorPlaybookClient from "./ConductorPlaybookClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Conductor's Playbook — Rules for Orchestrating Introductions",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ConductorPlaybookClient />;
+  return (
+    <ClientOnly>
+      <ConductorPlaybookClient />
+    </ClientOnly>
+  );
 }

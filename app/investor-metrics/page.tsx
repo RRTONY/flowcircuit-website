@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InvestorMetricsClient from "./InvestorMetricsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Investor Metrics Dashboard | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <InvestorMetricsClient />;
+  return (
+    <ClientOnly>
+      <InvestorMetricsClient />
+    </ClientOnly>
+  );
 }

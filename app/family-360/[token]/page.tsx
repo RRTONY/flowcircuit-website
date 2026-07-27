@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Family360ReviewClient from "./Family360ReviewClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Family 360 Review | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 
 export default async function Page({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params;
-  return <Family360ReviewClient token={token} />;
+  return (
+    <ClientOnly>
+      <Family360ReviewClient token={token} />
+    </ClientOnly>
+  );
 }

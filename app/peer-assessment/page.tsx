@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PeerAssessmentClient from "./PeerAssessmentClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "360° Peer Review | The Flow Circuit",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PeerAssessmentClient />;
+  return (
+    <ClientOnly>
+      <PeerAssessmentClient />
+    </ClientOnly>
+  );
 }

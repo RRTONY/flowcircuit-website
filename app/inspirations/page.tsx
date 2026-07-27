@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InspirationsClient from "./InspirationsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Inspirations | The Minds Behind The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <InspirationsClient />;
+  return (
+    <ClientOnly>
+      <InspirationsClient />
+    </ClientOnly>
+  );
 }

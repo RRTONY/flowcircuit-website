@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AlignmentResultsClient from "./AlignmentResultsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Your Flow Circuit Results | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AlignmentResultsClient />;
+  return (
+    <ClientOnly>
+      <AlignmentResultsClient />
+    </ClientOnly>
+  );
 }

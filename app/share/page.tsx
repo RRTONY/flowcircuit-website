@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ShareResultsClient from "./ShareResultsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Shared Assessment Result | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function SharePage() {
-  return <ShareResultsClient />;
+  return (
+    <ClientOnly>
+      <ShareResultsClient />
+    </ClientOnly>
+  );
 }

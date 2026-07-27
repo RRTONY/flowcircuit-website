@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamMapPageClient from "./TeamMapPageClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Tribe Energy Map | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function TeamMapPage() {
-  return <TeamMapPageClient />;
+  return (
+    <ClientOnly>
+      <TeamMapPageClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamComparisonClient from "./TeamComparisonClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Team Comparison | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function TeamComparisonPage() {
-  return <TeamComparisonClient />;
+  return (
+    <ClientOnly>
+      <TeamComparisonClient />
+    </ClientOnly>
+  );
 }

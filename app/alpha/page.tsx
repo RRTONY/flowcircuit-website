@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AlphaInviteClient from "./AlphaInviteClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Join the Alpha | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function AlphaPage() {
-  return <AlphaInviteClient />;
+  return (
+    <ClientOnly>
+      <AlphaInviteClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AssessmentClient from "./AssessmentClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Take the Assessment | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AssessmentClient />;
+  return (
+    <ClientOnly>
+      <AssessmentClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TestimonialsClient from "./TestimonialsClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Testimonials | The Proof Behind The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TestimonialsClient />;
+  return (
+    <ClientOnly>
+      <TestimonialsClient />
+    </ClientOnly>
+  );
 }

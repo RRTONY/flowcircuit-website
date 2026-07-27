@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CredibilityTimelineClient from "./CredibilityTimelineClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "25 Years of Pattern Recognition — The Flow Circuit Timeline",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CredibilityTimelineClient />;
+  return (
+    <ClientOnly>
+      <CredibilityTimelineClient />
+    </ClientOnly>
+  );
 }

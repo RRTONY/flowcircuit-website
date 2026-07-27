@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import WhyTeamsFailClient from "./WhyTeamsFailClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Why Teams Fail | Four Circuit Failure Patterns",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <WhyTeamsFailClient />;
+  return (
+    <ClientOnly>
+      <WhyTeamsFailClient />
+    </ClientOnly>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BioClient from "./BioClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Tony Greenberg | Architect of the Invisible",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <BioClient />;
+  return (
+    <ClientOnly>
+      <BioClient />
+    </ClientOnly>
+  );
 }

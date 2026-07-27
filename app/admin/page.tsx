@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdminDashboardClient from "./AdminDashboardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard | The Flow Circuit",
@@ -10,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function AdminPage() {
-  return <AdminDashboardClient />;
+  return (
+    <ClientOnly>
+      <AdminDashboardClient />
+    </ClientOnly>
+  );
 }

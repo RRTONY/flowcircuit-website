@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamDashboardClient from "./TeamDashboardClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Team Dashboard | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function TeamDashboardPage() {
-  return <TeamDashboardClient />;
+  return (
+    <ClientOnly>
+      <TeamDashboardClient />
+    </ClientOnly>
+  );
 }

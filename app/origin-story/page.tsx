@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import OriginStoryClient from "./OriginStoryClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Origin Story | From the Z Process to The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <OriginStoryClient />;
+  return (
+    <ClientOnly>
+      <OriginStoryClient />
+    </ClientOnly>
+  );
 }

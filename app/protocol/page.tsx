@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProtocolClient from "./ProtocolClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Protocol | The Operating Manual for High-Performance Teams",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ProtocolClient />;
+  return (
+    <ClientOnly>
+      <ProtocolClient />
+    </ClientOnly>
+  );
 }

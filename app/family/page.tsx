@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FamilyDynamicClient from "./FamilyDynamicClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "Family Dynamic | The Flow Circuit",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function FamilyPage() {
-  return <FamilyDynamicClient />;
+  return (
+    <ClientOnly>
+      <FamilyDynamicClient />
+    </ClientOnly>
+  );
 }

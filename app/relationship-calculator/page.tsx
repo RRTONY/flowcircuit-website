@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import RelationshipCalculatorClient from "./RelationshipCalculatorClient";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "The Relationship Calculator — Flow Circuit Role Dynamics",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <RelationshipCalculatorClient />;
+  return (
+    <ClientOnly>
+      <RelationshipCalculatorClient />
+    </ClientOnly>
+  );
 }
