@@ -1,5 +1,8 @@
 import bcrypt from "bcryptjs";
-import { createUserWithPassword, getUserByEmail } from "./db";
+import { createUserWithPassword, getUserByEmail, createPasswordResetToken, consumePasswordResetToken } from "./db";
+import { sendEmail } from "./emailService";
+
+const SITE_URL = "https://flow.tonygreenberg.com";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
@@ -88,6 +91,38 @@ export const appRouter = router({
         const user = await createUserWithPassword({ email: input.email, name: input.name, passwordHash });
         if (!user) {
           throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Failed to create account." });
+        }
+        return { success: true } as const;
+      }),
+
+    requestPasswordReset: publicProcedure
+      .input(z.object({ email: z.string().email() }))
+      .mutation(async ({ input }) => {
+        const user = await getUserByEmail(input.email);
+        if (user) {
+          const token = await createPasswordResetToken(user.id);
+          const resetUrl = `${SITE_URL}/reset-password?token=${token}`;
+          await sendEmail({
+            to: user.email!,
+            subject: "Reset your Flow Circuit password",
+            text: `Click the link below to set a new password. This link expires in 1 hour.\n\n${resetUrl}\n\nIf you didn't request this, you can ignore this email.`,
+            html: `<p>Click the link below to set a new password. This link expires in 1 hour.</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>If you didn't request this, you can ignore this email.</p>`,
+          });
+        }
+        // Always return success, whether or not the account exists, to avoid leaking which emails are registered.
+        return { success: true } as const;
+      }),
+
+    resetPassword: publicProcedure
+      .input(z.object({
+        token: z.string().min(1),
+        password: z.string().min(8),
+      }))
+      .mutation(async ({ input }) => {
+        const passwordHash = await bcrypt.hash(input.password, 10);
+        const ok = await consumePasswordResetToken(input.token, passwordHash);
+        if (!ok) {
+          throw new TRPCError({ code: "BAD_REQUEST", message: "This reset link is invalid or has expired." });
         }
         return { success: true } as const;
       }),

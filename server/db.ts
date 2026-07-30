@@ -2,9 +2,10 @@ import "server-only";
 import { eq, and, desc, sql, count } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { InsertUser, users, teams, assessments, feedback, emailVerifications, peerReviews, emailDrips, soulprintOrders, calibrations, soulprintProfiles, teamAffiliations, InsertTeam, InsertAssessment, InsertFeedback, InsertEmailVerification, InsertPeerReview, InsertEmailDrip, InsertSoulprintOrder, SoulprintOrder, Team, Assessment, Feedback, EmailVerification, PeerReview, EmailDrip, InsertCalibration, Calibration, InsertSoulprintProfile, SoulprintProfile, TeamAffiliation, InsertTeamAffiliation, flow360Sessions, flow360Responses, InsertFlow360Session, Flow360Session, InsertFlow360Response, Flow360Response, tribeTrials, InsertTribeTrial, TribeTrial } from "../drizzle/schema";
+import { InsertUser, users, teams, assessments, feedback, emailVerifications, peerReviews, emailDrips, soulprintOrders, calibrations, soulprintProfiles, teamAffiliations, InsertTeam, InsertAssessment, InsertFeedback, InsertEmailVerification, InsertPeerReview, InsertEmailDrip, InsertSoulprintOrder, SoulprintOrder, Team, Assessment, Feedback, EmailVerification, PeerReview, EmailDrip, InsertCalibration, Calibration, InsertSoulprintProfile, SoulprintProfile, TeamAffiliation, InsertTeamAffiliation, flow360Sessions, flow360Responses, InsertFlow360Session, Flow360Session, InsertFlow360Response, Flow360Response, tribeTrials, InsertTribeTrial, TribeTrial, passwordResets } from "../drizzle/schema";
 import { ENV } from './_core/env';
 import { nanoid } from "nanoid";
+import { randomBytes } from "crypto";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -123,6 +124,31 @@ export async function getUserById(id: number) {
   if (!db) return undefined;
   const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
   return result[0] ?? undefined;
+}
+
+// ─── Password Reset Helpers ─────────────────────────────────────────
+
+const PASSWORD_RESET_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+export async function createPasswordResetToken(userId: number): Promise<string> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const token = randomBytes(32).toString("hex");
+  const expiresAt = new Date(Date.now() + PASSWORD_RESET_TTL_MS);
+  await db.insert(passwordResets).values({ userId, token, expiresAt });
+  return token;
+}
+
+export async function consumePasswordResetToken(token: string, newPasswordHash: string): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  const [reset] = await db.select().from(passwordResets).where(eq(passwordResets.token, token)).limit(1);
+  if (!reset || reset.usedAt || reset.expiresAt < new Date()) return false;
+
+  await db.update(users).set({ passwordHash: newPasswordHash, updatedAt: new Date() }).where(eq(users.id, reset.userId));
+  await db.update(passwordResets).set({ usedAt: new Date() }).where(eq(passwordResets.id, reset.id));
+  return true;
 }
 
 // ─── Team Helpers ────────────────────────────────────────────────

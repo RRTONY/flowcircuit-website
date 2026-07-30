@@ -347,3 +347,20 @@ export const tribeTrials = pgTable(
 
 export type TribeTrial = typeof tribeTrials.$inferSelect;
 export type InsertTribeTrial = typeof tribeTrials.$inferInsert;
+
+/**
+ * Password reset tokens — single-use, time-limited links emailed to a user
+ * when they request a password reset (also the recovery path for accounts
+ * created via a login method that never set a password, e.g. legacy OAuth).
+ */
+export const passwordResets = pgTable("password_resets", {
+  id: serial("id").primaryKey(),
+  userId: integer("userId").notNull(),
+  token: varchar("token", { length: 64 }).notNull().unique(),
+  expiresAt: timestamp("expiresAt", { withTimezone: true }).notNull(),
+  usedAt: timestamp("usedAt", { withTimezone: true }),
+  createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type PasswordReset = typeof passwordResets.$inferSelect;
+export type InsertPasswordReset = typeof passwordResets.$inferInsert;
