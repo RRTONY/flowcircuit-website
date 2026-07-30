@@ -844,7 +844,7 @@ export default function AlignmentResults() {
                 portrait of your operating system.
               </p>
 
-              <div className="grid grid-cols-4 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                 {['Enneagram', 'Human Design', 'Gene Keys', 'Astrology'].map((fw) => (
                   <div key={fw} className="text-center p-3 rounded-xl bg-white/60 border border-purple-100">
                     <div className="w-8 h-8 mx-auto mb-1 rounded-full bg-purple-100 flex items-center justify-center">

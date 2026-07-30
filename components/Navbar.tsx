@@ -129,6 +129,7 @@ export default function Navbar() {
           <button
             className="p-2 text-muted-foreground hover:text-foreground"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

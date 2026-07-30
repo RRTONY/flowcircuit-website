@@ -182,7 +182,7 @@ export default function OnboardingWizard({ role, score, teamCode, assessmentId, 
                       )}
                     </div>
 
-                    <div className="grid grid-cols-3 gap-3 text-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
                       {[
                         { label: "5 min", desc: "to complete" },
                         { label: "Free", desc: "for everyone" },

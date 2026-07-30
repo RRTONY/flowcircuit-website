@@ -30,8 +30,7 @@ export default function SignupPage() {
         router.push("/login");
         return;
       }
-      router.push("/");
-      router.refresh();
+      window.location.href = "/";
     } catch (err: any) {
       setError(err?.message || "Failed to create account.");
     }

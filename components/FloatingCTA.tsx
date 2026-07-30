@@ -105,7 +105,6 @@ export default function FloatingCTA() {
                       value={domain}
                       onChange={(e) => setDomain(e.target.value)}
                       className="h-9 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-blue-400/30 text-sm"
-                      autoFocus
                     />
                     <Button 
                       type="submit" 
