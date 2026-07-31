@@ -11,7 +11,36 @@ import {
 import {
   Role, calculateRoleScores, getCombinationProfile, getStressZones,
   getRolePercentages, analyzeTeamStress, TeamMemberProfile,
+  roleInsights, ROLE_ORDER,
 } from "@/lib/surveyData";
+import { getInteraction } from "@/lib/interactionMatrix";
+
+// Canonical quadrant position for each role on the Innovation/Execution x Analysis/Momentum
+// scatter plot (480x480 viewBox). Multiple members of the same role fan out around this point.
+const ROLE_POSITIONS: Record<Role, { x: number; y: number }> = {
+  Spark: { x: 350, y: 110 },
+  Amplifier: { x: 370, y: 200 },
+  Filter: { x: 120, y: 200 },
+  Ground: { x: 240, y: 370 },
+  Conductor: { x: 240, y: 240 },
+};
+
+// Team-neutral (not "you"-directed) explanation of what a missing role costs the team.
+const MISSING_ROLE_IMPACT: Record<Role, string> = {
+  Spark: "Without a Spark, the team stagnates — no one is generating the raw ideas that everything else builds on.",
+  Amplifier: "Without an Amplifier, great ideas die in silence — no one is turning vision into organizational buy-in.",
+  Filter: "Without a Filter, the team ships broken products and makes avoidable mistakes — no one is stress-testing the plan.",
+  Ground: "Without Ground energy, nothing ships — ideas, momentum, and analysis stay theoretical.",
+  Conductor: "Without a Conductor, the relay breaks down — each role operates in isolation and handoffs fail.",
+};
+
+const ROLE_HEX: Record<Role, string> = {
+  Spark: "#C8362A",
+  Amplifier: "#D4622A",
+  Filter: "#4A7C9E",
+  Ground: "#6B8F71",
+  Conductor: "#7B68AE",
+};
 
 export default function TeamMapPage() {
   const router = useRouter();
@@ -81,6 +110,59 @@ export default function TeamMapPage() {
     if (membersWithProfiles.length < 2) return null;
     return analyzeTeamStress(membersWithProfiles);
   }, [teamMembers]);
+
+  // Positioned scatter-plot node for every real member -- fans same-role members out
+  // around their role's canonical quadrant instead of stacking them exactly on top of each other.
+  const scatterNodes = useMemo(() => {
+    const seenPerRole: Record<string, number> = {};
+    return teamMembers.map((m: any) => {
+      const role: Role = ROLE_POSITIONS[m.role as Role] ? m.role : "Conductor";
+      const base = ROLE_POSITIONS[role];
+      const idx = seenPerRole[role] || 0;
+      seenPerRole[role] = idx + 1;
+      const angle = (idx * 47 * Math.PI) / 180;
+      const spread = idx === 0 ? 0 : 28 + idx * 18;
+      const x = Math.max(30, Math.min(450, base.x + spread * Math.cos(angle)));
+      const y = Math.max(30, Math.min(450, base.y + spread * Math.sin(angle)));
+      const purity = m.purityScore || 20;
+      const radius = 14 + Math.min(18, purity / 6);
+      const initials = m.name.split(" ").map((n: string) => n[0]).filter(Boolean).join("").slice(0, 2).toUpperCase() || "?";
+      const firstName = m.name.split(" ")[0];
+      return { ...m, role, x, y, radius, color: ROLE_HEX[role], initials, firstName };
+    });
+  }, [teamMembers]);
+
+  // Which roles have zero members on this team right now.
+  const missingRoles = useMemo(
+    () => ROLE_ORDER.filter((r) => !roleDistribution[r]),
+    [roleDistribution]
+  );
+
+  // Friction pairs based on each present role's known frictionWith relationships --
+  // deduped to one representative pair per distinct role combination so a large team
+  // doesn't produce dozens of near-duplicate cards.
+  const roleFrictionCards = useMemo(() => {
+    const seenPairs = new Set<string>();
+    const cards: { roleA: Role; roleB: Role; nameA: string; nameB: string; guide?: ReturnType<typeof getInteraction> }[] = [];
+    for (let i = 0; i < scatterNodes.length; i++) {
+      for (let j = i + 1; j < scatterNodes.length; j++) {
+        const a = scatterNodes[i];
+        const b = scatterNodes[j];
+        const aInsight = roleInsights[a.role as Role];
+        const bInsight = roleInsights[b.role as Role];
+        const isFriction = aInsight?.frictionWith.includes(b.role) || bInsight?.frictionWith.includes(a.role);
+        if (!isFriction) continue;
+        const key = [a.role, b.role].sort().join("-");
+        if (seenPairs.has(key)) continue;
+        seenPairs.add(key);
+        cards.push({
+          roleA: a.role, roleB: b.role, nameA: a.name, nameB: b.name,
+          guide: getInteraction(a.role, b.role) || getInteraction(b.role, a.role),
+        });
+      }
+    }
+    return cards;
+  }, [scatterNodes]);
 
   const handleCopyInviteLink = () => {
     const url = `${window.location.origin}/assessment?domain=${encodeURIComponent(domain || "")}`;
@@ -182,7 +264,7 @@ export default function TeamMapPage() {
           </div>
         </div>
 
-        {/* ═══ MODIFICATION 1 — SVG Scatter Plot ═══ */}
+        {/* Energy scatter plot -- positions and names are computed from the real team members above */}
         <div className="tribe-map-container" style={{background:'#F4F0E8',border:'1px solid #1C1410',borderRadius:'4px',padding:'24px',margin:'24px 0'}}>
           <div style={{textAlign:'center',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#1C1410',opacity:0.4,marginBottom:'8px'}}>INNOVATION</div>
           <div style={{display:'flex',alignItems:'center'}}>
@@ -194,48 +276,38 @@ export default function TeamMapPage() {
               <text x="340" y="44" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.25" letterSpacing="0.08em">CATALYST</text>
               <text x="30" y="456" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.25" letterSpacing="0.08em">ARCHITECT</text>
               <text x="330" y="456" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.25" letterSpacing="0.08em">EXECUTOR</text>
-              {/* Friction lines from TG */}
-              <line x1="330" y1="100" x2="140" y2="180" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
-              <line x1="330" y1="100" x2="130" y2="320" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
-              <line x1="330" y1="100" x2="200" y2="350" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
-              <line x1="330" y1="100" x2="300" y2="360" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
-              <line x1="330" y1="100" x2="130" y2="220" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3"/>
-              {/* Friction lines from BS */}
-              <line x1="360" y1="160" x2="130" y2="320" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.2"/>
-              <line x1="360" y1="160" x2="200" y2="350" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.2"/>
-              <line x1="360" y1="160" x2="300" y2="360" stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.2"/>
-              {/* Open Conductor role */}
-              <circle cx="240" cy="240" r="28" fill="none" stroke="#C8362A" strokeWidth="1.5" strokeDasharray="6,4" opacity="0.5"/>
-              <text x="240" y="236" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="9" fill="#C8362A" opacity="0.7" letterSpacing="0.06em">OPEN ROLE</text>
-              <text x="240" y="250" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="9" fill="#C8362A" opacity="0.7" letterSpacing="0.06em">CONDUCTOR</text>
-              {/* TG - Spark */}
-              <circle cx="330" cy="100" r="22" fill="#C8362A" opacity="0.85"/>
-              <text x="330" y="105" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">TG</text>
-              <text x="330" y="84" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Tony</text>
-              {/* BS - Amplifier */}
-              <circle cx="370" cy="175" r="18" fill="#D4622A" opacity="0.85"/>
-              <text x="370" y="180" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">BS</text>
-              <text x="392" y="165" textAnchor="start" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Ben</text>
-              {/* JB - Filter */}
-              <circle cx="138" cy="185" r="16" fill="#4A7C9E" opacity="0.85"/>
-              <text x="138" y="190" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">JB</text>
-              <text x="118" y="175" textAnchor="end" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Josh</text>
-              {/* AV - Filter (largest node = highest purity) */}
-              <circle cx="118" cy="230" r="32" fill="#4A7C9E" opacity="0.85"/>
-              <text x="118" y="235" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">AV</text>
-              <text x="82" y="220" textAnchor="end" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Alex</text>
-              {/* RH - Ground */}
-              <circle cx="148" cy="330" r="16" fill="#6B8F71" opacity="0.85"/>
-              <text x="148" y="335" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">RH</text>
-              <text x="128" y="320" textAnchor="end" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Rob</text>
-              {/* KD - Ground */}
-              <circle cx="210" cy="355" r="19" fill="#6B8F71" opacity="0.85"/>
-              <text x="210" y="360" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">KD</text>
-              <text x="210" y="382" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Kim</text>
-              {/* DD - Ground */}
-              <circle cx="320" cy="365" r="17" fill="#6B8F71" opacity="0.85"/>
-              <text x="320" y="370" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">DD</text>
-              <text x="320" y="390" textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">Darryl</text>
+
+              {/* Friction lines between real members whose roles are known to clash */}
+              {roleFrictionCards.map((card, i) => {
+                const a = scatterNodes.find((n: any) => n.role === card.roleA && n.name === card.nameA);
+                const b = scatterNodes.find((n: any) => n.role === card.roleB && n.name === card.nameB);
+                if (!a || !b) return null;
+                return (
+                  <line key={`friction-${i}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y}
+                    stroke="#C8362A" strokeWidth="1" strokeDasharray="5,5" opacity="0.3" />
+                );
+              })}
+
+              {/* Open/missing roles */}
+              {missingRoles.map((role) => {
+                const pos = ROLE_POSITIONS[role];
+                return (
+                  <g key={`open-${role}`}>
+                    <circle cx={pos.x} cy={pos.y} r="28" fill="none" stroke="#C8362A" strokeWidth="1.5" strokeDasharray="6,4" opacity="0.5"/>
+                    <text x={pos.x} y={pos.y - 4} textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="9" fill="#C8362A" opacity="0.7" letterSpacing="0.06em">OPEN ROLE</text>
+                    <text x={pos.x} y={pos.y + 10} textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="9" fill="#C8362A" opacity="0.7" letterSpacing="0.06em">{role.toUpperCase()}</text>
+                  </g>
+                );
+              })}
+
+              {/* Real team member nodes */}
+              {scatterNodes.map((node: any) => (
+                <g key={node.id}>
+                  <circle cx={node.x} cy={node.y} r={node.radius} fill={node.color} opacity="0.85" />
+                  <text x={node.x} y={node.y + 4} textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="11" fontWeight="700" fill="#F4F0E8">{node.initials}</text>
+                  <text x={node.x} y={node.y - node.radius - 6} textAnchor="middle" fontFamily="Cabinet Grotesk,sans-serif" fontSize="10" fill="#1C1410" opacity="0.7">{node.firstName}</text>
+                </g>
+              ))}
             </svg>
             <div style={{writingMode:'vertical-rl',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#1C1410',opacity:0.4,paddingLeft:'8px',whiteSpace:'nowrap'}}>MOMENTUM</div>
           </div>
@@ -246,7 +318,8 @@ export default function TeamMapPage() {
             <span style={{display:'flex',alignItems:'center',gap:'6px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#D4622A'}}><svg width="10" height="10"><circle cx="5" cy="5" r="5" fill="#D4622A"/></svg>AMPLIFIER</span>
             <span style={{display:'flex',alignItems:'center',gap:'6px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#4A7C9E'}}><svg width="10" height="10"><circle cx="5" cy="5" r="5" fill="#4A7C9E"/></svg>FILTER</span>
             <span style={{display:'flex',alignItems:'center',gap:'6px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#6B8F71'}}><svg width="10" height="10"><circle cx="5" cy="5" r="5" fill="#6B8F71"/></svg>GROUND</span>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#C8362A',opacity:0.7}}>--- FRICTION LINE &nbsp;&nbsp; OPEN CONDUCTOR</span>
+            <span style={{display:'flex',alignItems:'center',gap:'6px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#7B68AE'}}><svg width="10" height="10"><circle cx="5" cy="5" r="5" fill="#7B68AE"/></svg>CONDUCTOR</span>
+            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',color:'#C8362A',opacity:0.7}}>--- FRICTION LINE &nbsp;&nbsp; OPEN ROLE</span>
           </div>
         </div>
 
@@ -255,57 +328,50 @@ export default function TeamMapPage() {
           <p style={{fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#C8362A',margin:'0 0 10px'}}>HOW TO READ THIS MAP</p>
           <p style={{fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 12px'}}><strong>Vertical axis:</strong> Innovation (top) vs. Execution (bottom). Where ideas are born vs. where they land.</p>
           <p style={{fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 12px'}}><strong>Horizontal axis:</strong> Analysis (left) vs. Momentum (right). How people process vs. how people move.</p>
-          <p style={{fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 12px'}}><strong>Node size:</strong> Larger = higher purity. Alex's large node means he is deeply, consistently Filter. Tony's smaller node means he blends Spark with Amplifier — which is why he can both ignite and rally.</p>
+          <p style={{fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 12px'}}><strong>Node size:</strong> Larger = higher purity. A big node means that person is deeply, consistently one role. A smaller node means they blend two roles — which is why they can operate in both worlds.</p>
           <p style={{fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:0}}><strong>Red dashed lines:</strong> Friction, not conflict. These pairs see the world through different physics. The fix is never changing who they are. It is changing how they hand off.</p>
         </div>
 
-        {/* ═══ MODIFICATION 3 — Tribe Stress Analysis ═══ */}
-        <section style={{margin:'40px 0'}}>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#C8362A',margin:'0 0 8px'}}>TRIBE STRESS ANALYSIS</p>
-          <h2 style={{fontFamily:"'Fraunces',serif",fontSize:'32px',fontWeight:700,color:'#1C1410',lineHeight:1.2,margin:'0 0 16px'}}>These are not personality conflicts.<br/>They are operational physics.</h2>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',lineHeight:1.8,color:'#1C1410',maxWidth:'640px',margin:'0 0 32px'}}>Different archetypes optimize for different things. When they collide without a protocol, it drains energy from both people and from the mission. Here is what to do about each friction pair.</p>
-          <div style={{display:'grid',gap:'16px'}}>
-            {/* Tony x Josh */}
-            <div style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px'}}><span style={{background:'#C8362A',color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>SPARK x FILTER</span><strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>Tony Greenberg and Josh Bykowski</strong></div>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>Tony moves on pattern recognition and velocity. Josh holds for evidence, risk surface, and what can go wrong. In a deal room this looks like impatience vs. caution. In reality it is the tension that keeps RampRate from signing the wrong LOI.</p>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>What to do:</strong> Before any new deal enters Josh's queue, Tony provides a one-page "why now" brief. Josh needs the frame before he can evaluate the risk. Without it he defaults to friction. With it he becomes your fastest legal filter.</p>
+        {/* Tribe Stress Analysis -- built from the real team's roles and the interaction matrix */}
+        {roleFrictionCards.length > 0 && (
+          <section style={{margin:'40px 0'}}>
+            <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#C8362A',margin:'0 0 8px'}}>TRIBE STRESS ANALYSIS</p>
+            <h2 style={{fontFamily:"'Fraunces',serif",fontSize:'32px',fontWeight:700,color:'#1C1410',lineHeight:1.2,margin:'0 0 16px'}}>These are not personality conflicts.<br/>They are operational physics.</h2>
+            <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',lineHeight:1.8,color:'#1C1410',maxWidth:'640px',margin:'0 0 32px'}}>Different archetypes optimize for different things. When they collide without a protocol, it drains energy from both people and from the mission. Here is what to do about each friction pair.</p>
+            <div style={{display:'grid',gap:'16px'}}>
+              {roleFrictionCards.map((card, i) => (
+                <div key={i} style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
+                  <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px',flexWrap:'wrap'}}>
+                    <span style={{background:ROLE_HEX[card.roleA],color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>{card.roleA.toUpperCase()} x {card.roleB.toUpperCase()}</span>
+                    <strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>{card.nameA} and {card.nameB}</strong>
+                  </div>
+                  <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>{card.guide?.dynamic || `${card.roleA} and ${card.roleB} see the world through different physics — that's where the friction comes from.`}</p>
+                  {card.guide && (
+                    <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}>
+                      <strong>Do:</strong> {card.guide.do} <strong>Don&apos;t:</strong> {card.guide.dont}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
-            {/* Tony x Rob */}
-            <div style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px'}}><span style={{background:'#C8362A',color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>SPARK x GROUND</span><strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>Tony Greenberg and Rob Holmes</strong></div>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>Tony opens doors. Rob has to walk through them and deliver. The gap between the vision Tony pitches and the structure Rob needs to execute is where deals stall.</p>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>What to do:</strong> Every BD thread Rob owns needs a written handoff note from Tony within 24 hours of the intro — context, desired next step, what Rob should NOT say. Remove the ambiguity and Rob becomes a closer.</p>
-            </div>
-            {/* Tony x Kim */}
-            <div style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px'}}><span style={{background:'#C8362A',color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>SPARK x GROUND</span><strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>Tony Greenberg and Kimberly Dofredo</strong></div>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>Kim holds the operational infrastructure. Tony's Spark generates new surface area faster than Kim can systematize it. This is not a Kim problem. It is a pacing problem.</p>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>What to do:</strong> Weekly 20-minute load check — Tony lists every new open thread. Kim red-flags anything without an owner or deadline. Ground types need visible structure to feel safe. This meeting is the structure.</p>
-            </div>
-            {/* Tony x Alex */}
-            <div style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px'}}><span style={{background:'#C8362A',color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>SPARK x FILTER</span><strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>Tony Greenberg and Alex Veytsel</strong></div>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>Alex is the highest-purity node on this team at 57% Filter. Tony is the highest-energy Spark. When they collide without a protocol, it produces the most expensive friction on the team.</p>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>What to do:</strong> Formally designate Alex as Red Team lead on every strategy deck before it reaches a client. When Alex knows his job is to find the holes, he stops fighting the idea and starts strengthening it. This single change transforms your most friction-generating relationship into your highest-value one.</p>
-            </div>
-            {/* Ben x Grounds */}
-            <div style={{border:'1px solid rgba(28,20,16,0.12)',padding:'20px 24px',background:'#fff',borderRadius:'3px'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'12px'}}><span style={{background:'#D4622A',color:'#F4F0E8',fontSize:'11px',fontFamily:"'Cabinet Grotesk',sans-serif",fontWeight:700,padding:'3px 10px',letterSpacing:'0.08em'}}>AMPLIFIER x GROUND</span><strong style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',color:'#1C1410'}}>Ben Sheppard and Rob, Kim, Darryl</strong></div>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.75,color:'#1C1410',margin:'0 0 10px'}}>Ben amplifies energy and builds momentum through people. The three Grounds need to know what they are building before they can build it. Ben moves on enthusiasm. They move on clarity.</p>
-              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>What to do:</strong> When Ben needs something from a Ground, he frames it as a defined deliverable with a deadline rather than "this is exciting, let's go." Amplifiers who learn to speak Ground fluently become the most effective people on any team.</p>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* ═══ MODIFICATION 4 — Critical Gap: No Conductor ═══ */}
-        <div style={{background:'#FFF8F6',border:'1.5px solid #C8362A',borderRadius:'3px',padding:'24px 28px',margin:'32px 0'}}>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#C8362A',margin:'0 0 8px'}}>CRITICAL GAP — PRIORITY HIRE OR DESIGNATE</p>
-          <h3 style={{fontFamily:"'Fraunces',serif",fontSize:'26px',fontWeight:700,color:'#1C1410',margin:'0 0 14px',lineHeight:1.25}}>This team has no Conductor.<br/>Someone is absorbing that cost right now.</h3>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410',maxWidth:'600px',margin:'0 0 16px'}}>A Conductor does not generate ideas. They do not execute deliverables. They translate between archetypes — turning Tony's Spark into Josh's brief, turning Alex's red team notes into Kim's action list, turning Ben's momentum into Rob's next call. Without a Conductor, every handoff on this team is a trust-tax. Someone improvises. Someone waits. Something drops.</p>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410',maxWidth:'600px',margin:'0 0 16px'}}><strong>Best internal candidate:</strong> Kim has the highest Conductor secondary score (Ground-Conductor) and already holds operational infrastructure. With a formal mandate and protected time, she is the most viable internal Conductor. This is a title and scope conversation, not a new hire.</p>
-          <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>If hiring externally:</strong> Look for someone who has been a Chief of Staff, integrator, or program lead at a fast-moving advisory or deal firm. Not a project manager. A translator.</p>
-        </div>
+        {/* Critical Gap callout -- built from whichever role(s) this real team is actually missing */}
+        {missingRoles.map((role) => {
+          const candidate = teamMembers.find((m: any) => m.profile?.secondary === role);
+          return (
+            <div key={role} style={{background:'#FFF8F6',border:'1.5px solid #C8362A',borderRadius:'3px',padding:'24px 28px',margin:'32px 0'}}>
+              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#C8362A',margin:'0 0 8px'}}>CRITICAL GAP — PRIORITY HIRE OR DESIGNATE</p>
+              <h3 style={{fontFamily:"'Fraunces',serif",fontSize:'26px',fontWeight:700,color:'#1C1410',margin:'0 0 14px',lineHeight:1.25}}>This team has no {role}.<br/>Someone is absorbing that cost right now.</h3>
+              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410',maxWidth:'600px',margin:'0 0 16px'}}>{MISSING_ROLE_IMPACT[role]} Every handoff that role would normally own becomes a trust-tax on the rest of the team. Someone improvises. Someone waits. Something drops.</p>
+              {candidate && (
+                <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410',maxWidth:'600px',margin:'0 0 16px'}}><strong>Best internal candidate:</strong> {candidate.name} has {role} as a secondary strength. With a formal mandate and protected time, they're the most viable internal {role}. This is a title and scope conversation, not a new hire.</p>
+              )}
+              <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',lineHeight:1.7,color:'#1C1410',opacity:0.7,margin:0}}><strong>If hiring externally:</strong> Look for someone whose track record matches the {role} pattern above — not just a title match, but the actual behavioral signature.</p>
+            </div>
+          );
+        })}
 
         {/* ═══ Tribe Recommendation ═══ */}
         {teamStressAnalysis && (
@@ -319,74 +385,31 @@ export default function TeamMapPage() {
           </div>
         )}
 
-        {/* ═══ MODIFICATION 5 — Individual Playbooks ═══ */}
+        {/* Individual Playbooks -- one card per real team member, built from their actual role */}
         <section style={{margin:'40px 0'}}>
           <p style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'11px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#1C1410',opacity:0.5,margin:'0 0 8px'}}>YOUR TEAM — INDIVIDUAL PLAYBOOKS</p>
           <h2 style={{fontFamily:"'Fraunces',serif",fontSize:'30px',fontWeight:700,color:'#1C1410',lineHeight:1.25,margin:'0 0 28px'}}>What each person should do this week.</h2>
           <div style={{display:'grid',gap:'14px'}}>
-            {/* Tony */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#C8362A',marginRight:'10px'}}></span>Tony Greenberg — Spark-Amplifier, 14% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You are the ignition source. You see the deal before anyone else has the language for it. Your Amplifier secondary means you can also rally others — rare for a Spark.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> You context-switch faster than your team can absorb. Every new thread opened without a handoff note creates drag for Rob, Kim, Josh, and Darryl.</p>
-                <p style={{margin:0}}><strong>This week:</strong> For every open deal thread — Bolt/FreshCredit, Meridian, Samruk-Kazyna — write a 5-line brief: what it is, why now, who owns what, what done looks like. Send before your next team touchpoint. This single habit reduces your team's friction load by 40%.</p>
-              </div>
-            </details>
-            {/* Josh */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#4A7C9E',marginRight:'10px'}}></span>Josh Bykowski — Filter-Conductor, 4% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You catch what everyone else misses. Your Filter instinct protects the firm from bad deals and bad terms. Your Conductor secondary means you see the whole pipeline, not just your piece.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> Without enough context upfront, you slow the entire deal timeline. This is not a fault. It is a system design problem.</p>
-                <p style={{margin:0}}><strong>This week:</strong> Build a one-page deal intake template and send it to Tony. List exactly what you need before evaluating any new BD thread. This is the protocol that makes you faster, not slower.</p>
-              </div>
-            </details>
-            {/* Alex */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#4A7C9E',marginRight:'10px'}}></span>Alex Veytsel — Filter, 57% purity (highest on team)</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You see risk, contradiction, and structural weakness faster than anyone else. This is not negativity. It is advanced pattern recognition for failure modes.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> Without a formal role, your Filter energy lands as resistance. The team hears "no" when you mean "here is the gap we have to fix first."</p>
-                <p style={{margin:0}}><strong>This week:</strong> Ask to be formally designated Red Team lead on every strategy deliverable. Write a one-page Filter Review for the current highest-priority deck. This reframes your instinct from obstacle to weapon.</p>
-              </div>
-            </details>
-            {/* Kim */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#6B8F71',marginRight:'10px'}}></span>Kimberly Dofredo — Ground-Conductor, 11% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You hold the operational reality of this firm. Your Conductor secondary makes you the most viable internal bridge between Tony's Spark and the execution team. You already do this — it is just not your named role.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> You absorb new threads without a visible overload signal. When you go quiet, things start slipping — and the team does not find out until it is late.</p>
-                <p style={{margin:0}}><strong>This week:</strong> Create a shared live-load dashboard — every open thread you own, its status, its deadline. Share it with Tony. This gives you a natural escalation surface and protects you from invisible overload.</p>
-              </div>
-            </details>
-            {/* Rob */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#6B8F71',marginRight:'10px'}}></span>Rob Holmes — Ground-Filter, 4% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You execute in ambiguous terrain — BD in Barcelona, grants, relationship follow-through. Your Filter secondary means you read risk well and will not sign bad deals.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> Without a clear brief, you burn energy waiting for direction or improvising a frame that may not match Tony's intent.</p>
-                <p style={{margin:0}}><strong>This week:</strong> For Regen Network and Cardano threads — write out your current understanding of the what, why, and win condition for each, and send to Tony for alignment. This surfaces gaps before they become missed opportunities.</p>
-              </div>
-            </details>
-            {/* Darryl */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#6B8F71',marginRight:'10px'}}></span>Darryl D'Souza — Ground-Amplifier, 8% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You deliver and you can energize. Ground-Amplifier is rare — you execute and bring people with you. This is the profile of a team lead, not just a contributor.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> Without creative latitude, you underperform. Strictly procedural work flattens your Amplifier secondary.</p>
-                <p style={{margin:0}}><strong>This week:</strong> Identify one project where you could own the client-facing narrative or team update. Propose it. Your Amplifier instinct belongs in front of people, not just behind deliverables.</p>
-              </div>
-            </details>
-            {/* Ben */}
-            <details style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
-              <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}><span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:'#D4622A',marginRight:'10px'}}></span>Ben Sheppard — Amplifier-Conductor, 8% purity</span><span style={{color:'#C8362A'}}>+</span></summary>
-              <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
-                <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> You make people want to be part of something. Your Conductor secondary means you can hold the relay. In a firm with no Conductor, you are the closest thing to one.</p>
-                <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> Amplifiers who are not careful create momentum without direction — which exhausts Grounds and confuses Filters.</p>
-                <p style={{margin:0}}><strong>This week:</strong> Pick one high-friction pair — Tony/Kim or Tony/Rob — and act as the explicit relay. Schedule a 20-minute sync, set the agenda, translate between the two worldviews. This is the Conductor function. You are built for it.</p>
-              </div>
-            </details>
+            {teamMembers.map((member: any) => {
+              const insight = roleInsights[member.role as Role];
+              if (!insight) return null;
+              const subtitle = member.purityScore
+                ? `${member.comboLabel}, ${Math.round(member.purityScore)}% purity`
+                : member.role;
+              return (
+                <details key={member.id} style={{border:'1px solid rgba(28,20,16,0.15)',borderRadius:'3px',padding:'18px 22px',background:'#fff'}}>
+                  <summary style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'16px',fontWeight:700,color:'#1C1410',listStyle:'none',display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'}}>
+                    <span><span style={{display:'inline-block',width:'10px',height:'10px',borderRadius:'50%',background:ROLE_HEX[member.role as Role],marginRight:'10px'}}></span>{member.name} — {subtitle}</span>
+                    <span style={{color:'#C8362A'}}>+</span>
+                  </summary>
+                  <div style={{marginTop:'14px',fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'15px',lineHeight:1.8,color:'#1C1410'}}>
+                    <p style={{margin:'0 0 10px'}}><strong>Superpower:</strong> {insight.superpower}</p>
+                    <p style={{margin:'0 0 10px'}}><strong>Your leak:</strong> {insight.blindSpot}</p>
+                    <p style={{margin:0}}><strong>This week:</strong> {insight.growthEdge}</p>
+                  </div>
+                </details>
+              );
+            })}
           </div>
         </section>
 
@@ -397,13 +420,20 @@ export default function TeamMapPage() {
             <p className="text-gray-500">{domain} — {teamMembers.length} members</p>
           </div>
 
-          {/* Pill row replaces the old role count grid */}
+          {/* Pill row -- real counts and percentages for this team */}
           <div style={{display:'flex',flexWrap:'wrap',gap:'8px',margin:'16px 0 24px'}}>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',background:'#C8362A',color:'#F4F0E8'}}>1 Spark · 14%</span>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',background:'#D4622A',color:'#F4F0E8'}}>1 Amplifier · 14%</span>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',background:'#4A7C9E',color:'#F4F0E8'}}>2 Filter · 29%</span>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',background:'#6B8F71',color:'#F4F0E8'}}>3 Ground · 43%</span>
-            <span style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',border:'1.5px dashed #C8362A',color:'#C8362A',background:'transparent'}}>0 Conductor · OPEN</span>
+            {ROLE_ORDER.map((role) => {
+              const count = roleDistribution[role] || 0;
+              if (count === 0) {
+                return (
+                  <span key={role} style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',border:'1.5px dashed #C8362A',color:'#C8362A',background:'transparent'}}>0 {role} · OPEN</span>
+                );
+              }
+              const pct = Math.round((count / teamMembers.length) * 100);
+              return (
+                <span key={role} style={{fontFamily:"'Cabinet Grotesk',sans-serif",fontSize:'13px',padding:'4px 14px',borderRadius:'2px',background:ROLE_HEX[role],color:'#F4F0E8'}}>{count} {role} · {pct}%</span>
+              );
+            })}
           </div>
 
           {/* Team Roster with profiles */}
@@ -411,10 +441,7 @@ export default function TeamMapPage() {
             <h3 className="text-lg font-bold uppercase tracking-tight mb-4">Tribe Roster</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {teamMembers.map((member: any) => {
-                const roleColors: Record<string, string> = {
-                  Spark: '#C8362A', Amplifier: '#D4622A', Filter: '#4A7C9E', Ground: '#6B8F71', Conductor: '#10b981'
-                };
-                const color = roleColors[member.role] || '#999';
+                const color = ROLE_HEX[member.role as Role] || '#999';
                 return (
                   <div key={member.id} className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white">
                     <div

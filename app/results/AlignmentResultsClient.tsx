@@ -8,7 +8,7 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadius
 import {
   calculateRoleScores, getDominantRole, getRolePercentages,
   roleDescriptions, Role, getCombinationProfile, getStressZones,
-  getBestSelfInsight, CombinationProfile, StressZone
+  getBestSelfInsight, CombinationProfile, StressZone, roleInsights
 } from "@/lib/surveyData";
 import { ArrowRight, Download, Users, Zap, Activity, Shield, Anchor, Radio, Share2, ChevronRight, Copy, CheckCircle2, AlertTriangle, Heart, Flame, Snowflake, Compass, Gem, TrendingUp, BookOpen, Sparkles, ExternalLink, Eye, Loader2 } from "lucide-react";
 import ShareableCard from "@/components/ShareableCard";
@@ -35,74 +35,6 @@ const roleColors: Record<Role, { bg: string; text: string; accent: string; borde
   Filter: { bg: "bg-violet-500", text: "text-violet-500", accent: "#8b5cf6", border: "border-violet-500", light: "bg-violet-50" },
   Ground: { bg: "bg-blue-600", text: "text-blue-600", accent: "#2563eb", border: "border-blue-600", light: "bg-blue-50" },
   Conductor: { bg: "bg-emerald-500", text: "text-emerald-500", accent: "#10b981", border: "border-emerald-500", light: "bg-emerald-50" },
-};
-
-const roleInsights: Record<Role, {
-  tagline: string;
-  superpower: string;
-  blindSpot: string;
-  underStress: string;
-  bestWith: Role[];
-  frictionWith: Role[];
-  teamValue: string;
-  growthEdge: string;
-  mantra: string;
-}> = {
-  Spark: {
-    tagline: "You see what doesn't exist yet — and you can't stop until it does.",
-    superpower: "Generating breakthrough ideas and seeing possibilities where others see walls. You live three steps ahead of reality.",
-    blindSpot: "You can overwhelm teams with constant new directions. Your excitement for the next idea can feel like abandonment of the current one.",
-    underStress: "You become scattered, generating more ideas instead of finishing existing ones. You may withdraw if forced into rigid execution.",
-    bestWith: ["Amplifier", "Conductor"],
-    frictionWith: ["Ground", "Filter"],
-    teamValue: "Without you, the team stagnates. You are the raw fuel of innovation — the initial ignition that starts every breakthrough.",
-    growthEdge: "Practice staying with one idea long enough for it to take root. Partner with an Amplifier early to give your vision legs before the Filters arrive.",
-    mantra: "\"The idea is nothing without the relay.\"",
-  },
-  Amplifier: {
-    tagline: "You turn whispers into movements and skeptics into believers.",
-    superpower: "Building momentum, rallying people, and selling the vision. You bridge the gap between a raw idea and organizational buy-in.",
-    blindSpot: "You can overpromise and under-deliver. Your enthusiasm may outpace the team's capacity to execute.",
-    underStress: "You become performative — selling harder instead of listening. You may ignore warning signs from Filters because they slow your momentum.",
-    bestWith: ["Spark", "Ground"],
-    frictionWith: ["Filter"],
-    teamValue: "Without you, great ideas die in silence. You are the signal boost that turns a Spark's vision into organizational energy.",
-    growthEdge: "Check with a Filter before you sell the dream. Your credibility is your currency — protect it by under-promising and over-delivering.",
-    mantra: "\"Momentum without truth is just noise.\"",
-  },
-  Filter: {
-    tagline: "You see the flaw everyone else missed — and you save the team from disaster.",
-    superpower: "Critical analysis, risk identification, and quality assurance. You separate signal from noise and ensure the plan is bulletproof.",
-    blindSpot: "You can kill ideas too early. Your critical eye may be perceived as negativity, even when you're trying to protect the team.",
-    underStress: "You become hyper-critical and paralyzed by analysis. You may block progress by demanding impossible levels of certainty.",
-    bestWith: ["Ground", "Conductor"],
-    frictionWith: ["Spark", "Amplifier"],
-    teamValue: "Without you, the team ships broken products and makes avoidable mistakes. You are the immune system of the organization.",
-    growthEdge: "Frame your feedback as 'refining' not 'rejecting.' Let the Spark and Amplifier build momentum before you stress-test. Timing is everything.",
-    mantra: "\"Truth without timing is just cruelty.\"",
-  },
-  Ground: {
-    tagline: "You turn plans into reality — on time, on budget, no excuses.",
-    superpower: "Execution, reliability, and operational precision. When you commit, it gets done. You are the foundation everything else rests on.",
-    blindSpot: "You can resist change and become rigid. Your focus on 'the plan' may prevent you from adapting when the landscape shifts.",
-    underStress: "You become frustrated and resentful when plans change repeatedly. You may disengage if you feel your work is being wasted.",
-    bestWith: ["Filter", "Conductor"],
-    frictionWith: ["Spark"],
-    teamValue: "Without you, nothing ships. Ideas, momentum, and analysis are worthless without someone who turns them into tangible outcomes.",
-    growthEdge: "Look up from the to-do list occasionally. Ask the Conductor for context on why things are changing — it's usually not personal.",
-    mantra: "\"Execution is the ultimate form of respect.\"",
-  },
-  Conductor: {
-    tagline: "You don't play the instrument — you make the music happen.",
-    superpower: "Orchestrating flow between all roles, managing energy, and ensuring smooth handoffs. You see the whole system, not just the parts.",
-    blindSpot: "You can become a bottleneck by trying to manage everything. Your desire for harmony may prevent necessary conflict.",
-    underStress: "You become controlling and micromanage the process. You may suppress dissent to maintain artificial peace.",
-    bestWith: ["Spark", "Ground"],
-    frictionWith: [],
-    teamValue: "Without you, the relay breaks down. Each role operates in isolation, handoffs fail, and the team fragments into silos.",
-    growthEdge: "Trust the team to self-organize on small things. Your job is the process, not the content. Let the Filter challenge and the Spark disrupt.",
-    mantra: "\"The best conductor is invisible when the music is perfect.\"",
-  },
 };
 
 function StressGauge({ level, label }: { level: number; label: string }) {
