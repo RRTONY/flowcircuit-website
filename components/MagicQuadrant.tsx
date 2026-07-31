@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Play, RotateCcw, CheckCircle2, Users, Info, AlertTriangle, Target, Brain, Activity } from "lucide-react";
@@ -103,18 +103,8 @@ export default function MagicQuadrant() {
   const [activePhase, setActivePhase] = useState<'static' | 'kinetic'>('static');
   const [selectedItem, setSelectedItem] = useState<typeof assessments[0] | null>(null);
   const [filterMode, setFilterMode] = useState<'all' | 'self' | 'team'>('all');
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(e => console.log("Audio play failed", e));
-    }
-  };
-
   const togglePhase = () => {
     if (activePhase === 'static') {
-      playSound();
       setActivePhase('kinetic');
     } else {
       setActivePhase('static');
@@ -131,8 +121,6 @@ export default function MagicQuadrant() {
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-8 pt-12 md:pt-0 relative">
-      <audio ref={audioRef} src="https://cdn.pixabay.com/audio/2022/03/15/audio_7629252180.mp3" preload="auto" />
-      
       {/* Header Narrative */}
       <div className="text-center space-y-4 max-w-4xl mx-auto px-4">
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-black">

@@ -157,17 +157,8 @@ export default function TestimonialsClient() {
   return (
     <div ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden relative">
 
-      {/* Synapse Video Background */}
+      {/* Background gradient */}
       <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="https://cdn.pixabay.com/video/2020/05/11/38446-419567586_large.mp4" type="video/mp4" />
-        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 

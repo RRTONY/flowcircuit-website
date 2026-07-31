@@ -204,9 +204,17 @@ export default function MagicQuestions() {
                     : "border-border/50 bg-card/30"
                 }`}
               >
-                <button
+                <div
+                  role="button"
+                  tabIndex={0}
                   onClick={() => toggleExpand(q.id)}
-                  className="w-full p-5 flex items-start gap-4 text-left"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleExpand(q.id);
+                    }
+                  }}
+                  className="w-full p-5 flex items-start gap-4 text-left cursor-pointer"
                 >
                   <button
                     onClick={(e) => toggleAnswered(q.id, e)}
@@ -236,7 +244,7 @@ export default function MagicQuestions() {
                   ) : (
                     <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0 mt-1" />
                   )}
-                </button>
+                </div>
 
                 {isExpanded && (
                   <div className="px-5 pb-5 pl-15 space-y-4 animate-in fade-in slide-in-from-top-2 duration-200">
