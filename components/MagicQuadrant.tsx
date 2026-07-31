@@ -14,7 +14,7 @@ const assessments = [
     description: "Operational Physics. The only tool that maps how energy moves between people to predict team velocity.",
     validity: "0.85 (High)",
     focus: "Team Execution",
-    link: "https://flowcircuit.manus.space/journey",
+    link: "https://flow.tonygreenberg.com/journey",
     cta: "Start Journey",
     type: "kinetic",
     narrative: "Liberates energy. Turns friction into fuel."

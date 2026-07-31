@@ -200,7 +200,7 @@ export default function ShareableCard({ name, comboProfile, rolePercentages, dom
     // Bottom tagline
     ctx.fillStyle = "rgba(255,255,255,0.3)";
     ctx.font = "600 14px system-ui, -apple-system, sans-serif";
-    ctx.fillText("flowcircuit.manus.space  •  Take the Assessment  •  Find Your Tribe", 60, H - 30);
+    ctx.fillText("flow.tonygreenberg.com  •  Take the Assessment  •  Find Your Tribe", 60, H - 30);
 
     // Copyright
     ctx.fillStyle = "rgba(255,255,255,0.15)";
