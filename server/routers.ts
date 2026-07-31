@@ -1246,9 +1246,10 @@ export const appRouter = router({
         selfScores: z.record(z.string(), z.number()).optional(),
       }))
       .mutation(async ({ input }) => {
-        // Check if session already exists for this assessment
+        // Reuse an existing session for this assessment, but only if it hasn't expired --
+        // an expired row would otherwise be handed back as if it were a fresh link.
         const existing = await get360SessionByAssessmentId(input.assessmentId);
-        if (existing) {
+        if (existing && new Date(existing.expiresAt) > new Date()) {
           const count = await get360ResponseCount(existing.id);
           return { session: existing, responseCount: count, alreadyExists: true };
         }

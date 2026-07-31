@@ -1121,6 +1121,7 @@ export async function get360SessionByAssessmentId(assessmentId: number): Promise
 
   const [session] = await db.select().from(flow360Sessions)
     .where(eq(flow360Sessions.subjectAssessmentId, assessmentId))
+    .orderBy(desc(flow360Sessions.id))
     .limit(1);
 
   return session || null;
