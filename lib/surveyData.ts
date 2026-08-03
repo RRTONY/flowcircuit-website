@@ -505,16 +505,39 @@ export interface StressZone {
   energyCost: string; // human-readable cost
 }
 
-export function getStressZones(profile: CombinationProfile): StressZone[] {
-  const primaryStress = STRESS_MATRIX[profile.primary];
-  const secondaryStress = STRESS_MATRIX[profile.secondary];
+export function getStressZones(profile: CombinationProfile, scores?: Record<Role, number>): StressZone[] {
+  // Weight every role's stress contribution by its actual share of energy —
+  // not just the top two. Using only primary+secondary (renormalized to sum
+  // to 1) silently discards however much energy sits in the other three roles,
+  // which is what let close, blended profiles (e.g. 24/22/20/18/16%) produce
+  // wildly overstated "Burnout Zone" results driven almost entirely by the
+  // primary role's fixed extreme values in STRESS_MATRIX.
+  const weights: Record<Role, number> = scores
+    ? (() => {
+        const total = Object.values(scores).reduce((a, b) => a + b, 0);
+        if (total === 0) return { Spark: 0, Amplifier: 0, Filter: 0, Ground: 0, Conductor: 0 };
+        return ROLE_ORDER.reduce((acc, role) => {
+          acc[role] = scores[role] / total;
+          return acc;
+        }, {} as Record<Role, number>);
+      })()
+    : (() => {
+        const fallback: Record<Role, number> = { Spark: 0, Amplifier: 0, Filter: 0, Ground: 0, Conductor: 0 };
+        fallback[profile.primary] += profile.primaryPct / 100;
+        if (profile.secondary !== profile.primary) fallback[profile.secondary] += profile.secondaryPct / 100;
+        return fallback;
+      })();
+
+  // Only claim the most dramatic "Burnout Zone" language when the person has
+  // a real, clear top role. For blends, cap the label/wording at "High
+  // Friction" even if the raw weighted number lands above 75 — the person
+  // has too much energy spread across roles for a "burnout" claim to be fair.
+  const allowBurnoutLabel = profile.isPure;
 
   return ROLE_ORDER.map(targetRole => {
-    // Weighted stress: blend primary and secondary stress based on purity
-    const primaryWeight = profile.primaryPct / 100;
-    const secondaryWeight = profile.secondaryPct / 100;
-    const totalWeight = primaryWeight + secondaryWeight;
-    const rawStress = ((primaryStress[targetRole] * primaryWeight) + (secondaryStress[targetRole] * secondaryWeight)) / totalWeight;
+    const rawStress = ROLE_ORDER.reduce((sum, sourceRole) => {
+      return sum + STRESS_MATRIX[sourceRole][targetRole] * weights[sourceRole];
+    }, 0);
     const stressLevel = Math.round(rawStress);
 
     let label: string;
@@ -533,7 +556,7 @@ export function getStressZones(profile: CombinationProfile): StressZone[] {
       label = "Moderate Strain";
       description = `Operating as a ${targetRole} requires conscious effort. You can do it, but it drains your battery faster than your natural role.`;
       energyCost = "Moderate — requires deliberate recovery time";
-    } else if (stressLevel <= 75) {
+    } else if (stressLevel <= 75 || !allowBurnoutLabel) {
       label = "High Friction";
       description = `Operating as a ${targetRole} fights against your wiring. Extended time here leads to frustration, mistakes, and diminished performance.`;
       energyCost = "High — unsustainable beyond short bursts";
@@ -557,6 +580,13 @@ export function getBestSelfInsight(profile: CombinationProfile, stressZones: Str
 
   const burnoutNames = burnoutZones.map(z => z.targetRole).join(" or ");
   const naturalNames = naturalZones.map(z => z.targetRole).join(" and ");
+
+  // When nobody role clearly leads (a low purity score with no 50%+ or 25-point
+  // gap), don't force a dramatic "burnout" narrative onto a small percentage
+  // gap — say plainly that this is a flexible blend instead.
+  if (!profile.isPure && profile.purityScore < 25) {
+    return `Your top scores — ${profile.primary} (${profile.primaryPct}%) and ${profile.secondary} (${profile.secondaryPct}%) — are close together, with no single role pulling far ahead. That's not a weak signal, it's a flexible blend: you can operate naturally across several roles rather than being locked into one. Use that range deliberately — lean on whichever role the moment actually calls for, instead of forcing yourself into a single box.`;
+  }
 
   if (profile.isPure) {
     return `Your energy is concentrated — ${profile.primaryPct}% ${profile.primary}. This means you have extraordinary depth in your natural role, but the cost of operating outside it is equally extreme. ${burnoutZones.length > 0 ? `Being forced into a ${burnoutNames} role doesn't just reduce your performance — it reduces your possibility as a human being. It pulls you away from your best self.` : ''} The science is clear: who you ARE matters more than what you know. Your ${profile.primary} energy isn't a skill you learned — it's the operating system you were born with. Honor it.`;
@@ -697,3 +727,38 @@ export const roleInsights: Record<Role, {
     mantra: "\"The best conductor is invisible when the music is perfect.\"",
   },
 };
+
+// --- ACTION STEPS ---
+// The most useful, concrete guidance in the report (how to communicate with
+// this person, who they pair well with, what to watch out for) was buried
+// below a long personality write-up. This surfaces the 3 most actionable
+// takeaways up front, right after the role reveal.
+export interface ActionStep {
+  title: string;
+  body: string;
+}
+
+export function getActionSteps(role: Role): ActionStep[] {
+  const insight = roleInsights[role];
+  const partner = insight.bestWith[0];
+  const frictionRole = insight.frictionWith[0];
+
+  return [
+    {
+      title: "Lean into it",
+      body: partner
+        ? `${insight.superpower.split(".")[0]}. Team up with a ${partner} — that pairing plays to your natural strength.`
+        : `${insight.superpower.split(".")[0]}.`,
+    },
+    {
+      title: "This week",
+      body: insight.growthEdge,
+    },
+    {
+      title: "Watch for",
+      body: frictionRole
+        ? `${insight.blindSpot.split(".")[0]}. Expect the most friction with a ${frictionRole} — plan for it instead of being surprised by it.`
+        : `${insight.blindSpot.split(".")[0]}.`,
+    },
+  ];
+}

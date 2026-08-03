@@ -8,7 +8,7 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadius
 import {
   calculateRoleScores, getDominantRole, getRolePercentages,
   roleDescriptions, Role, getCombinationProfile, getStressZones,
-  getBestSelfInsight, CombinationProfile, StressZone, roleInsights
+  getBestSelfInsight, CombinationProfile, StressZone, roleInsights, getActionSteps
 } from "@/lib/surveyData";
 import { ArrowRight, Download, Users, Zap, Activity, Shield, Anchor, Radio, Share2, ChevronRight, Copy, CheckCircle2, AlertTriangle, Heart, Flame, Snowflake, Compass, Gem, TrendingUp, BookOpen, Sparkles, ExternalLink, Eye, Loader2 } from "lucide-react";
 import ShareableCard from "@/components/ShareableCard";
@@ -167,9 +167,14 @@ export default function AlignmentResults() {
   }, [selfData]);
 
   const stressZones = useMemo(() => {
-    if (!comboProfile) return [];
-    return getStressZones(comboProfile);
-  }, [comboProfile]);
+    if (!comboProfile || !selfData) return [];
+    return getStressZones(comboProfile, selfData.scores);
+  }, [comboProfile, selfData]);
+
+  const actionSteps = useMemo(() => {
+    if (!selfData) return [];
+    return getActionSteps(selfData.dominant.role as Role);
+  }, [selfData]);
 
   const bestSelfInsight = useMemo(() => {
     if (!comboProfile || stressZones.length === 0) return "";
@@ -302,6 +307,49 @@ export default function AlignmentResults() {
 
       <div className="max-w-5xl mx-auto px-4 md:px-8 pb-20 space-y-12 md:space-y-16">
 
+        {/* ── How to Read This Report — newcomer orientation ── */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.02 }}
+        >
+          <div className="p-5 md:p-6 rounded-2xl bg-gray-50 border border-gray-200">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 mb-2">How to Read This Report</p>
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
+              Your <strong>role</strong> ({dominant}) is where your energy naturally goes. <strong>Purity Score</strong> shows how concentrated that energy is in one role versus spread across several. <strong>Stress Radiation Map</strong> is an estimate of how much friction you'd likely feel doing each of the other roles. Start with your 3 action steps below — the deep-dive sections further down are optional reading.
+            </p>
+          </div>
+        </motion.section>
+
+        {/* ── YOUR 3 ACTION STEPS — the useful stuff, up front ── */}
+        {actionSteps.length > 0 && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.04 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-2">
+              Your 3 Action Steps
+            </h2>
+            <p className="text-gray-500 mb-6">
+              The short version. Everything below is context — this is what to actually do with it.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {actionSteps.map((step, idx) => (
+                <div key={step.title} className={`p-6 rounded-2xl border-2 ${colors.border} ${colors.light}`}>
+                  <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full ${colors.bg} text-white text-sm font-black mb-3`}>
+                    {idx + 1}
+                  </span>
+                  <h3 className="font-bold text-base uppercase tracking-wide mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
+                    {step.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        )}
+
         {/* ── THE CORE THESIS: Who You ARE > What You KNOW ── */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -319,7 +367,9 @@ export default function AlignmentResults() {
                 It's more important <span className="text-amber-400">who you are</span> than what you know.
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed max-w-3xl" style={{ textWrap: 'pretty' as any }}>
-                Belbin's 9-year study at Henley Management College proved that teams of the "smartest" people consistently underperformed teams with balanced role diversity. Deloitte's research shows 80% of turnover stems from role misfit, not skill gaps. The neuroscience is clear: when you operate in your natural mode, you enter flow state. When you're forced out of it, cortisol spikes, cognitive load increases, and performance degrades. Your Flow Circuit role isn't a skill you learned — it's the operating system you were born with.
+                Meredith Belbin's team-role research at Henley Management College found that teams stacked with the "smartest" individuals consistently underperformed teams with balanced role diversity — a result now widely known as the Apollo Syndrome (
+                <a href="https://www.belbin.com/resources/articles-directory/belbin-apollo-teams" target="_blank" rel="noopener noreferrer" className="underline text-amber-300 hover:text-amber-200">source</a>
+                ). The neuroscience is clear: when you operate in your natural mode, you enter flow state; when you're forced out of it, cortisol spikes, cognitive load increases, and performance degrades. Your Flow Circuit role isn't a skill you learned — it's the operating system you were born with.
               </p>
             </div>
           </div>
@@ -336,7 +386,7 @@ export default function AlignmentResults() {
               Your Profile: {comboProfile.label}
             </h2>
             <p className="text-gray-500 mb-6">
-              Purity Score: {comboProfile.purityScore}/100 — {comboProfile.purityScore > 70 ? "your energy is laser-focused" : comboProfile.purityScore > 40 ? "you have a clear primary with secondary range" : "you're a versatile operator with distributed energy"}
+              <strong>Purity Score</strong> (0–100): how concentrated your energy is in one role vs. spread across several — not a measure of skill. {comboProfile.purityScore}/100 — {comboProfile.purityScore > 70 ? "your energy is laser-focused" : comboProfile.purityScore > 40 ? "you have a clear primary with secondary range" : "you're a versatile operator with distributed energy"}
             </p>
             <div className={`p-6 md:p-8 rounded-2xl ${colors.light} border-2 ${colors.border}`}>
               <p className="text-lg md:text-xl leading-relaxed text-gray-800" style={{ textWrap: 'pretty' as any }}>
@@ -439,8 +489,11 @@ export default function AlignmentResults() {
             <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-2">
               Stress Radiation Map
             </h2>
-            <p className="text-gray-500 mb-6">
-              The cost of operating outside your natural role. Every hour spent fighting your wiring is an hour stolen from your best self.
+            <p className="text-gray-500 mb-2">
+              <strong>What this is:</strong> an estimate of how much friction you'd likely feel operating as each of the other four roles, based on how far they sit from your natural energy. Every hour spent fighting your wiring is an hour stolen from your best self.
+            </p>
+            <p className="text-xs text-gray-400 mb-6">
+              This is a modeled estimate derived from your energy distribution — not a separately measured stress score. We're working on incorporating real feedback (self-reported stress, manager input) to turn this into a direct measurement over time.
             </p>
 
             <div className="space-y-4">
@@ -482,7 +535,7 @@ export default function AlignmentResults() {
                           </div>
                         </div>
 
-                        <StressGauge level={zone.stressLevel} label="Friction Level" />
+                        <StressGauge level={zone.stressLevel} label="Friction Level (Est.)" />
 
                         <p className="text-sm text-gray-600 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
                           {zone.description}

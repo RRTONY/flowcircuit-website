@@ -125,11 +125,13 @@ export default function ScienceClient() {
                   </p>
                   <div className="pt-2 border-t border-gray-100">
                     <p className="text-sm text-gray-500 italic" style={{ textWrap: 'pretty' as any }}>
-                      "Personality traits show remarkable stability across the lifespan,
-                      with test-retest correlations of 0.73 over 40-year intervals."
+                      "Personality trait consistency climbs from the college years into
+                      adulthood, reaching test-retest correlations around 0.74 by ages 50–70."
                     </p>
                     <p className="text-xs text-gray-400 mt-1">
-                      — Roberts & DelVecchio, Psychological Bulletin, 2000
+                      — Roberts & DelVecchio, <em>Psychological Bulletin</em>, 2000 (
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/10668348/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">source</a>
+                      )
                     </p>
                   </div>
                 </CardContent>
@@ -158,12 +160,10 @@ export default function ScienceClient() {
                     It's not about capability. It's about cost.
                   </p>
                   <div className="pt-2 border-t border-gray-100">
-                    <p className="text-sm text-gray-500 italic" style={{ textWrap: 'pretty' as any }}>
-                      "80% of employee turnover stems from role misfit,
-                      not skill deficiency."
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1">
-                      — Deloitte Human Capital Trends, 2023
+                    <p className="text-xs text-gray-400" style={{ textWrap: 'pretty' as any }}>
+                      Role misfit — not a skill gap — is one of the most commonly cited drivers
+                      of disengagement and turnover in workplace research. We don't have a single
+                      verified statistic we're comfortable quoting here, so we're not citing one.
                     </p>
                   </div>
                 </CardContent>
@@ -186,10 +186,10 @@ export default function ScienceClient() {
                     Teams Beat Individuals
                   </h3>
                   <p className="text-muted-foreground leading-relaxed" style={{ textWrap: 'pretty' as any }}>
-                    The highest-IQ teams consistently underperform balanced teams.
-                    Belbin's 9-year study at Henley Management College proved that
-                    "Apollo teams" (all stars, no role diversity) lose to teams
-                    where each member operates in their natural energy.
+                    The highest-IQ teams don't automatically win. Meredith Belbin's team-role
+                    research at Henley Management College found that "Apollo teams" (all-star,
+                    no role diversity) routinely lost to teams where each member operated in
+                    their natural energy.
                   </p>
                   <div className="pt-2 border-t border-gray-100">
                     <p className="text-sm text-gray-500 italic" style={{ textWrap: 'pretty' as any }}>
@@ -197,7 +197,9 @@ export default function ScienceClient() {
                       consistently finished last in team competitions."
                     </p>
                     <p className="text-xs text-gray-400 mt-1">
-                      — Meredith Belbin, Management Teams, 1981
+                      — Meredith Belbin, <em>Management Teams</em>, 1981 (
+                      <a href="https://www.belbin.com/resources/articles-directory/belbin-apollo-teams" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">source</a>
+                      )
                     </p>
                   </div>
                 </CardContent>

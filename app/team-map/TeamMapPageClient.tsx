@@ -104,7 +104,7 @@ export default function TeamMapPage() {
         name: m.name,
         scores: m.scores!,
         profile: m.profile!,
-        stressZones: getStressZones(m.profile!),
+        stressZones: getStressZones(m.profile!, m.scores!),
       }));
 
     if (membersWithProfiles.length < 2) return null;
