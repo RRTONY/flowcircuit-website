@@ -232,6 +232,10 @@ export default function ScienceClient() {
                 is an hour stolen from your best self.
                 The science explains why.
               </p>
+              <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed mt-4">
+                The studies below describe general findings on stress, cognition, and flow —
+                they were not conducted on The Flow Circuit assessment.
+              </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -434,27 +438,37 @@ export default function ScienceClient() {
       {/* EVIDENCE LOCKER                                           */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section id="evidence" className="container mx-auto px-4 mb-32 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black mb-4">The Evidence Locker</h2>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-black mb-4">The Research That Inspired This Framework</h2>
           <p className="text-muted-foreground text-lg">
-            Built on 40 years of research into human performance.
+            Built on decades of established research into human performance and team dynamics.
+          </p>
+        </div>
+        <div className="max-w-3xl mx-auto mb-12 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+          <p className="text-sm text-amber-800 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
+            <strong>Important:</strong> the studies below explain the general science behind flow states,
+            stress, and team dynamics. They were the inspiration for The Flow Circuit's design — they are
+            not studies of The Flow Circuit itself. We have not yet published an independent validation
+            study of this assessment. See our <a href="#validation-status" className="underline hover:text-amber-900">current validation status</a> below.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <Card className="bg-card/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-all">
             <CardHeader>
               <div className="mb-4"><Clock className="h-8 w-8 text-primary" /></div>
-              <CardTitle>70% Cycle Time Reduction</CardTitle>
+              <CardTitle>Team Dimensions Profile</CardTitle>
               <p className="text-sm text-primary font-mono">
-                Dr. Al Fahden / Lockheed Martin
+                Al Fahden, <em>Innovation on Demand</em>, 1993
               </p>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground" style={{ textWrap: 'pretty' as any }}>
-                When teams are aligned by natural Flow Role rather than
-                job title, innovation cycles drop from months to weeks.
-                The friction of "translating" between Spark and Ground
-                is removed entirely.
+                Fahden's insight that innovation is a relay between distinct cognitive roles
+                (Creator, Advancer, Refiner, Executor) — and that forcing someone out of their
+                natural role stalls both the work and the person — is the direct ancestor of
+                the Flow Circuit's five-role model.{" "}
+                <a href="https://www.amazon.com/Innovation-Demand-Allen-Fahden/dp/0962966312" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">source</a>
               </p>
             </CardContent>
           </Card>
@@ -469,9 +483,10 @@ export default function ScienceClient() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground" style={{ textWrap: 'pretty' as any }}>
-                Flow states deactivate the prefrontal cortex (the inner
-                critic). The Flow Circuit triggers this state collectively
-                by removing social friction and role ambiguity.
+                Flow states are associated with deactivation of the prefrontal cortex (the inner
+                critic). We designed the Flow Circuit's role model around the idea that removing
+                social friction and role ambiguity should make that state easier to reach — a
+                hypothesis, not yet something we've measured directly.
               </p>
             </CardContent>
           </Card>
@@ -487,7 +502,7 @@ export default function ScienceClient() {
             <CardContent>
               <p className="text-muted-foreground" style={{ textWrap: 'pretty' as any }}>
                 Individuals who self-induce flow are "autotelic."
-                Our framework scales this to the Autotelic Team — a group
+                Our framework borrows this concept for what we call the Autotelic Team — a group
                 that finds purpose in the process of collaboration itself.
               </p>
             </CardContent>
@@ -496,106 +511,38 @@ export default function ScienceClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* VALIDITY COMPARISON TABLE                                 */}
+      {/* VALIDATION STATUS                                         */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section className="container mx-auto px-4 mb-32 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+      <section id="validation-status" className="container mx-auto px-4 mb-32 relative z-10">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
-              Predictive Validity Comparison
+              Where We Are on Validation
             </h2>
             <p className="text-muted-foreground text-lg">
-              Correlation with actual team performance outcomes
+              An honest status update, not a marketing claim.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-gray-200">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="text-left py-4 px-6 font-bold text-gray-500 uppercase text-xs tracking-wider">
-                    Assessment
-                  </th>
-                  <th className="text-left py-4 px-6 font-bold text-gray-500 uppercase text-xs tracking-wider">
-                    What It Measures
-                  </th>
-                  <th className="text-left py-4 px-6 font-bold text-gray-500 uppercase text-xs tracking-wider">
-                    Validity
-                  </th>
-                  <th className="text-left py-4 px-6 font-bold text-gray-500 uppercase text-xs tracking-wider">
-                    Predicts
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr className="bg-primary/5">
-                  <td className="py-4 px-6 font-black text-primary">The Flow Circuit</td>
-                  <td className="py-4 px-6">Operational Physics</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-green-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-green-500" />
-                      0.85 (High)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6 font-medium">Team Velocity</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium">Kolbe A</td>
-                  <td className="py-4 px-6">Conative Instinct</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-green-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-green-500" />
-                      0.82 (High)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6">Role Fit</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium">Belbin</td>
-                  <td className="py-4 px-6">Team Roles</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-green-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-green-500" />
-                      0.78 (Good)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6">Team Balance</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium">DISC</td>
-                  <td className="py-4 px-6">Behavioral Style</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-yellow-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                      0.75 (Good)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6">Communication</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium">MBTI</td>
-                  <td className="py-4 px-6">Cognitive Preference</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-red-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-red-500" />
-                      0.60 (Moderate)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6">Self-Awareness Only</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-medium">Enneagram</td>
-                  <td className="py-4 px-6">Core Motivation</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1.5 text-red-600 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-red-500" />
-                      0.55 (Variable)
-                    </span>
-                  </td>
-                  <td className="py-4 px-6">Spiritual Growth</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="rounded-2xl border-2 border-gray-200 p-8 space-y-4 bg-gray-50">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+              <span className="font-bold uppercase tracking-wider text-sm text-amber-700">
+                In Development — Pending Independent Validation
+              </span>
+            </div>
+            <p className="text-gray-700 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
+              The Flow Circuit is a new assessment. Instruments like Kolbe A, Belbin, and DISC
+              have decades of published, peer-reviewed research behind their validity numbers.
+              We don't have that yet — and we're not going to publish a validity score for our
+              own tool until an independent researcher has actually run the study.
+            </p>
+            <p className="text-gray-700 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
+              What the Flow Circuit is built on today is the established research summarized
+              above, plus our own design reasoning about how those findings should translate
+              into a team-context tool. That's a hypothesis worth testing — not proof the tool
+              itself has been tested. We'll publish real validation data here the moment it exists.
+            </p>
           </div>
         </div>
       </section>
@@ -635,9 +582,8 @@ export default function ScienceClient() {
             </h2>
 
             <p className="text-lg text-white/70 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
-              Download our comprehensive white paper comparing the
-              predictive validity of 15 major assessment tools against
-              The Flow Circuit in high-velocity team environments.
+              Download our white paper laying out the research that shaped The Flow Circuit's
+              design — and where the framework's own validation currently stands.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -651,8 +597,9 @@ export default function ScienceClient() {
                 size="lg"
                 variant="outline"
                 className="border-white/20 text-white hover:bg-white/10 font-bold h-14 px-8 rounded-xl"
+                onClick={() => document.getElementById('validation-status')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                View Validity Data
+                View Validation Status
               </Button>
             </div>
           </div>

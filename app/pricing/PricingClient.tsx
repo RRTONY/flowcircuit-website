@@ -26,7 +26,7 @@ const TIERS = [
       "Purity score and stress radiation map",
       "Shareable results card for social",
       "PDF report download",
-      "Optional Soulprint birth data collection",
+      "Optional Soulprint add-on (just-for-fun, sold separately)",
     ],
     cta: "Take the Assessment",
     tier: "explorer" as const,
@@ -72,7 +72,6 @@ const TIERS = [
       "Venture due diligence team assessment",
       "Custom API access",
       "Dedicated success manager",
-      "Soulprint multi-framework personality reports",
       "White-label options",
       "SOC 2 compliance documentation",
     ],
@@ -368,7 +367,7 @@ export default function Pricing() {
             },
             {
               q: "What is the Soulprint report?",
-              a: "Soulprint is an optional deep-dive that maps your birth data across 8+ personality frameworks (Enneagram, Human Design, Gene Keys, Western/Vedic/Chinese Astrology, Spiral Dynamics, Numerology). It reveals WHY you play your Flow Circuit role the way you do. Coming soon as part of the Enterprise tier.",
+              a: "Soulprint is a separate, just-for-fun add-on — not part of any business or compliance tier. It maps your birth data across frameworks like Astrology, Human Design, and Numerology for personal exploration. It's sold individually as an optional purchase and isn't connected to the operational research behind the Flow Circuit assessment or to any Enterprise compliance features.",
             },
             {
               q: "How is this different from MBTI or StrengthsFinder?",

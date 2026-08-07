@@ -122,8 +122,10 @@ export default function InvestorMetrics() {
             <div>
               <p className="text-gray-600 mb-4">
                 Distribution of dominant roles across all assessed individuals.
-                A healthy platform shows representation across all five roles,
-                validating the assessment's discriminant validity.
+                A healthy spread across all five roles is a good sign the assessment
+                differentiates people rather than clustering everyone into one bucket —
+                it's a directional signal, not a substitute for a formal discriminant
+                validity study.
               </p>
               {topRole && (
                 <div className="bg-gray-50 rounded-lg p-4 border">
@@ -194,7 +196,8 @@ export default function InvestorMetrics() {
                 </div>
                 <p className="text-xs text-gray-500">
                   Number of distinct roles appearing in assessments.
-                  5/5 validates discriminant validity of the instrument.
+                  A 5/5 spread is a good directional sign — not formal proof of
+                  discriminant validity, which requires a dedicated study (see /efficacy).
                 </p>
               </CardContent>
             </Card>

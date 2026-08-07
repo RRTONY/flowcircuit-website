@@ -12,7 +12,7 @@ const assessments = [
     y: 90, 
     color: "bg-primary", 
     description: "Operational Physics. The only tool that maps how energy moves between people to predict team velocity.",
-    validity: "0.85 (High)",
+    validity: "Pending Validation",
     focus: "Team Execution",
     link: "https://flow.tonygreenberg.com/journey",
     cta: "Start Journey",
@@ -387,7 +387,7 @@ export default function MagicQuadrant() {
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <span className="block text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">Validity Score</span>
-                    <span className={`font-mono font-bold ${selectedItem.validity.includes("High") ? "text-green-600" : "text-yellow-600"}`}>
+                    <span className={`font-mono font-bold ${selectedItem.validity.includes("Pending") ? "text-gray-500" : selectedItem.validity.includes("High") ? "text-green-600" : "text-yellow-600"}`}>
                       {selectedItem.validity}
                     </span>
                   </div>
