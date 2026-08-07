@@ -29,7 +29,7 @@ const milestones = [
     category: "Recognition",
     icon: Award,
     title: "Ernst & Young Entrepreneur of the Year Finalist",
-    description: "RampRate's friction-reduction model earns national recognition. The business case for understanding human wiring in commercial relationships is validated at scale.",
+    description: "RampRate's friction-reduction model earns national recognition — early evidence that the business case for understanding human wiring in commercial relationships resonates at scale. (This recognizes RampRate the consultancy, not an independent study of The Flow Circuit assessment.)",
     link: null,
     color: "bg-emerald-500",
   },

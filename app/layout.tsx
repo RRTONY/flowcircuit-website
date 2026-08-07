@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "The Flow Circuit | Discover Your Natural Energy Role in 5 Minutes",
   description:
-    "12 questions. 5 minutes. Discover if you're the Spark, Amplifier, Filter, Ground, or Conductor. Map your team's invisible architecture and cut 70% of innovation friction.",
+    "12 questions. 5 minutes. Discover if you're the Spark, Amplifier, Filter, Ground, or Conductor. Map your team's invisible architecture and find where the friction lives.",
   keywords: [
     "team assessment", "energy roles", "innovation cycle", "team dynamics",
     "flow state", "personality assessment", "team building",

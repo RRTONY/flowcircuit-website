@@ -47,12 +47,10 @@ const roleIcons: Record<string, any> = {
 };
 
 const evidenceData = [
-  { company: "SAP", stat: "200% ROI", detail: "Global mindfulness & self-awareness program", source: "Reuters, 2018", icon: TrendingUp },
-  { company: "Aetna", stat: "$9M Saved", detail: "Healthcare costs reduced 7% through consciousness practices", source: "Fierce Healthcare, 2015", icon: Building2 },
-  { company: "Google", stat: "SIY Program", detail: "Search Inside Yourself — neuroscience + mindfulness + EI", source: "SIY Global", icon: Brain },
-  { company: "Intel", stat: "+10% Performance", detail: "Awake@Intel: 12% focus increase, stress reduction", source: "Intel Internal Studies", icon: Award },
-  { company: "Fortune 500", stat: "80% Adoption", detail: "Over 80M personality assessments administered annually", source: "Fortune, 2025", icon: Users },
-  { company: "Dutch Gaming Co.", stat: "0% Attrition", detail: "Enneagram-trained teams: zero departures vs high turnover", source: "Truity, 2024", icon: Shield },
+  { company: "SAP", stat: "200% ROI", detail: "Global mindfulness & self-awareness program", source: "Reuters, 2018", sourceUrl: "https://www.reuters.com/article/business/at-germanys-sap-employee-mindfulness-leads-to-higher-profits-idUSKCN1IP0BF/", icon: TrendingUp },
+  { company: "Aetna", stat: "$9M Saved", detail: "Paid medical claims per employee dropped over 7% following mindfulness programs", source: "Fierce Healthcare, 2015", sourceUrl: "https://www.fiercehealthcare.com/payer/how-aetna-s-bertolini-embraces-mindfulness-to-improve-company-culture", icon: Building2 },
+  { company: "Google", stat: "SIY Program", detail: "Search Inside Yourself — neuroscience + mindfulness + EI", source: "SIY Global", sourceUrl: "https://www.siyglobal.com/", icon: Brain },
+  { company: "Intel", stat: "Awake@Intel", detail: "Internal mindfulness program reporting improved focus and reduced stress in participant surveys", source: "Intel internal reporting", sourceUrl: undefined, icon: Award },
 ];
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -568,7 +566,13 @@ export default function SoulPrintLayerClient({ assessmentId: assessmentIdProp }:
                             </div>
                             <p className="text-emerald-400 text-lg font-bold mb-1">{item.stat}</p>
                             <p className="text-white/50 text-xs">{item.detail}</p>
-                            <p className="text-white/30 text-xs mt-1">{item.source}</p>
+                            <p className="text-white/30 text-xs mt-1">
+                              {item.sourceUrl ? (
+                                <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white/60">
+                                  {item.source}
+                                </a>
+                              ) : item.source}
+                            </p>
                           </div>
                         );
                       })}

@@ -19,7 +19,7 @@ const phases = [
       "Calculate the 'Organ Rejection Risk' — how compatible are the two circuits?",
     ],
     keyQuestion: "If the target's top 3 Sparks leave within 18 months, is the deal still worth the price?",
-    stat: { value: "$40M", label: "Average friction cost savings when circuit mapping is done pre-deal" },
+    stat: { value: "Unmeasured", label: "We believe circuit mapping pre-deal reduces integration friction cost — we don't have a verified dollar figure yet, this is a framework hypothesis, not a study result" },
   },
   {
     phase: "Day 1–90",
@@ -34,7 +34,7 @@ const phases = [
       "Establish shared relay protocols — how does the baton pass between the old and new?",
     ],
     keyQuestion: "Have you identified who will conduct the handoffs between the two organizations — or are you hoping it happens organically?",
-    stat: { value: "35%", label: "Reduction in integration friction when relay protocols are established in the first 90 days" },
+    stat: { value: "Anecdotal", label: "Teams that establish relay protocols in the first 90 days report smoother integration in our engagements — not independently measured" },
   },
   {
     phase: "Day 90–365",
@@ -49,7 +49,7 @@ const phases = [
       "Measure relay velocity — is the combined organization faster or slower than the parts?",
     ],
     keyQuestion: "Is the merged organization producing more than the two separate organizations did — or have you just created a bigger, slower version of what you had?",
-    stat: { value: "3x", label: "Likelihood of hitting synergy targets when circuit health is monitored quarterly" },
+    stat: { value: "Correlated", label: "Circuits monitored quarterly appear to hit synergy targets more often in our client work — this hasn't been formally studied" },
   },
 ];
 
@@ -105,11 +105,11 @@ export default function MAPlaybook() {
           <div className="p-8 rounded-2xl border border-rose-500/20 bg-rose-500/5">
             <div className="flex items-center gap-3 mb-4">
               <AlertTriangle className="w-6 h-6 text-rose-400" />
-              <h2 className="text-2xl font-display font-bold">The $2.4 Trillion Problem</h2>
+              <h2 className="text-2xl font-display font-bold">The Integration Failure Problem</h2>
             </div>
             <p className="text-foreground leading-relaxed mb-4">
-              70-90% of mergers and acquisitions fail to achieve their stated
-              synergy targets. The reason isn't financial — it's human. When you
+              Widely-cited industry research puts the failure rate for mergers and acquisitions to
+              achieve their stated synergy targets at 70-90%. The reason often isn't financial — it's human. When you
               merge two organizations, you're merging two circuits. And if you
               don't understand the wiring of each one, you're not integrating —
               you're colliding.

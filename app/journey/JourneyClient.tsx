@@ -43,7 +43,7 @@ export default function JourneyClient() {
       actions: [
         "Implement 'The Conductor' in meetings",
         "Use 'Friction Scripts' for conflict",
-        "Achieve the '70% Cycle Time Reduction'"
+        "Track your team's cycle time to see the trend for yourself"
       ],
       link: "/protocol",
       cta: "View Protocol"

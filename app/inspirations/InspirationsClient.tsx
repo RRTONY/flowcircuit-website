@@ -341,7 +341,9 @@ const thinkers: Thinker[] = [
   },
 ];
 
-// Research citations that underpin The Flow Circuit
+// Research that inspired The Flow Circuit's design. These are general findings from
+// established literature — not studies of The Flow Circuit itself, and not proof the
+// tool has been independently validated. See /science for our current validation status.
 const researchCitations = [
   {
     study: "The Apollo Syndrome",
@@ -350,46 +352,34 @@ const researchCitations = [
     finding:
       "Teams composed entirely of high-IQ individuals consistently underperformed balanced teams. Cognitive diversity in team roles predicted success better than raw intelligence.",
     relevance: "Foundation for 'who you ARE > what you KNOW'",
+    sourceUrl: "https://www.belbin.com/resources/articles-directory/belbin-apollo-teams",
   },
   {
-    study: "Deloitte Role Misfit & Turnover Research",
-    authors: "Deloitte Human Capital Trends",
-    year: "2019",
-    finding:
-      "Employees in role-misfit positions are 3.5x more likely to leave within 18 months. Organizations lose an average of $15,000 per misfit departure in replacement costs alone.",
-    relevance: "Validates the stress radiation model — operating outside your role has measurable economic cost",
-  },
-  {
-    study: "Flow State Neurochemistry",
+    study: "Neurocognitive Mechanisms Underlying Flow",
     authors: "Arne Dietrich, American University of Beirut",
     year: "2004",
     finding:
-      "Flow states involve transient hypofrontality — temporary deactivation of the prefrontal cortex — accompanied by a cocktail of neurochemicals (dopamine, norepinephrine, endorphins, anandamide, serotonin) that produce peak performance.",
-    relevance: "The neurological basis for why operating in your natural role feels effortless and produces better outcomes",
+      "Flow states are associated with transient hypofrontality — temporary deactivation of parts of the prefrontal cortex — alongside neurochemical changes linked to focus and effortless performance.",
+    relevance: "The neurological basis for why operating in your natural role can feel effortless",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/15522630/",
   },
   {
-    study: "Cortisol and Cognitive Performance",
-    authors: "Lupien et al., McGill University",
+    study: "Stress Hormones and Human Cognition",
+    authors: "Lupien, Maheu, Tu, Fiocco & Schramek, Brain and Cognition",
     year: "2007",
     finding:
-      "Chronic cortisol elevation from sustained stress impairs hippocampal function, reducing memory consolidation, creative problem-solving, and decision-making quality by up to 40%.",
-    relevance: "The biological mechanism behind stress radiation — forcing people out of their natural role triggers chronic cortisol, degrading the very performance you're trying to optimize",
+      "Chronic elevation of stress hormones like cortisol is associated with impaired hippocampal function, affecting memory and decision-making quality.",
+    relevance: "General biological plausibility for why sustained role-misfit stress could degrade performance",
+    sourceUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0278262607000322",
   },
   {
-    study: "Google Project Aristotle",
-    authors: "Google People Analytics / Amy Edmondson",
+    study: "Project Aristotle",
+    authors: "Google re:Work, drawing on Amy Edmondson's psychological safety research",
     year: "2015",
     finding:
-      "After studying 180+ teams, Google found that psychological safety — not talent, seniority, or resources — was the #1 predictor of team effectiveness.",
-    relevance: "Self-knowledge (knowing your role) creates the conditions for psychological safety that Edmondson and Google identified",
-  },
-  {
-    study: "Ipsative Assessment Validity in Team Contexts",
-    authors: "Bartram, D., International Journal of Selection and Assessment",
-    year: "1996",
-    finding:
-      "Ipsative (forced-choice) measures produce more reliable within-person profiles than normative Likert scales for team role identification, as they eliminate social desirability bias and acquiescence effects.",
-    relevance: "The psychometric foundation for The Flow Circuit's forced-choice assessment methodology",
+      "After studying 180+ internal teams, Google found psychological safety was the strongest predictor of team effectiveness it measured — ahead of who was on the team.",
+    relevance: "Supports the idea that how a team operates together matters as much as individual talent",
+    sourceUrl: "https://rework.withgoogle.com/en/subjects/psychological-safety",
   },
 ];
 
@@ -568,8 +558,13 @@ export default function Inspirations() {
               <span className="text-primary">CHANGED THE GAME</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto" style={{ textWrap: 'pretty' as any }}>
-              The Flow Circuit isn't built on opinion. It's built on decades of peer-reviewed research
-              from some of the most rigorous institutions in the world.
+              The Flow Circuit's design draws on decades of established research from
+              some of the most rigorous institutions in the world.
+            </p>
+            <p className="text-sm text-amber-700 max-w-2xl mx-auto mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3" style={{ textWrap: 'pretty' as any }}>
+              These are general findings that inspired the framework's design — not studies
+              of The Flow Circuit itself. See our{" "}
+              <a href="/science#validation-status" className="underline hover:text-amber-900">current validation status</a>.
             </p>
           </motion.div>
 
@@ -593,6 +588,19 @@ export default function Inspirations() {
                         </h4>
                         <p className="text-xs text-muted-foreground mb-2">
                           {citation.authors} &middot; {citation.year}
+                          {citation.sourceUrl && (
+                            <>
+                              {" "}&middot;{" "}
+                              <a
+                                href={citation.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline hover:text-primary inline-flex items-center gap-1"
+                              >
+                                source <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            </>
+                          )}
                         </p>
                         <p className="text-sm text-muted-foreground leading-relaxed mb-2" style={{ textWrap: 'pretty' as any }}>
                           {citation.finding}

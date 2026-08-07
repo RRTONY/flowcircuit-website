@@ -163,6 +163,11 @@ export default function FrictionDashboard() {
                   <span className="font-mono font-bold">{formatCurrency(item.value)}</span>
                 </div>
               ))}
+              <p className="text-[11px] text-gray-500 pt-1">
+                Illustrative split based on common patterns we see in role-misaligned teams —
+                not measured from your specific team's data. The total above is calculated
+                directly from your inputs.
+              </p>
             </div>
 
             <Button className="w-full mt-8 bg-white text-black hover:bg-gray-200 font-bold h-12 text-lg">

@@ -25,7 +25,7 @@ const assessments = [
     y: 80, 
     color: "bg-muted-foreground/30", 
     description: "Cognitive Preference. Great for self-awareness, but fails to predict performance. Use for parties, not payroll.",
-    validity: "0.60 (Moderate)",
+    validity: "Debated",
     focus: "Individual Cognition",
     link: "https://www.16personalities.com/",
     cta: "Take MBTI",
@@ -38,7 +38,7 @@ const assessments = [
     y: 20, 
     color: "bg-muted-foreground/30", 
     description: "Behavioral Style. Good for communication style, but lacks depth in cognitive processing.",
-    validity: "0.75 (Good)",
+    validity: "Established",
     focus: "Behavioral Style",
     link: "https://www.discprofile.com/what-is-disc",
     cta: "Learn DISC",
@@ -51,7 +51,7 @@ const assessments = [
     y: 60, 
     color: "bg-muted-foreground/30", 
     description: "Conative Action. Measures striving instincts. Excellent for individual role fit, but isolated.",
-    validity: "0.82 (High)",
+    validity: "High (established)",
     focus: "Instinctive Action",
     link: "https://www.kolbe.com/",
     cta: "Visit Kolbe",
@@ -64,7 +64,7 @@ const assessments = [
     y: 70, 
     color: "bg-muted-foreground/30", 
     description: "Core Motivations. Deeply spiritual and psychological, but too abstract for operational speed.",
-    validity: "0.55 (Variable)",
+    validity: "Mixed evidence",
     focus: "Deep Motivation",
     link: "https://www.enneagraminstitute.com/",
     cta: "Explore Enneagram",
@@ -90,7 +90,7 @@ const assessments = [
     y: 50, 
     color: "bg-muted-foreground/30", 
     description: "Team Roles. The closest ancestor, but relies on self-reporting rather than energetic physics.",
-    validity: "0.70 (Good)",
+    validity: "Established",
     focus: "Team Roles",
     link: "https://www.belbin.com/",
     cta: "Check Belbin",
@@ -386,7 +386,7 @@ export default function MagicQuadrant() {
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="block text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">Validity Score</span>
+                    <span className="block text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">Research Standing</span>
                     <span className={`font-mono font-bold ${selectedItem.validity.includes("Pending") ? "text-gray-500" : selectedItem.validity.includes("High") ? "text-green-600" : "text-yellow-600"}`}>
                       {selectedItem.validity}
                     </span>
@@ -396,6 +396,11 @@ export default function MagicQuadrant() {
                     <span className="font-medium">{selectedItem.name === "Flow Circuit" ? "Team Velocity" : "Self Awareness"}</span>
                   </div>
                 </div>
+                <p className="text-[11px] text-muted-foreground">
+                  Research Standing is our general, qualitative characterization of each tool's published
+                  literature — not a precise validity coefficient. See <span className="font-medium">/science</span> for
+                  The Flow Circuit's own current validation status.
+                </p>
 
                 <p className="text-sm text-muted-foreground">
                   {selectedItem.description}

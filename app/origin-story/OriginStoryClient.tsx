@@ -90,7 +90,7 @@ const timelineEvents = [
     year: "2025",
     title: "The Flow Circuit Launches",
     description:
-      "Creator becomes Spark. Advancer becomes Amplifier. Refiner becomes Filter. Executor becomes Ground. Flexer becomes Conductor. The Z Process gets a new name, a digital platform, an AI-powered assessment, and a mission: cut 70% off the time it takes to move from idea to impact.",
+      "Creator becomes Spark. Advancer becomes Amplifier. Refiner becomes Filter. Executor becomes Ground. Flexer becomes Conductor. The Z Process gets a new name, a digital platform, an AI-powered assessment, and a mission: dramatically cut the time it takes to move from idea to impact.",
     link: null,
     color: "from-primary to-secondary",
   },

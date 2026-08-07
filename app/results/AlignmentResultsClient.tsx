@@ -900,22 +900,18 @@ export default function AlignmentResults() {
                     </span>
                   </div>
                   <p className="text-emerald-200 mt-1 text-base leading-relaxed" style={{ textWrap: 'pretty' as any }}>
-                    Your Likert-based assessment captures your intuitive signal. Deep Calibration uses forced-ranking to eliminate the "Spark inflation" bias that affects 37% of respondents — giving you a verified, research-grade profile.
+                    Your Likert-based assessment captures your intuitive signal. Deep Calibration uses forced-ranking, which tends to reduce the "rate everything high" bias that Likert scales are prone to — giving you a more differentiated profile. It's a more rigorous self-report pass, not an independently audited or clinically validated score.
                   </p>
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-4 mb-6">
+              <div className="grid sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                  <p className="text-3xl font-black text-emerald-300">90%</p>
-                  <p className="text-xs text-emerald-200/70 mt-1 uppercase tracking-wider">Classification Accuracy</p>
+                  <p className="text-3xl font-black text-emerald-300">15</p>
+                  <p className="text-xs text-emerald-200/70 mt-1 uppercase tracking-wider">Forced-Rank Scenarios</p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                  <p className="text-3xl font-black text-emerald-300">r=.87</p>
-                  <p className="text-xs text-emerald-200/70 mt-1 uppercase tracking-wider">Test-Retest Reliability</p>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                  <p className="text-3xl font-black text-emerald-300">5 min</p>
+                  <p className="text-3xl font-black text-emerald-300">~10 min</p>
                   <p className="text-xs text-emerald-200/70 mt-1 uppercase tracking-wider">To Complete</p>
                 </div>
               </div>

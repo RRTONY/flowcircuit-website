@@ -164,7 +164,7 @@ export default function BlogBridge({ pageKey, className = "" }: BlogBridgeProps)
   if (!articles || articles.length === 0) return null;
 
   return (
-    <section className={`py-16 ${className}`}>
+    <section className={`relative z-10 py-16 ${className}`}>
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
           <BookOpen className="w-6 h-6 text-primary" />

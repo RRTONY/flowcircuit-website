@@ -253,13 +253,15 @@ export default function ScienceClient() {
                 </div>
                 <p className="text-gray-300 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
                   When forced into an unnatural role, the brain's threat detection
-                  system activates. Cortisol floods the prefrontal cortex,
-                  reducing creative capacity by up to 40% and decision-making
-                  quality by 30%. The body literally fights the misalignment.
+                  system activates. Sustained stress and elevated cortisol are
+                  associated with impaired prefrontal cortex function — the very
+                  region responsible for creative thinking and decision-making.
                 </p>
                 <p className="text-xs text-gray-500">
                   Arnsten, 2009 — "Stress signalling pathways that impair
-                  prefrontal cortex structure and function"
+                  prefrontal cortex structure and function," <em>Nature Reviews Neuroscience</em> (
+                  <a href="https://www.nature.com/articles/nrn2648" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">source</a>
+                  )
                 </p>
               </motion.div>
 
@@ -276,14 +278,16 @@ export default function ScienceClient() {
                   <h3 className="text-xl font-bold">Cognitive Load Tax</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
-                  Operating in your natural role uses System 1 thinking —
+                  Operating in your natural role draws on System 1 thinking —
                   fast, intuitive, effortless. Operating outside it forces
-                  System 2 — slow, deliberate, exhausting. The cognitive
-                  load difference is measurable: 3-5x more mental energy
-                  consumed for the same output quality.
+                  System 2 — slow, deliberate, effortful. Kahneman's research
+                  shows System 2 reasoning consumes noticeably more cognitive
+                  effort for the same task.
                 </p>
                 <p className="text-xs text-gray-500">
-                  Kahneman, 2011 — "Thinking, Fast and Slow"
+                  Kahneman, 2011 — <em>Thinking, Fast and Slow</em> (
+                  <a href="https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">source</a>
+                  )
                 </p>
               </motion.div>
 
@@ -328,14 +332,16 @@ export default function ScienceClient() {
                 </div>
                 <p className="text-gray-300 leading-relaxed" style={{ textWrap: 'pretty' as any }}>
                   When people operate in their natural role, dopamine and
-                  norepinephrine optimize attention, pattern recognition,
-                  and creative output. Performance increases 200-500%.
-                  This isn't motivation — it's neurochemistry.
-                  Your best self isn't aspirational. It's operational.
+                  norepinephrine are believed to help optimize attention,
+                  pattern recognition, and creative output. This isn't just
+                  motivation — it has a neurochemical basis. Your best self
+                  isn't aspirational. It's operational.
                 </p>
                 <p className="text-xs text-gray-500">
-                  Kotler, 2014 — "The Rise of Superman: Decoding the
-                  Science of Ultimate Human Performance"
+                  Kotler, 2014 — <em>The Rise of Superman: Decoding the
+                  Science of Ultimate Human Performance</em> (
+                  <a href="https://www.amazon.com/Rise-Superman-Decoding-Science-Performance/dp/0544286249" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">source</a>
+                  )
                 </p>
               </motion.div>
             </div>

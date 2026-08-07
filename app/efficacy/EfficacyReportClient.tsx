@@ -219,14 +219,16 @@ export default function EfficacyReportClient() {
                 <div className="flex gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 shrink-0" />
                   <div className="space-y-2">
-                    <p className="font-semibold text-emerald-400">Bottom Line</p>
+                    <p className="font-semibold text-emerald-400">Bottom Line (Simulated)</p>
                     <p className="text-muted-foreground leading-relaxed">
-                      The forced-ranking Deep Calibration method correctly identifies a person's
-                      dominant role <strong className="text-foreground">90% of the time</strong>, compared to just 50.9% for
+                      In our Monte Carlo simulation, the forced-ranking Deep Calibration method correctly
+                      identifies a synthetic respondent's dominant role{" "}
+                      <strong className="text-foreground">90% of the time</strong>, compared to just 50.9% for
                       the standard Likert assessment. It produces results that are{" "}
-                      <strong className="text-foreground">67% more reliable</strong> on retest, and eliminates the
-                      social desirability bias that causes 37% of Likert respondents to
-                      be misclassified as Sparks.
+                      <strong className="text-foreground">67% more reliable</strong> on simulated retest, and
+                      eliminates the social desirability bias that causes 37% of simulated Likert respondents
+                      to be misclassified as Sparks. These are simulation results, not measurements from real
+                      respondents.
                     </p>
                   </div>
                 </div>
@@ -674,7 +676,7 @@ export default function EfficacyReportClient() {
         <section className="text-center py-12 space-y-6">
           <Zap className="w-10 h-10 text-amber-400 mx-auto" />
           <h2 className="text-2xl font-bold">
-            Ready to Get Your Verified Profile?
+            Ready to Get Your Calibrated Profile?
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             The standard assessment gets you started. Deep Calibration

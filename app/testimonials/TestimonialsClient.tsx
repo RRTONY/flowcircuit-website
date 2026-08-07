@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Brain, Globe, Zap, Quote, Play, Send, CheckCircle } from "lucide-react";
+import { ArrowRight, Quote, Play, Send, CheckCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/hooks/useAuth";
@@ -81,79 +81,6 @@ export default function TestimonialsClient() {
     }
   ];
 
-  const impactTestimonials = [
-    {
-      quote: "Tony doesn't just connect people; he connects souls to their purpose. He is a social engineer of the highest order, weaving networks of impact that transcend business and touch the very fabric of how we care for one another.",
-      author: "Dr. Mark Goulston",
-      role: "Author, 'Just Listen' & Former FBI Negotiator",
-      icon: Heart,
-      x: 10, y: 20, z: 0
-    },
-    {
-      quote: "In a world of noise, Tony is a signal of pure wisdom. His philanthropic work isn't about writing checks; it's about rewriting the rules of engagement so that generosity becomes a systemic force for good.",
-      author: "Peter Diamandis",
-      role: "Founder, XPRIZE & Singularity University",
-      icon: Globe,
-      x: 80, y: 15, z: 20
-    },
-    {
-      quote: "He sees the matrix. Tony has an uncanny ability to look at a broken social system and instantly spot the leverage point that will flip it from scarcity to abundance. He is an activist for human potential.",
-      author: "John Mackey",
-      role: "Co-Founder, Whole Foods Market",
-      icon: Brain,
-      x: 50, y: 50, z: -10
-    },
-    {
-      quote: "Tony Greenberg is a force of nature. His dedication to 'impact at breakneck speed' isn't a slogan; it's a lived reality. He pushes us all to be better, faster, and more compassionate in our pursuit of a better world.",
-      author: "Naveen Jain",
-      role: "Founder, Moon Express & Viome",
-      icon: Zap,
-      x: 20, y: 80, z: 10
-    },
-    {
-      quote: "A true wisdom sharer. Tony doesn't hoard knowledge; he amplifies it. Sitting with him is like plugging into a universal library of insights on how to fix the unfixable.",
-      author: "Ken Wilber",
-      role: "Philosopher & Author, 'A Brief History of Everything'",
-      icon: Brain,
-      x: 70, y: 70, z: -20
-    },
-    {
-      quote: "He is the 'glitch' in the system that wakes everyone up. Tony's activism is disruptive in the most beautiful way—he challenges the status quo not to destroy it, but to evolve it into something more human.",
-      author: "Marianne Williamson",
-      role: "Author & Activist",
-      icon: Heart,
-      x: 30, y: 40, z: 30
-    },
-    {
-      quote: "Tony's heart is as big as his brain, and that's saying something. He leverages his massive network not for personal gain, but to create 'collisions of goodness' that change lives.",
-      author: "Chip Conley",
-      role: "Founder, Modern Elder Academy",
-      icon: Globe,
-      x: 90, y: 90, z: 0
-    },
-    {
-      quote: "The ultimate connector of the disconnected. Tony finds the people who need to meet—the problem solvers and the resource holders—and fuses them together with an energy that is impossible to resist.",
-      author: "Salim Ismail",
-      role: "Founding Executive Director, Singularity University",
-      icon: Zap,
-      x: 15, y: 60, z: -15
-    },
-    {
-      quote: "He operates at the intersection of technology and spirituality. Tony understands that the greatest technology we have is the human heart, and his life's work is about optimizing that operating system.",
-      author: "Deepak Chopra",
-      role: "Author & Alternative Medicine Advocate",
-      icon: Heart,
-      x: 60, y: 30, z: 25
-    },
-    {
-      quote: "A philanthropist with a hacker's mindset. Tony doesn't just give back; he hacks the system of giving to ensure that every ounce of effort creates a ton of impact.",
-      author: "Tim Draper",
-      role: "Venture Capitalist & Founder, Draper Fisher Jurvetson",
-      icon: Globe,
-      x: 40, y: 85, z: -5
-    }
-  ];
-
   return (
     <div ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden relative">
 
@@ -186,58 +113,7 @@ export default function TestimonialsClient() {
           </motion.p>
         </section>
 
-        {/* 3D Wisdom Wall Constellation (NOW FIRST) */}
-        <section className="relative min-h-[800px] flex items-center justify-center perspective-1000">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl animate-pulse" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-            <div className="col-span-full text-center mb-12 space-y-4">
-              <h2 className="text-3xl font-bold tracking-widest uppercase text-primary/80">The Wisdom Constellation</h2>
-              <div className="max-w-2xl mx-auto p-6 bg-white/5 border border-primary/30 rounded-xl backdrop-blur-md">
-                <p className="text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed">
-                  "This is what people would say about me if you asked them. You have to ask them yourselves."
-                </p>
-              </div>
-              <p className="text-white/50 text-sm">Hover to connect with the network of impact.</p>
-            </div>
-
-            {impactTestimonials.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, z: -100 }}
-                whileInView={{ opacity: 1, z: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: i * 0.1, type: "spring", stiffness: 50 }}
-                whileHover={{ scale: 1.05, zIndex: 50, backgroundColor: "rgba(255,255,255,0.1)" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative group cursor-pointer hover:border-primary/50 transition-all duration-500"
-              >
-                <div className="absolute -top-6 -right-6 opacity-0 group-hover:opacity-20 transition-all duration-500 transform group-hover:rotate-12">
-                  <item.icon className="w-32 h-32 text-primary" />
-                </div>
-
-                <div className="relative z-10 space-y-6">
-                  <Quote className="w-8 h-8 text-primary/50" />
-                  <p className="text-lg md:text-xl font-light leading-relaxed text-white/90">
-                    "{item.quote}"
-                  </p>
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                      {item.author.charAt(0)}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white">{item.author}</h4>
-                      <p className="text-xs text-primary/80 uppercase tracking-wider">{item.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Business Results Grid (NOW SECOND) */}
+        {/* Business Results Grid */}
         <section className="space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">

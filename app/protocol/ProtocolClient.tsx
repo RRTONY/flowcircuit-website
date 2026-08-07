@@ -24,9 +24,9 @@ export default function ProtocolClient() {
       description: "You cannot play the game if you don't know your position. Every team member must know their primary role and respect the roles of others."
     },
     {
-      title: "70% Resistance Rule",
+      title: "Expect the Immune Response",
       icon: <Zap className="h-8 w-8 text-primary" />,
-      description: "Expect 70% of the organization to resist the new OS initially. This is the 'immune system' reaction. Do not fight it; navigate around it using the Flow Circuit."
+      description: "Expect real resistance from the organization when you roll out a new operating system — that's normal, not a sign of failure. Think of it as an 'immune system' reaction. Do not fight it; navigate around it using the Flow Circuit."
     }
   ];
 

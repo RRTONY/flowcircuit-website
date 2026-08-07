@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Cpu, Brain, Globe, Zap, Database, Users, Briefcase, Bot } from 'lucide-react';
+import { ArrowUpRight, Cpu, Brain, Globe, Zap, Database } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 export default function IntelClient() {
@@ -17,42 +17,6 @@ export default function IntelClient() {
       quote: "These tests identify a black and white version of you... but work is grayscale.",
       link: "https://hbr.org/2015/08/employees-cant-be-summed-up-by-a-personality-test",
       tags: ["HBR", "Critique", "Workplace"]
-    },
-    {
-      id: 102,
-      title: "The End of the Job Description: Hiring for Flow",
-      author: "Josh Bersin",
-      source: "Bersin Academy",
-      date: "February 12, 2025",
-      icon: <Briefcase className="h-6 w-6 text-secondary" />,
-      summary: "Static job descriptions are obsolete. The future of hiring is about 'Role Fluidity'—matching candidates to the dynamic needs of the team circuit. Hiring for 'Spark' or 'Ground' predicts success better than hiring for 'Senior Manager'.",
-      quote: "We are moving from a hierarchy of titles to a network of capabilities.",
-      link: "https://joshbersin.com/",
-      tags: ["Hiring", "Future of Work", "Talent"]
-    },
-    {
-      id: 103,
-      title: "Orchestrating the Hybrid Workforce",
-      author: "McKinsey & Company",
-      source: "McKinsey Quarterly",
-      date: "November 15, 2024",
-      icon: <Users className="h-6 w-6 text-accent" />,
-      summary: "Hybrid work fails when it's uncoordinated. Successful teams use 'Asynchronous Orchestration'—clear protocols for when to collaborate (Spark/Amplifier) and when to execute alone (Filter/Ground).",
-      quote: "The office is no longer a place; it's a synchronization event.",
-      link: "https://www.mckinsey.com/",
-      tags: ["Hybrid Work", "Orchestration", "Management"]
-    },
-    {
-      id: 104,
-      title: "When AI Becomes the Manager",
-      author: "Wired Magazine",
-      source: "Wired",
-      date: "January 05, 2026",
-      icon: <Bot className="h-6 w-6 text-red-500" />,
-      summary: "AI agents are now capable of 'Algorithmic Management'—assigning tasks based on real-time flow data. The Flow Circuit provides the logic layer for these agents, ensuring they optimize for human energy, not just machine efficiency.",
-      quote: "The best boss of 2030 might be a bot that knows you're a 'Spark' and protects your calendar from 'Ground' work.",
-      link: "https://www.wired.com/",
-      tags: ["AI", "Automation", "Management"]
     },
     {
       id: 105,

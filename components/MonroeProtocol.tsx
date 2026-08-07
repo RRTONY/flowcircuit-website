@@ -13,8 +13,8 @@ export default function MonroeProtocol() {
   const focusLevels = [
     { level: "Focus 10", title: "Mind Awake / Body Asleep", desc: "The foundational state. The body is deeply relaxed, but the mind is hyper-alert. This is where the Spark ignites without the resistance of physical fatigue." },
     { level: "Focus 12", title: "Expanded Awareness", desc: "The state of 'High Creativity.' The mind expands beyond the physical limits. This is the playground of the Amplifier." },
-    { level: "Focus 15", title: "No Time", desc: "The state of 'No Time.' Past, present, and future are accessible simultaneously. This is where the Conductor sees the entire timeline at once." },
-    { level: "Focus 21", title: "The Bridge", desc: "The edge of the physical reality system. The connection point between the known (Ground) and the unknown (Spark)." },
+    { level: "Focus 15", title: "No Time", desc: "The subjective state Monroe called 'No Time' — past, present, and future feel accessible at once. Metaphorically, this is where the Conductor sees the entire timeline. Treat it as an experiential exercise, not a literal claim." },
+    { level: "Focus 21", title: "The Bridge", desc: "Monroe's term for the outer edge of his framework. Metaphorically, the connection point between the known (Ground) and the unknown (Spark)." },
   ];
 
   const quizQuestions = [
@@ -46,10 +46,12 @@ export default function MonroeProtocol() {
       <div className="text-center space-y-4">
         <h2 className="text-3xl font-bold tracking-tight">The Monroe Protocol</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Before we build the team, we must build the mind. We utilize the foundational tools of the Monroe Institute to prime the nervous system for high-voltage flow.
+          Before we build the team, we must build the mind. We draw on the Monroe Institute's Focus-level
+          framework and Hemi-Sync® audio technology as an experiential warm-up tool — not a clinically
+          validated intervention.
         </p>
         <Button variant="link" onClick={() => setShowScience(!showScience)} className="text-primary">
-          {showScience ? "Hide Science" : "View the Neuroscience of Frequency"}
+          {showScience ? "Hide the Background" : "View the Background on This"}
         </Button>
       </div>
 
@@ -64,24 +66,34 @@ export default function MonroeProtocol() {
             <Card className="bg-primary/5 border-primary/20">
               <CardHeader className="pb-2"><CardTitle className="text-sm flex items-center gap-2"><Waves className="h-4 w-4"/> Frequency Following Response</CardTitle></CardHeader>
               <CardContent className="text-xs text-muted-foreground">
-                The brain naturally synchronizes its dominant wave frequency to an external rhythm (binaural beats). We use this to mechanically induce flow states.
+                Brainwave entrainment to external rhythms (like binaural beats) is a real, studied phenomenon,
+                though its effect on subjective "flow states" specifically is not well established. We use it
+                here as an optional relaxation aid, not a proven performance mechanism.
               </CardContent>
             </Card>
             <Card className="bg-primary/5 border-primary/20">
-              <CardHeader className="pb-2"><CardTitle className="text-sm flex items-center gap-2"><Activity className="h-4 w-4"/> Gamma Synchronization</CardTitle></CardHeader>
+              <CardHeader className="pb-2"><CardTitle className="text-sm flex items-center gap-2"><Activity className="h-4 w-4"/> Gamma Activity</CardTitle></CardHeader>
               <CardContent className="text-xs text-muted-foreground">
-                High-performance teaming correlates with Gamma waves (40Hz+). This state binds disparate information into a coherent whole—the "Aha!" moment.
+                Some research associates high-performance cognitive states with Gamma-band (40Hz+) EEG activity.
+                This is an area of active, evolving research — not something we measure or guarantee for you.
               </CardContent>
             </Card>
             <Card className="bg-primary/5 border-primary/20">
               <CardHeader className="pb-2"><CardTitle className="text-sm flex items-center gap-2"><Brain className="h-4 w-4"/> Hemi-Sync®</CardTitle></CardHeader>
               <CardContent className="text-xs text-muted-foreground">
-                Synchronizing the left (logic) and right (creative) hemispheres allows the "Spark" and "Filter" to operate simultaneously without conflict.
+                Hemi-Sync® is the Monroe Institute's proprietary audio technology, intended to support a relaxed,
+                focused state. We use their "Spark/Filter working together" framing as a metaphor, not a claim
+                about measured brain hemisphere activity.
               </CardContent>
             </Card>
           </motion.div>
         )}
       </AnimatePresence>
+      <p className="text-xs text-muted-foreground text-center max-w-2xl mx-auto -mt-4">
+        The Monroe Institute's Focus levels are an experiential, self-reported framework — not a peer-reviewed
+        neuroscience model. Treat the descriptions below as evocative language for a meditative state, not
+        literal claims.
+      </p>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* The Gateway Affirmation & Audio */}

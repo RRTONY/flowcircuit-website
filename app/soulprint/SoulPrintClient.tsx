@@ -49,15 +49,15 @@ const tiers: TierInfo[] = [
   {
     id: "compass",
     name: "The Compass",
-    tagline: "The patterns that are just there — whether you believe or not.",
+    tagline: "The symbolic layer — for reflection, not proof.",
     description:
-      "Human Design type and authority, Western Astrology sun/moon/rising, and Numerology life path. These aren't beliefs — they're coordinates. Your cosmic GPS, rendered in plain language.",
+      "Human Design type and authority, Western Astrology sun/moon/rising, and Numerology life path. These are interpretive, belief-based frameworks without peer-reviewed predictive validity — presented here as a lens for self-reflection, in plain language.",
     icon: <Compass className="w-7 h-7" />,
     color: "text-purple-400",
     borderColor: "border-purple-500/40",
     bgGradient: "from-purple-950/40 to-purple-900/20",
     frameworks: ["Human Design", "Western Astrology", "Numerology", "Chinese Astrology"],
-    vibe: "Standard. Accessible. Undeniable.",
+    vibe: "Symbolic. Accessible. For fun.",
   },
   {
     id: "oracle",
@@ -172,9 +172,15 @@ export default function SoulPrintClient({ orderId }: { orderId?: string }) {
               Your SoulPrint reveals <strong className="text-white">why you can't stop</strong>.
             </p>
 
-            <p className="text-base text-gray-500 max-w-xl mx-auto mb-10">
-              8 ancient + modern frameworks. One AI-synthesized portrait of your soul's operating system.
-              The thing you can't run from — rendered in language you can finally understand.
+            <p className="text-base text-gray-500 max-w-xl mx-auto mb-6">
+              8 ancient + modern frameworks. One AI-synthesized portrait of your soul's operating system,
+              rendered in language you can finally understand.
+            </p>
+
+            <p className="text-xs text-purple-300/70 max-w-xl mx-auto mb-10 bg-white/5 border border-white/10 rounded-full px-4 py-2 inline-block">
+              A just-for-fun, optional add-on — separate from your Flow Circuit assessment and its research
+              basis. Astrology, Human Design, and Numerology don't have peer-reviewed empirical support;
+              treat this as reflective entertainment, not a scientific reading.
             </p>
 
             {isAlpha && (

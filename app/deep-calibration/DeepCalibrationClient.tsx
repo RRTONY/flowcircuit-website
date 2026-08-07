@@ -183,7 +183,7 @@ export default function DeepCalibrationClient() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-sm font-medium"
               >
                 <Shield className="w-4 h-4" />
-                Verified Assessment
+                Forced-Choice Deep Dive
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -223,12 +223,13 @@ export default function DeepCalibrationClient() {
                 <Card className="bg-card/50 border-border/50">
                   <CardContent className="p-5 space-y-2">
                     <BadgeCheck className="w-5 h-5 text-emerald-400" />
-                    <h3 className="font-semibold text-sm">Verified Badge</h3>
+                    <h3 className="font-semibold text-sm">Calibrated Badge</h3>
                     <p className="text-xs text-muted-foreground">
                       Completing calibration earns
-                      a "Verified" badge on your
-                      profile — proof your role
-                      assignment is battle-tested.
+                      a "Calibrated" badge on your
+                      profile — it means you've done
+                      the more rigorous forced-ranking
+                      pass, not an independent audit.
                     </p>
                   </CardContent>
                 </Card>
@@ -405,7 +406,7 @@ export default function DeepCalibrationClient() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium"
                 >
                   <BadgeCheck className="w-4 h-4" />
-                  Verified Profile
+                  Calibrated Profile
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl font-bold">
                   Calibration Complete
@@ -516,7 +517,7 @@ export default function DeepCalibrationClient() {
                   onClick={() => router.push("/share-card")}
                   className="gap-2"
                 >
-                  Share Your Verified Card
+                  Share Your Calibrated Card
                 </Button>
                 <Button
                   variant="outline"
