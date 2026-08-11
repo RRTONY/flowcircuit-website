@@ -22,7 +22,7 @@ export const users = pgTable(
     subscriptionStatus: varchar("subscriptionStatus", { length: 64 }),
   },
   (table) => [check("users_role_check", sql`${table.role} IN ('user', 'admin')`)]
-);
+).enableRLS();
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
@@ -46,7 +46,7 @@ export const teams = pgTable("teams", {
   isAlpha: boolean("isAlpha").default(true),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type Team = typeof teams.$inferSelect;
 export type InsertTeam = typeof teams.$inferInsert;
@@ -77,7 +77,7 @@ export const assessments = pgTable("assessments", {
   isPublic: boolean("isPublic").default(false),
   researchOptIn: boolean("researchOptIn").default(false),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type Assessment = typeof assessments.$inferSelect;
 export type InsertAssessment = typeof assessments.$inferInsert;
@@ -104,7 +104,7 @@ export const feedback = pgTable("feedback", {
   authorCompany: varchar("authorCompany", { length: 255 }),
   flowCircuitRole: varchar("flowCircuitRole", { length: 64 }),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type Feedback = typeof feedback.$inferSelect;
 export type InsertFeedback = typeof feedback.$inferInsert;
@@ -120,7 +120,7 @@ export const emailVerifications = pgTable("email_verifications", {
   verified: boolean("verified").default(false),
   expiresAt: timestamp("expiresAt", { withTimezone: true }).notNull(),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type EmailVerification = typeof emailVerifications.$inferSelect;
 export type InsertEmailVerification = typeof emailVerifications.$inferInsert;
@@ -142,7 +142,7 @@ export const peerReviews = pgTable("peer_reviews", {
   completed: boolean("completed").default(false),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
   completedAt: timestamp("completedAt", { withTimezone: true }),
-});
+}).enableRLS();
 
 export type PeerReview = typeof peerReviews.$inferSelect;
 export type InsertPeerReview = typeof peerReviews.$inferInsert;
@@ -166,7 +166,7 @@ export const emailDrips = pgTable("email_drips", {
   day7SentAt: timestamp("day7SentAt", { withTimezone: true }),
   unsubscribed: boolean("unsubscribed").default(false),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type EmailDrip = typeof emailDrips.$inferSelect;
 export type InsertEmailDrip = typeof emailDrips.$inferInsert;
@@ -211,7 +211,7 @@ export const soulprintOrders = pgTable(
       sql`${table.soulprintStatus} IN ('pending', 'processing', 'completed', 'failed')`
     ),
   ]
-);
+).enableRLS();
 
 export type SoulprintOrder = typeof soulprintOrders.$inferSelect;
 export type InsertSoulprintOrder = typeof soulprintOrders.$inferInsert;
@@ -232,7 +232,7 @@ export const calibrations = pgTable("calibrations", {
   originalRole: varchar("originalRole", { length: 64 }),
   confidenceScore: integer("confidenceScore"), // 0-100 how consistent the rankings were
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 export type Calibration = typeof calibrations.$inferSelect;
 export type InsertCalibration = typeof calibrations.$inferInsert;
 
@@ -256,7 +256,7 @@ export const soulprintProfiles = pgTable("soulprint_profiles", {
   adminHidden: boolean("adminHidden").default(false), // admin can hide site-wide
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type SoulprintProfile = typeof soulprintProfiles.$inferSelect;
 export type InsertSoulprintProfile = typeof soulprintProfiles.$inferInsert;
@@ -272,7 +272,7 @@ export const teamAffiliations = pgTable("team_affiliations", {
   assessmentId: integer("assessmentId").notNull(),
   label: varchar("label", { length: 64 }).default("candidate"), // 'member' | 'candidate' | 'advisor'
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type TeamAffiliation = typeof teamAffiliations.$inferSelect;
 export type InsertTeamAffiliation = typeof teamAffiliations.$inferInsert;
@@ -292,7 +292,7 @@ export const flow360Sessions = pgTable("flow_360_sessions", {
   selfScores: jsonb("selfScores"), // { Spark: 50, Amplifier: 36, ... }
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
   expiresAt: timestamp("expiresAt", { withTimezone: true }).notNull(),
-});
+}).enableRLS();
 
 export type Flow360Session = typeof flow360Sessions.$inferSelect;
 export type InsertFlow360Session = typeof flow360Sessions.$inferInsert;
@@ -314,7 +314,7 @@ export const flow360Responses = pgTable("flow_360_responses", {
   groundRank: integer("groundRank").notNull(),
   conductorRank: integer("conductorRank").notNull(),
   submittedAt: timestamp("submittedAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type Flow360Response = typeof flow360Responses.$inferSelect;
 export type InsertFlow360Response = typeof flow360Responses.$inferInsert;
@@ -343,7 +343,7 @@ export const tribeTrials = pgTable(
   (table) => [
     check("tribe_trials_status_check", sql`${table.status} IN ('active', 'expired', 'converted', 'cancelled')`),
   ]
-);
+).enableRLS();
 
 export type TribeTrial = typeof tribeTrials.$inferSelect;
 export type InsertTribeTrial = typeof tribeTrials.$inferInsert;
@@ -360,7 +360,7 @@ export const passwordResets = pgTable("password_resets", {
   expiresAt: timestamp("expiresAt", { withTimezone: true }).notNull(),
   usedAt: timestamp("usedAt", { withTimezone: true }),
   createdAt: timestamp("createdAt", { withTimezone: true }).defaultNow().notNull(),
-});
+}).enableRLS();
 
 export type PasswordReset = typeof passwordResets.$inferSelect;
 export type InsertPasswordReset = typeof passwordResets.$inferInsert;
