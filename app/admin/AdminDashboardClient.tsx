@@ -311,6 +311,7 @@ export default function AdminDashboard() {
                     <th className="py-2 px-3 font-bold text-gray-500 uppercase text-xs">Role</th>
                     <th className="py-2 px-3 font-bold text-gray-500 uppercase text-xs">Score</th>
                     <th className="py-2 px-3 font-bold text-gray-500 uppercase text-xs">Date</th>
+                    <th className="py-2 px-3 font-bold text-gray-500 uppercase text-xs text-right">PDF</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
@@ -334,6 +335,24 @@ export default function AdminDashboard() {
                       <td className="py-2 px-3 font-bold">{a.score}%</td>
                       <td className="py-2 px-3 text-muted-foreground">
                         {new Date(a.createdAt).toLocaleDateString()}
+                      </td>
+                      <td className="py-2 px-3 text-right">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleGenerateIndividualPDF(a);
+                          }}
+                          disabled={generatingPDF === a.id}
+                          className="text-primary hover:text-primary/80 h-8 px-2"
+                        >
+                          {generatingPDF === a.id ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Download className="w-4 h-4" />
+                          )}
+                        </Button>
                       </td>
                     </tr>
                   ))}

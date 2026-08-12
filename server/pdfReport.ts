@@ -1,27 +1,22 @@
 import PDFDocument from "pdfkit";
-import sharp from "sharp";
+import fs from "fs";
+import path from "path";
 import { storagePut } from "./storage";
 import { getAssessmentsByDomain } from "./db";
 
-// ── Logo (fetched from CDN, downscaled, cached in memory) ──
-// Source CDN asset is a full-resolution, several-MB PNG; the PDF only
-// ever renders it at 20pt, so it's resized down before embedding to
-// keep generated report PDFs from ballooning past storage limits.
-const LOGO_CDN_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663242884547/58a5XX7atDPJGob9D9jfHU/flow-circuit-logo_05a4bbaa.png";
-const LOGO_MAX_DIMENSION = 160;
+// ── Logo (pre-resized, bundled with the repo) ──
+// The original CDN asset is a full-resolution, several-MB PNG; the PDF only
+// ever renders it at 20pt, so a small pre-resized copy is committed to
+// server/assets and read directly. This avoids resizing at request time,
+// which previously depended on `sharp` — a native module that failed to
+// load in some serverless runtimes (missing platform binary).
+const LOGO_PATH = path.join(process.cwd(), "server", "assets", "flow-circuit-logo.png");
 let logoBuf: Buffer | null = null;
 let logoLoaded = false;
 async function getLogo(): Promise<Buffer | null> {
   if (logoLoaded) return logoBuf;
   try {
-    const res = await fetch(LOGO_CDN_URL);
-    if (res.ok) {
-      const raw = Buffer.from(await res.arrayBuffer());
-      logoBuf = await sharp(raw)
-        .resize(LOGO_MAX_DIMENSION, LOGO_MAX_DIMENSION, { fit: "inside" })
-        .png({ compressionLevel: 9 })
-        .toBuffer();
-    }
+    logoBuf = fs.readFileSync(LOGO_PATH);
   } catch { /* logo is optional */ }
   logoLoaded = true;
   return logoBuf;
