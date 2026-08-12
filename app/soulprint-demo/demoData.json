@@ -1,0 +1,1368 @@
+[
+  {
+    "topic": "dashboard",
+    "page": "soulprint",
+    "index": -1,
+    "subtitle": "Soulprint",
+    "blocks": [
+      {
+        "id": "fc2e51c1-4777-4a99-bc21-0f897fc41225",
+        "title": ", YOUR SOULPRINT NAME IS THE",
+        "text": "Your Soulprint is a revolutionary synthesis of many different systems of Personality, Psychology and Ancient Wisdom. Each of these systems represent a different facet of your True Nature. Every TrueSelf Soulprint is 100% unique. In the whole universe there is no one else exactly like you."
+      },
+      {
+        "id": "a456a34a-c426-4ebc-83cd-cb92bfcff28c",
+        "index": 10,
+        "title": "Soulprint Life Areas"
+      },
+      {
+        "id": "9f1cd539-c18e-4875-9566-4bd255f4738d",
+        "index": 100,
+        "title": "Soulprint Systems"
+      }
+    ]
+  },
+  {
+    "topic": "dashboard_clone",
+    "page": "soulprint",
+    "index": -1,
+    "blocks": [
+      {
+        "id": "608f6386-e47b-4212-ac10-c4feec1b7dfa",
+        "text": "You are a dynamic and energetic individual, blending intuition with a strong drive to make your mark in the world. Your natural leadership abilities and innovative approach to challenges make you stand out. You possess a unique blend of empathy and ambition, allowing you to connect with others deeply while pursuing your goals with determination.",
+        "subtitle": "Max YOUR SOULPRINT IS THE",
+        "children": [
+          {
+            "id": "42272f46-147a-4b39-8b9e-f5b85e8cc0b7",
+            "name": "Soulprint Synthesis",
+            "title": "Soulprint Synthesis",
+            "text": "Your Soulprint is a revolutionary synthesis of many different systems of Personality, Psychology and Ancient Wisdom. Each of these systems represent a different facet of your True Nature. Every TrueSelf Soulprint is 100% unique. In the whole universe there is no one else exactly like you."
+          }
+        ]
+      },
+      {
+        "id": "6a79c4c3-9fb7-11f0-bbb3-82b0236856e5",
+        "index": 10,
+        "name": "Life Areas Slider",
+        "children": [
+          {
+            "id": "831ad22a-e812-4bbe-8b24-e6067dd16133",
+            "index": 30,
+            "name": "Life Area",
+            "title": "Identity & Expression",
+            "pre_title": "House 1",
+            "image_text": [
+              {
+                "image": "symbol_house-1",
+                "text": "",
+                "style": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "enneagram",
+    "page": "soulprint",
+    "index": 10,
+    "title": "SOULPRINT",
+    "subtitle": "Enneagram",
+    "blocks": [
+      {
+        "id": "2e6e14ce-1273-49d8-9b47-9520d8b3e3fe",
+        "title": "The Romantic Individualist",
+        "text": "4s are a deep, intuitive, self-aware person who strives to be unique and individualistic. Their passionate nature, incredible sensitivity, vision and emotional intelligence affords them the ability to see things in an entirely original way which is inspiring to others.\n\nThey have an aesthetic sensibility with a flair for the dramatic and they like to put their personal mark on things. Emotionally expressive, they notice what is missing and may at times feel swept away by intense feelings. Their keys to growth include realizing that everyone is equally unique and important, and finding emotional balance in the present moment."
+      },
+      {
+        "id": "185aeeb7-6ee4-4689-a7f7-78cf775a8cac",
+        "index": 10,
+        "title": "What you are great at",
+        "text": "Being passionate and romantic.\n\n  Maintaining an idealistic vision even in mundane realities.\n\n  Self-searching honesty with a willingness to look within.\n\n  Being emotionally deep and authentic.\n\n  Being creative, artistic and expressive with an eye for aesthetics and beauty.\n\n  Inspiring, moving, and uplifting others especially when they are suffering.\n\n  Being comfortable with all human emotions (even “darker” emotions).\n\n  Being compassionate, empathic and supportive to others.\n\n  Seeing what is missing and finding a unique way of addressing it.\n\n  Being open to the deeper truth or wisdom below the surface.\n\n  Enduring suffering and seeing its transformative value for inner growth.\n\n  Valuing and prioritizing deep connection with others."
+      },
+      {
+        "id": "747c1737-3a39-42d5-aa76-059ff880c23a",
+        "index": 20,
+        "title": "Core Wiring",
+        "text": "You want to be inspired, intuitive, and unique; but most importantly, you want to be passionate, true to your feelings, and authentic. You see yourself as a sensitive intellectual. That is, you see yourself as creative, expressive, and spiritual.\n\nYou are identified with your emotional states and their meaning. You see yourself as emotionally deep, and seek beauty and meaning in everything you do. You may envy others, however, and become moody, haughty or overly emotional under stress. At your best, you are emotionally self-aware, self-revealing, creative, extremely compassionate, and humane."
+      },
+      {
+        "id": "53294a93-f604-45b0-8067-7931bbeb5bff",
+        "index": 30,
+        "title": "What Drives You",
+        "text": "Feeling a deep sense of loss, and longing for what seems to be missing, can create the need for intensity and originality to fill the void. You try to be special and original, having a unique and distinct identity to manage feeling of rejection.\n\nYou are driven to avoid abandonment and don’t want to be seen as ordinary or shallow. You want to connect with your deepest emotions; express your passion and authentic individuality; understand and be understood; and create a world of beauty."
+      },
+      {
+        "id": "73ac9f81-e7cf-4931-8f45-830fc85e617a",
+        "index": 40,
+        "title": "Your Inner World"
+      },
+      {
+        "id": "b69bf38b-d337-44c1-8983-b7750b23c783",
+        "index": 50,
+        "title": "Core Fears",
+        "text": "Your core fear of being rejected, may be expressed as fears of having no identity or personal significance, striving for individuality or chronic frustration. You may fear anything that would confirm your feelings of unworthiness, such as being made wrong, seen as defective or flawed or told that you are too sensitive or emotional.\n\nDespite longing for deep connection, you fear alienating others with chronic woes or emotional reasoning. You may then fear actually opening up to others and experiencing the pain of losing again."
+      },
+      {
+        "id": "32ce411c-5d81-4865-ae05-c12c372c306d",
+        "index": 60,
+        "title": "Core Desires",
+        "text": "To be authentic, singular, unique, and exceptional, as well as to have deep emotional connections."
+      },
+      {
+        "id": "e6fae56a-0948-4117-a1c9-366e1b66f1ea",
+        "index": 70,
+        "title": "Core Needs",
+        "text": "You need to be seen as artistic, gifted, and accomplished. You focus on your individuality and on carving a distinct image of yourself. You need to express your deep feelings and want others to validate your emotions. Whether arranging your living space to reflect your refined tastes, or engaging in an artistic pursuit, it is essential for your sense of well-being to express your creativity."
+      },
+      {
+        "id": "5a3d973a-746e-4de3-b995-e6f44c5ad99b",
+        "index": 80,
+        "title": "Core Beliefs",
+        "text": "Something is important is missing. Knowing my uniqueness and expressing my depth is essential to finding my authentic self and meaning in life."
+      },
+      {
+        "id": "ba7ab72a-9ef2-4d74-82f7-3d3f9dc31356",
+        "index": 90,
+        "title": "Likes",
+        "text": "Being validated for your emotional intelligence.\nBeing seen as singular, special or unique.\nFeeling emotions deeply or intensely.\nFeeling connected with others.\nReceiving praise, recognition, and accolades for your originality.\nBeing “the one” and being in the “inner circle”.\nFeeling love, approval, acceptance.\nHaving a special place next to the most valued or important person.\nMaking a unique contribution or being distinguished in your field.\nHaving your opinions be heard and well received.\nBeing adored, valued, and treated as important.\nFinding what is original and giving meaning to suffering."
+      },
+      {
+        "id": "0fb9218c-ef2b-4984-990a-9db4644d2c2f",
+        "index": 100,
+        "title": "Dislikes",
+        "text": "Being seen as ordinary or “one of the crowd”.\nYou dislike censorship, uniformity and regulation.\nFeeling shame and being disconnected from others.\nReceiving criticism or blame.\nBeing painfully self-conscious.\nBeing rejected if you display your deeper emotions.\nBeing made wrong or invalidated.\nHaving mundane tasks to complete that seem meaningless.\nBeing seen as inadequate, common or irrelevant.\nWatching someone else get promoted or recognized.\nBeing told what to do.\nFeeling that your voice isn’t heard - not being listened to."
+      },
+      {
+        "id": "ddc84561-8890-4c45-81e9-74f0915e97c8",
+        "index": 110,
+        "title": "Outer World"
+      },
+      {
+        "id": "19685272-2780-43e2-a749-fb0a22628e83",
+        "index": 120,
+        "title": "Strategies",
+        "text": "You look inward and focus on self-discovery to find meaning, as well as to understand yourself and others. You go into your emotional depths and seek happiness through beauty, suffering, and nostalgia."
+      },
+      {
+        "id": "79143c87-5211-499a-b373-dfc74ae2f453",
+        "index": 130,
+        "title": "Impact of Strategies",
+        "text": "You are seen as singularly unique, and are emotionally understood and accepted for who you authentically are."
+      },
+      {
+        "id": "20036918-1e6f-4be0-9a04-95ed33ff0d52",
+        "index": 140,
+        "title": "What's Great About You",
+        "text": "You are passionate, deep, emotionally authentic, creative, fiery, and expressive. You are a true humanitarian and offer compassion to others."
+      },
+      {
+        "id": "d4e6c886-4123-492c-95ec-40b5c658b9e2",
+        "index": 150,
+        "title": "Attention goes to...",
+        "text": "Your attention goes to searching for meaning, noticing what is missing, feelings of melancholy and nostalgia, and longing for the unavailable. You appreciate the special, the humane and the beautiful.\n\nYou like to put your personal signature on everything that you do. Your refined tastes make you a great critic and someone who appreciates the truly exceptional."
+      },
+      {
+        "id": "11c8cbfd-6d20-42db-bf04-2642c1d6854b",
+        "index": 160,
+        "title": "Operating System"
+      },
+      {
+        "id": "41598590-2f9a-44ca-a32a-1d44a90d8a70",
+        "index": 170,
+        "title": "At Your Best",
+        "text": "You are an impassioned, sensitive, self-revealing, and original seeker, who focuses on what is different and unique in any given situation. You love life’s mysteries and have a rich inner life, recognizing that things are always deeper than they appear on the surface. You long to discover your true identity and feel called to quests for personal exploration.\n\nYou identify with your sense of humanity and find ways to give meaning to suffering. You value emotional authenticity (yours and others) and are not easily deterred by some of the “darker” aspects of the human experience, such as grief and shame. Your tendency to feel things fully and your openness to others’ emotional expression can make you a close friend and confidante.\n\nYou are naturally creative, with an eye for what is rare and exclusive, and love to create an atmosphere of beauty and romance around you, which can be uplifting and inspiring for others. Your people skills and sensitivity to the needs of others make you a valuable asset to your team in the areas of trust, authentic communication, continuous learning, and support."
+      },
+      {
+        "id": "4f42b3f1-9b01-4d33-9679-44556a011a62",
+        "index": 180,
+        "title": "Under Stress",
+        "text": "When driven by fears of rejection and abandonment, your overriding felt experience may be that you are lacking or missing something really important that you perceive others have. You may compensate by focusing on how you are special, different or unique. You can be seen as temperamental when you swing between feeling special and fearing that you are inadequate or feeling emotionally burdened.\n\nThis can produce a sense of self-pity, envy and/or entitlement and a feeling that you should be “exempt” from life’s demands. When triggered, your emotions hijack your thinking and you can become unfocused, unproductive, depressed or resentful.\n\nWhen self-absorbed or self-concerned, you may become hyper-sensitive and start to over-dramatize your situation, become insensitive to others, take things personally, or blame others for your suffering. This can fuel a need to withdraw to protect your image."
+      },
+      {
+        "id": "c03272e9-4a20-401e-aabd-de9c4a5da22a",
+        "index": 190,
+        "title": "What Holds You Back",
+        "text": "Being moody and getting lost or paralyzed in negative emotions. Feeling flawed and an inner sense of shame. Being envious of others who have what you want. Needing to be seen as special or unique and never feeling “enough”. Missing the joy of the moment when lost in regret and remorse. Emotionally manipulating others with pain, vulnerability and suffering.&nbsp;\n\nOverwhelming others with emotional intensity (without realizing it). Feeling chronic dissatisfaction and longing for what seems missing. Getting lost in a fantasy world of “what may be” – not oriented to reality. Striving to achieve the unattainable – never satisfied with here/now. Alienating others when self-absorbed and overcome with self-pity. Focusing on your own inner experience to the neglect of others."
+      },
+      {
+        "id": "0539dc5f-5814-4970-ae7a-c5daf472499f",
+        "index": 200,
+        "title": "Coping Strategy",
+        "text": "Emotionally strong, you manage the painful experiences of feeling abandoned, by blaming yourself or others because it means there might still be something you can do about it. If you can figure out what it is, you can give meaning to your distress and begin anew.\n  You may cope with perceived rejection by first internalizing it and then compensating for it by being special, unique, or exceptional. When you are able to remember that feelings are temporary(and disidentify from them), you can use their intensity as fuel for going after or creating what you crave. Other coping strategies include fantasizing about idealized circumstances to replace what’s lost."
+      },
+      {
+        "id": "7dd350f5-693d-42dd-a5da-57445ae89a2e",
+        "index": 210,
+        "title": "Defense Strategy",
+        "text": "To defend against the pain of being inherently flawed or lacking, you may “introject” complex negative emotions to feel a sense of self and have a feeling of control. Introjection is taking what we’ve experienced as being done to us and doing it to ourselves, such as rejecting ourselves to avoid being rejected by others.\n\nYou may similarly energetically “swallow the other whole,” or take in the other as being part of you to feel you can control them and can’t lose them. When one introjects things, there is a sense of being able to better manage them, as in self-blame and self-criticism."
+      },
+      {
+        "id": "3734e8f1-1e1b-4013-9300-9753d9a18d81",
+        "index": 220,
+        "title": "Hot Buttons & Triggers",
+        "text": "Feeling inadequate, irrelevant, and/or misunderstood.\nNot being recognized for special efforts, gifts,talents or accomplishments.\nBeing left out of things or not communicated with about things that seem important. \nReceiving critical feedback about performance – anything that feels like blame.\nSeeing others happy and well when you’re down/depressed.\nNot feeling part of the inner circle - not being on the inside.\nWatching someone else take or receive credit for your work.\nFeeling abandoned slighted, rejected or insignificant, even in the slightest way.\nHaving your special or unique status or position questioned.\nLoss of love of any kind – death of a loved one or a breakup.\nSeeing someone else receive or enjoy something you want.\nCensorship and being told what to do, especially by someone who seems to be in an inferior position or not as accomplished as you."
+      },
+      {
+        "id": "9c6dac7e-11cb-44d6-8ec7-912e69517ece",
+        "index": 230,
+        "title": "Blind Spots",
+        "text": "If you hold beliefs such as being inadequate, defective or fundamentally flawed (as a control strategy), you may become painfully self-conscious and become blind to your gifts, talents and accomplishments and unaware of your impact on others. By over focusing on what is missing and on what you don’t have, you may alienate others and it may be difficult restore connection to yourself and others. You may be blind to feeling envious of others and the ways you diminish their successes and accomplishments to manage your internal feelings of lack.\n\nBecause you may not want to be ordinary you may fail to see aspects of your work that are in fact ordinary. You may also miss that positive relationships may already be present in your life right now. Focused on the past and future, you may not appreciate or experience what is truly meaningful and fulfilling in your current relationships."
+      },
+      {
+        "id": "c306e9b5-a2f6-40d5-b51e-117797f9bfc3",
+        "index": 240,
+        "title": "Mistaken Beliefs / Trap",
+        "text": "It is a cognitive mistake to believe that you inherently lack something essential or that you will be abandoned because you are fatally flawed and do not posses it. This self-doubting fuels a constant comparison with others and sets up a never-ending story of rejection and loss where you pull people towards you only to push them away when they come too close.\n\nThe belief that you will only be loved if you are special denies you the opportunity of developing a more constant sense of self that is stable and fulfilling. Envying others denies you what you most crave-- deep, meaningful and lasting relationships. You then get caught in the trap of believing that it is unattainable and that others were given what you were not and that you must live with the corresponding anger and chronic frustration that ensues."
+      },
+      {
+        "id": "cb19e65e-d54c-4313-8359-dbb81415fc2c",
+        "index": 250,
+        "title": "Instinctual Subtype",
+        "text": [
+          "In addition to your three Enneagram Types — in the Enneagram System of Personality you also have 3 core instincts — that you use in a preferential order called your Instinctual Stack. The Three Core Instincts in the Enneagram are called: Self-Preservation, Social, and Intimate (or Sexual). The Primary Instinct is often known as your Instinctual Subtype.",
+          "Knowing our instinctual patterns can help us live healthier, more balanced lives. Our subtype pattern is one of the primary ways that we fall asleep to our True Nature. It is like a shadow element outside of awareness where we don’t often notice its impact as clearly as others in our lives do, especially when they are a different subtype.",
+          "You have an aspect of yourself in all 3 descriptions as all humans have all 3 instincts inside us to varying degrees. We will launch a free test to determine that soon, stay tuned."
+        ]
+      },
+      {
+        "id": "3f496c59-bf03-4636-bdb8-d432d92a7fb7",
+        "index": 260,
+        "title": "The Self-Preservation | SP",
+        "text": "Theme: Tenacity"
+      },
+      {
+        "id": "80b7a85d-f70e-4cf8-a96a-959723fa06b2",
+        "index": 270,
+        "text": [
+          "You regularly think about what you need to feel special, safe and secure. Most of all, you secretly worry about not being special enough for others to want to help you when you feel you are unable to make it on your own.\n\nYou are very sensitive and are often the voice of compassion to those that are suffering. You not only want the essentials, you need the essentials to be a reflection of your taste and individuality. You believe that others will only love and care for you if you are truly unique.",
+          "The Self-Preservation (SP) Four is the counter-type of the Four subtypes. This means that their passion of Envy is less apparent; they experience and express it less. Instead of rallying around the idea of never suffering, all the while suffering greatly (and loudly), the SP Four tends to be incredibly long suffering, always without complaint. They have a high pain tolerance and an impeccable ability to grin and bear it. Indeed, this type can be incredibly resilient.\n\nTheir passion for Envy shows up in a goal-orientation. Their ability to meet any challenge and accomplish anything they set their mind to is motivated by an underlying desire to have what others have, or acquire what they feel they lack (Envy). This striving can tend toward over-work which borders on masochistic. However, unlike other Fours, the SP Four is rarely melodramatic; instead, they tend town self-deflation and belittlement.\n\nThis tendency to silently suffer while going for the gold gives this Four an air of steadfastness and tenacity. They tend to exude stoicism, giving others the sense that there's really nothing they can't handle. Because of their motivation to attain the best in life and remain stoic in the face of hardship, this Four tends to demand a lot of themselves: they simply must endure. For them, life can seem like a series of challenges and surprising situations wherein they have to rise to the occasion and overcome. And despite their obvious ability to do so, they often undervalue themselves.\n\nUnlike their Four counterparts, who are quick to frustration, slightly obtuse when it comes to the effect of their audible sufferings on others, and tend to dramatize their plight to garner sympathy, the SP Four instead develops a high capacity to tolerate and silently bear their frustration. This is most evident in the fact that they rarely if ever complain.\n\nThis Four has a high ability to be self-disciplined and autonomous. They can also appear incredibly bright, sunny, and positive. This is a response to the internal ache that they nigh-constantly feel; they endeavor to bring levity to their situation to balance the scales.\n\nIn evolving towards health, the SP Four can endeavor to share and communicate their feelings with others, especially when it comes to their hardships. It is good for them to share their burdens and allow their community to take care of them. They would also do well to notice their inner critical voices that encourage them to ever-greater heights, even if it means neglecting ease, relaxation, enjoyment, and self-care."
+        ]
+      },
+      {
+        "id": "b4d87b7e-46ae-4469-bf2c-026afaa0c0fc",
+        "index": 280,
+        "title": "The Social | SO",
+        "text": "Theme: Shame"
+      },
+      {
+        "id": "291dbc6a-6f52-4745-82ca-ab4ab9d57147",
+        "index": 290,
+        "text": [
+          "You think about who has clout and prestige. Most of all, you secretly worry that you are not special enough to stand out and be included by those you perceive as the ‘special’ people.\n\nYou are very creative and intuitive with an exceptional ability to identify what others value as well as what others need to feel valued. &nbsp;You believe that people only pay attention to those that are considered important and elite. You often feel shy and insecure, even if you are popular.",
+          "The Social (SO) Four wins the Enneagram superlative for “most victimized,” in that they constantly feel themselves to be the victim of some injustice or another (not necessarily that they are, just that they feel themselves to be). This subtype feels things deeply, suffers obviously, and is in a state of nigh-perpetual shame. Their enormous anguish and unceasing confrontation of the burden of the human condition is in part what makes this Four feel so special and unique (which is an underlying motivation of all Fours). Indeed, there's an almost seductive quality about their plight, both for them and for those that know them.\n\nThis Four suffers so easily and with such regularity that they feel more at home in their pain than in any other state. Because of this, they tend to rationalize their troubles, thus perpetuating a victim mentality by never taking action to better themselves or their circumstances. This can also show up as a dependency on others for relief and salvation.\n\nAt its core, the SO Four’s tendency towards over-the-top suffering is related to deep feelings of inferiority. These feelings manifest as a strong need for self-sabotage, self-defeating tendencies, and self-abasement. Indeed, this Four is their own worst enemy. They express their passion for Envy by constantly finding themselves having less than those around them and by being less than they think they should be. There is a powerful, indelible story in their mind that there is something inherently wrong with them. It is because of this sense of their own perceived inferiority that this type often comes across as timid, made worse by their stark inability to express their desires or ask for what they need from the world around them.&nbsp;\n\nThey also feel a strong sense of shame around expressing their anger and sexuality, both of which are areas of their life in which they often feel victimized. Weather dramatized and exaggerated or not, this subtype’s experience of being less than everyone else is extreme and imprisoning.\n\nOften this Four expresses their desire and more authentic feelings through displaying and discussing their suffering. Unlike other Fours, the SO Four does not demonstrate as outwardly competitive although they can have a very unconscious need to prove themselves as better than others.&nbsp;\n\nThat being said, the SO Four tends not to compete with others, but instead engage in rigorous self-examination and subsequent debasement, because they believe themselves to be inherently lacking what others seem to naturally possess. By demonstrating to the world what they lack, they tend to manifest or call forth what they need from others. In this indirect way, they manage to positively reinforce their victim mentality, as they are often surrounded by people who are trying to rescue them from their suffering.\n\nIn evolving towards health, the SO Four can soften their heart to themselves by relaxing their self-judgment and focusing on what’s positive and inherently good about themselves. They can also learn to take action in an effort to disrupt the cycle of playing the victim who requires a rescuer. They can express their anger and ask for what they want directly, as opposed to enticing others with their stories of Woe Is Me."
+        ]
+      },
+      {
+        "id": "1ee13e9e-da93-46e6-b21a-4c7c94ad82b1",
+        "index": 300,
+        "title": "The Intimate | SX",
+        "text": "Theme: Competition"
+      },
+      {
+        "id": "765c9966-eab7-444a-bac7-52b5d0bcfa64",
+        "index": 310,
+        "text": [
+          "You obsessively think about your partner and their passionate pursuits. Most of all, you secretly worry about being found to be lacking or seen as ordinary or commonplace. You have a passion to be creative and original and long to be seen as a one of a kind.\n\nYou are highly creative, original and emotionally honest, believing that everyone has the right to be who they are. You crave attention, especially from your mate.\n\nYou see your mate and intimates as reflections of your individuality. You thrive on intensity and feel entitled to fully express yourself.",
+          "The Intimate (SX) Four is motivated by an overt and covert sense of competition with others. This subtype manifests the Four passion of Envy by turning they're envious thoughts into an extreme an insatiable desire to be superior. And while they may feel the pain so characteristic of the Four, in the SX Four, pain is often transumted into anger and defensiveness. This anger is often twinged with Envy, and thus righteous superiority.\n\nBecause of their (usually unconscious) need to feel superior, the SX Four attempts to mitigate their suffering by making others suffer. They can be insistent on getting their needs validated and met, \"putting people in their place\" as both a means of enhancing their feelings of superiority and dealing with their painful feelings.\n\nUnlike their Four counterparts, the SX Four is less focused on their image and more focused on cultivating a successful life, which is characterized by authentic superiority over others. In an effort to attain this status, softer and lighter character traits like kindness tend to fall to the wayside. In other words, this Four is less interested in maintaining their image and more interested in cultivating an inner sense of better-ness. This can result in arrogance. Despite this arrogance this Four is typically plagued an underlying feeling of inferiority. They are prone to guilt. In this case as with most, their arrogance is often overcompensation for these feelings of inferiority. It is also a convenient social tactic to gain access to the important, elite, special echelon of society, where the SX Four believes themselves to belong.\n\nBecause of their need to be included in elite groups and be superior to others, this subtype is particularly sensitive to rejection. Feelings of rejection can lead to feelings of extreme anger, which only lead to further alienating others and thus the SX Four feeling even more rejected. All this being said, the SX Four possesses a particularly attractive and shiny quality; it can be very exciting to be in relationship with them. Indeed they know how to make themselves incredibly attractive to others and can become seemingly extraordinary.&nbsp;\n\nWith this subtype, everything is turned up to full volume, be it good or bad. Without this intensity, the SX Four can tire or become bored quite quickly. However, due to the fact that this subtype often equates sweetness with inferiority, relationships may border on unloving.\n\nIn evolving toward health, the SX Four can learn to tolerate their own suffering without needing to externalize it or burden others. They can also pay attention not to take out their pain on others. In times of anger, the SX Four can attempt to get in touch with the pain and sadness underlying their outbursts, and thus disrupt the cycle of eruption, avoidance, and rejection."
+        ]
+      },
+      {
+        "id": "002c905a-ace6-401f-b36b-c6b488a74b0a",
+        "index": 320,
+        "title": "Growth Journey",
+        "text": "When driven by fears of rejection and abandonment, your overriding felt experience may be that you are lacking or missing something really important that you perceive others have. You may compensate by focusing on how you are special, different or unique. You can be seen as temperamental when you swing between feeling special and fearing that you are inadequate or feeling emotionally burdened.\n\nThis can produce a sense of self-pity, envy and/or entitlement and a feeling that you should be “exempt” from life’s demands. When triggered, your emotions hijack your thinking and you can become unfocused, unproductive, depressed or resentful.\n\nWhen self-absorbed or self-concerned, you may become hyper-sensitive and start to over-dramatize your situation, become insensitive to others, take things personally, or blame others for your suffering. This can fuel a need to withdraw to protect your image."
+      },
+      {
+        "id": "0320a667-77b4-4d31-8592-d6202f3b7a7a",
+        "index": 330,
+        "title": "Transformation Journey",
+        "text": "Realizing that you don't need to be unique or even understood to be special, singular or extraordinary.&nbsp;\n\n  Letting go of sad stories of tragedy and instead feeling the joy of the present moment.\n\n  Finding beauty everywhere instead of feeling the need to find it or create it."
+      },
+      {
+        "id": "0d4bc6b3-a7f1-4196-88b3-1b95930ec403",
+        "index": 340,
+        "title": "Under Stress",
+        "text": "When driven by fears of rejection and abandonment, your overriding felt experience may be that you are lacking or missing something really important that you perceive others have. You may compensate by focusing on how you are special, different or unique. You can be seen as temperamental when you swing between feeling special and fearing that you are inadequate or feeling emotionally burdened.\n\nThis can produce a sense of self-pity, envy and/or entitlement and a feeling that you should be “exempt” from life’s demands. When triggered, your emotions hijack your thinking and you can become unfocused, unproductive, depressed or resentful.\n\nWhen self-absorbed or self-concerned, you may become hyper-sensitive and start to over-dramatize your situation, become insensitive to others, take things personally, or blame others for your suffering. This can fuel a need to withdraw to protect your image."
+      },
+      {
+        "id": "cebbdef8-fd96-469e-9ebc-4832f17666ff",
+        "index": 350,
+        "title": "An Average Day",
+        "text": "As you see specialness as the self-created prison and mirage that it actually is, you become more conscious of the demands you make on yourself and others, and life to acknowledge and validate you, and you start to take responsibility for self-love. You gradually see that needing a unique identity that distinguishes you from others is ONLY driven by and fuels more self-hatred. You no longer wish to feed such misery, and you focus on your natural compassion and empathy for yourself and others.\n\nYou nurture your artistic, creative, and romantic orientation to life and make your surroundings beautiful and uplifting. As you become more balanced in experiencing your own emotions – no longer blown around by the intensity of emotional energy – you reach out to others and help them connect with and express their own emotional depths. You become more authentically self-honest, vulnerable, and emotionally strong – a refuge to others who wish to leave the prison of false identity and persona behind."
+      },
+      {
+        "id": "5a981bdf-410e-448c-a526-224a9a1d6fa2",
+        "index": 360,
+        "title": "In The Zone",
+        "text": "Seeing through the illusion of lacking and needing love altogether, you come to identify with the intention to BE the energy of love and become a force for healing and positivity in the world. You are increasingly self-aware, impeccably self-accountable, and tuned into your own and others’ inner dynamics and emotions. You are incredibly loving, patient, kind, and gentle with yourself and others, and more sensitive than ever to the intense pain of denying one’s truth and identifying with a false persona.\n\nLess self-concerned, but very comfortable and familiar with the inner landscape, you aspire to help others in any possible way and can now be a benevolent resource, guide and support for others to grow and evolve. You are connected to the real source of creativity and artistic expression, and your work reflects this originality and beauty. You are inspired, inspiring to others, genuine and authentic, and able to see each being’s extraordinary uniqueness and their universality."
+      },
+      {
+        "id": "d8966819-dca0-4c06-b36d-4d5a2a9c482f",
+        "index": 370,
+        "title": "Keys to Growth",
+        "text": "Balance your preference for emotionality with a healthy objectivity to achieve equanimity in your heart and mind.\nNotice tendencies to compare yourself to others; practice gratitude for what you have rather than what others have, and appreciate the unique gifts/qualities of others.\nFocus simultaneously and equally on yourself and other people; observe self-concern and reach out to others when feeling preoccupied with your own situation.\nTake a careful inventory of how you engage in self-rejection and believe in inner lack for self-protection.\nCarefully examine the push-pull pattern of relating - how you push and pull, and the costs in your life/relationships.\nNotice tendencies to get stuck in negative emotions; observe them objectively, feel the sensations in the body, and accept rather than identify with these feeling states.\nActively see what is beautiful and joyful in the present rather than focusing on past/ future; watch how you reject opportunities to by joyful and happy in the moment.\nFocus on what you have rather than on what is missing – take a daily “gratitude” inventory of the blessings in life.\nNotice your tendency to over-intensify and over-dramatize things (even in your language or thought); practice lowering the intensity and notice the effects.\nAlign your desires with what is actually possible; drop unrealistic expectations of others and trying to attain what is unattainable, unreachable or unavailable.\nFocus on service to others to avoid being self-absorbed.\nTake action/be dynamic when lost in emotions/self-pity."
+      },
+      {
+        "id": "2315d622-7d43-4b19-b3b3-7d83699b488e",
+        "index": 380,
+        "title": "Career Choices",
+        "text": [
+          "Maybe you've woken up one morning and realized just how miserable you are in your current position. You want to make a change but aren't sure what direction to take. Have you ever wondered if you've chosen the right career path?",
+          "Perhaps you're looking at several possible job options and are trying to imagine which will be the best fit for you?",
+          "Understanding the Enneagram can be hugely helpful in finding a fulfilling career best suited to you. For example, Milo loves detail and structure. He needs things to be done the right way. Put him in a job where there is no structure or hierarchy, and he's required to be visionary and changemaker, and he's not going to be happy. It's a case of a round peg in a square hole.",
+          "In depicting nine personality types, the Enneagram provides a deeper understanding of our strengths and weaknesses and, consequently, careers most suited to our personalities.",
+          "Bear in mind that there are nine basic Enneagram types but many variations of those types, which can skew the strengths and weaknesses of each type. As a result, you may see some aspects of yourself, but not all. Taking a middle-of-the-road approach, here are some career choices based on type."
+        ]
+      },
+      {
+        "id": "199c5e10-3afb-43c5-bac2-132b705b7342",
+        "index": 390,
+        "title": "Career Advice",
+        "text": "Fours often feel as if something is missing from life—others have found some sweetened elixir that eludes them. There is a sense of searching for that which is missing and in-depth exploration to find out who they really are. In wanting to find and express themselves and establish a unique identity, they may be drawn to \"try on\" a variety of jobs or roles to see which fits best. They want their careers (and themselves) to be viewed as intriguing—even unique. \"I was working at a bank. It was soul-destroying. So one day, I just walked out. I had coffee at a restaurant nearby and decided that waiting tables was preferable—a necessary job while working on my music career.\"\n\nType 4's can feel as if they don't belong—as if there is something intrinsically wrong with them. Yet, they can be very disdainful of others they see as doing tedious work. They can feel shame and counter these feelings with self-aggrandizement and see themselves exempt from living \"normal\" lives. Their emotional needs become the primary focus. \"I'm just not feeling up to doing this job today. I just need some space and to spend some time alone.\"\n\nThe Individualist is creative, sensitive, refined, and emotionally expressive. Type 4's want to feel distinctive, so a monotonous, dull, or mundane job simply won't work. However, they can be temperamental at times, finding joy in sadness. \"On one level, the music was so sorrowful, I was moved to tears. Yet, at the same time, I felt the music's glorious depth and was filled with a sense of aliveness, joy even.\"\n\nMost important to job satisfaction for Type 4's is to feel that what they are doing allows for self-expression and creativity. This will be more important than a job that offers security and good perks. They need to know what is expected of them and are unlikely to work overtime if the work doesn't inspire them. Working for a company or cause that they don't resonate with will be soul-destroying.\n\nWhile working for themselves may feel aspirational, a lack of discipline could mean that they struggle with the less creative aspects of a new business, such as ordering, administration, and bookkeeping.\n\nThe danger in the workplace for Type 4's is to become overly sensitive and introspective, taking things too personally. They can also feel like they don't belong in the company—misunderstood outsiders."
+      },
+      {
+        "id": "40a28554-3fd5-4360-a1dc-30df5c0f48a5",
+        "index": 400,
+        "title": "What careers match your type?",
+        "text": "Artist.&nbsp;Being naturally aesthetic and artistic, becoming an artist is a natural fit. Finding it demeaning, they may need help with marketing and administration. A benefactor can provide a solution; this could be a partner, parent, or patron.\n\n  Alternative Therapist.&nbsp;Being in tune with energy and working to help others heal, such as Reiki, Body Stress, or Cranial massage therapy, can suit their Line of Release (Type 1). This aligns with their need to make the world a better place.\n\n  Musician.&nbsp;Their natural sensitivity makes them brilliant musicians.\n\n  Author or Poet.&nbsp;They are highly self-aware, so expressing deep feelings comes more easily to them than other types.\n\n  Chef.&nbsp;Many of the world's top chefs are Type 4's. They know how to make beautiful food that tastes divine. It also allows Type 4's to express their creativity and desire to experiment and create something unique.\n\n  Hairstylist.&nbsp;In desiring to be unique, Type 4's can help their clients feel equally special while encouraging new looks.\n\n  Editor.&nbsp;Although not actually writing their own original material, being an editor allows Type 4's to spot talent and work with that writer to create a memorable narrative.\n\n  Graphic designer.&nbsp;Good at relating to a client's needs means that Type 4's can offer unique and creative designs.\n\n  Journalist.&nbsp;Fours are good at establishing a rapport with those they interview and making deeper connections fast. However, the person being interviewed or the cause they are exploring must be inspiring.\n\n  Metaphysics.&nbsp;Anything related to metaphysics will come naturally, such as tarot reading, astrology, and mediumship. Their intuitive ability and caring natures allow them to tune into others' emotions and help others become more aware.\n\n  Psychologist.&nbsp;Meeting others in a deep and meaningful space can appeal.\n\n  Yoga teacher.&nbsp;Teaching others to be in tune with their bodies and minds works well for these sensitive Enneagram types.\n\n  Photographer.&nbsp;Good photography is way more than knowing what F-stop to use. Type 4's can tune into the heart of their subject matter and reveal a unique way of viewing the world.\n\n  Stylist.&nbsp;A photographic stylist is a natural fit for this type who wants to create harmony and beauty.\n\n  Tattoo artist.&nbsp;Working to beautify others and bringing life to clients' ideas would work well."
+      },
+      {
+        "id": "afb24ff8-6862-4e0b-b2c3-5dde4edd2975",
+        "index": 410,
+        "title": "What careers could spell disaster?",
+        "text": "Bookkeeper, Payroll Clerk, or Accountant.&nbsp;Working with numbers holds few creative prospects. So, a big no here.\n\n  Administrator, Education Administer, File Clerk, Secretary.&nbsp;With little chance of self-expression, these positions will hold absolutely no attraction.\n\n  Banking and Investment Banking.&nbsp;This is way too mundane to inspire a Type 4.\n\n  Law enforcement.&nbsp;Walking the same beat is way too ordinary a role for a Type 4.\n\n  Attorney.&nbsp;This job won't fly unless they can guarantee that what they are fighting for aligns with their own opinions/causes; this job won't fly.\n\n  Personal Assistant.&nbsp;Helping someone else perform well doesn't hold the allure that a more individually focused career would.\n\n  Waitron.&nbsp;While many Type 4's spend time as waitrons, it's generally only to finance their real passion in the creative world—a means to a self-expressive end."
+      },
+      {
+        "id": "e43469a4-20e8-4f51-abcd-8dd6c3a72b20",
+        "index": 420,
+        "title": "Health & Diet"
+      },
+      {
+        "id": "fb53fc45-1dc8-4abe-8385-0a3a2e90fe4d",
+        "index": 430,
+        "title": "\"I am what I eat.\"",
+        "text": "When feelings are your focus, as with sensitive, artistic Fours (\"The Individualists\"), you eat according to how you feel. Mood dictates the menu. For some, feeling melancholic can create hunger leading to comfort eating, while for others, it may stave off the desire to eat. The food's origin and preparation can be important: \"Is this organic and free-range?\" \"Does it appeal to my senses?\"\n\nFours can become self-focused. \"Why do I want to order salad? What aspect of myself does this speak to?\" Even if they can't afford certain foods, they may order them anyhow, using entitlement to compensate for feelings of shame and a lack of self-worth. They are artistic and individualistic. Their food choices generally reflect this—boring doesn't work for them. They want their menus to be as unique as themselves and reflect aspects of themselves."
+      },
+      {
+        "id": "8a019430-261e-45c4-8824-09b040e7c734",
+        "index": 440,
+        "title": "Famous People with your Personality Type",
+        "text": "Michael Jackson, Marlon Brando, Jackson Browne, Edgar Allen Poe, Prince, Francis Bacon, John Barrymore, Ingmar Bergman, Mary Chapin Carpenter, Prince Charles, Eric Clapton, Kurt Cobain, Judy Collins, James Dean, Johnny Depp, Neil Diamond, Bob Dylan, Judy Garland, Martha Graham, Billie Holliday, Lena Horne, Julio Iglesias,, Jewel, Angelina Jolie, Janis Joplin, Joni Mitchell, Jim Morrison, Morrissey, Liam Neeson, Stevie Nicks, Anais Nin, Nick Nolte, Laurence Olivier, Edith Piaf, Pink Floyd, Anne Rice, Percy Shelley, Simone Signoret, Paul Simon, Meryl Streep, James Taylor, Spencer Tracy, Vincent Van Gogh, Orson Welles, Tennessee Williams, Kate Winslet, Virginia Woolf."
+      }
+    ]
+  },
+  {
+    "topic": "overview",
+    "page": "soulprint",
+    "index": 10,
+    "title": "SOULPRINT",
+    "subtitle": "Soulprint Synthesis",
+    "blocks": [
+      {
+        "id": "e36b6fad-228b-4f6c-a476-d25c66338d07",
+        "text": "You move through life with an infectious energy and a charm that draws others effortlessly to your side. There is a vivacity in the way you engage the world—bold, direct, and fearless in the face of injustice. You carry yourself with a striking blend of independence and warmth, combining a sharp intellect with an easygoing nature that makes social settings feel like your natural habitat. Your enthusiasm and frankness not only make you approachable but also reveal a restless spirit eager for new challenges and meaningful connections. At your core, you are a beacon of optimism and leadership, able to inspire without ever seeming to impose, inviting others into your vibrant orbit while maintaining a confident, self-assured presence."
+      },
+      {
+        "id": "ad575d17-1775-46a9-af53-acdb4c34345e",
+        "index": 10,
+        "text": "Beneath this radiant exterior lies a mind honed to process complex ideas with clarity and precision. Your thoughts are steady and reliable, unfolding through a distinctive pattern that is both intuitive and analytical. You possess a unique ability to sift through confusion and bring forth understanding, often arriving at insights that others might miss. This mental discipline, paired with your natural curiosity and strategic mindset, propels you to seek out truth in all areas of life, whether navigating personal relationships or professional endeavors. Yet this clarity is balanced by an emotional sensitivity that calls for conscious reflection; you understand that wisdom often emerges through honest dialogue, especially within trusted circles, where your ideas can breathe and evolve."
+      },
+      {
+        "id": "6144ba57-8171-4b34-b38e-57ccc37eee4a",
+        "index": 20,
+        "text": "You thrive in environments that challenge your boundaries yet offer the freedom to roam—spaces on the cusp of transformation and discovery, where you can view worlds from unique perspectives. This need for autonomy is intertwined with a deep commitment to loyalty and fidelity in your closest relationships. You cultivate a home that is both sanctuary and fortress, offering security and respect in exchange for the freedom to lead. While your passions may ignite with intensity—sometimes veering into impatience or impulsiveness—you are also deeply aware of the lessons these moments teach, prompting self-reflection and growth. Your complexity reveals itself in the dance between pride and humility, confidence and vulnerability, ambition and the sweet nature that endears you to the world."
+      },
+      {
+        "id": "33cb8df8-dc97-436e-8207-6abc7db7c4b9",
+        "index": 30,
+        "text": "Creativity and adventure are lifeblood to you, fueling your desire to continually explore both mental and physical realms. You find solace and renewal in activity, whether through engaging conversations, cultural pursuits, or the thrill of social gatherings, where your wit and eloquence shine. You have a knack for leadership that is both assertive and honorable, inspiring those around you to reach for more even as you remain grounded in fairness and integrity. However, your temper can flare unexpectedly, a fiery expression of your passionate spirit, reminding you that true mastery lies as much in your ability to pause and reflect as in your drive to act. Your emotional health depends on this balance, as does your capacity to maintain harmonious connections across the tapestry of your life."
+      },
+      {
+        "id": "4f071b66-2db1-4352-9446-61b575a35e8a",
+        "index": 40,
+        "text": "At your essence, you are a seeker of authenticity and fairness, continuously navigating the tension between your fierce individuality and your deep desire for meaningful community. You understand the power and responsibility that comes with your influence, striving to lead with a clear vision while remaining open to the voices of others. Success, for you, is not merely an achievement but an energetic state—a feeling of being seen, recognized, and understood for the unique contributions you bring. The journey you walk is marked by an embrace of complexity, a recognition that your true strength lies in the harmonious interplay of seemingly opposing forces that shape who you are."
+      },
+      {
+        "id": "9dcad55c-990f-41f5-a00e-4918240af6b7",
+        "index": 50,
+        "text": "You are a radiant force of optimism and clarity, walking the fine line between fierce independence and deep connection with a restless, insightful mind that leads with both passion and wisdom."
+      },
+      {
+        "id": "0f0e2e8c-8b45-45e9-ab92-3958cf54dafd",
+        "index": 60,
+        "title": "Potential Struggles and Shadows",
+        "text": "You are a vibrant and dynamic individual, naturally inclined to bring energy and enthusiasm to every situation you enter. Your presence is marked by a lively spirit and an engaging charm that draws people toward you easily. You have a restless drive to seek new experiences and constantly push boundaries, thriving on movement and change. Your mind is sharp and strategic, always analyzing and organizing the world around you, allowing you to see patterns others might miss. This combination makes you both a lively social being and a thoughtful planner who can navigate complexity with clarity and insight."
+      },
+      {
+        "id": "f8f9e669-76e2-495d-80ac-357999198e3e",
+        "index": 70,
+        "text": "Yet, this same intensity can sometimes lead to internal struggle. You may find yourself wrestling with impatience and impulsiveness, pushing forward before fully processing emotions or situations. This restlessness can create tension between a craving for freedom and a desire to establish deep, meaningful roots. You might occasionally feel misunderstood or unrecognized, especially when your fast-paced nature conflicts with others’ expectations. Balancing your strong drive with moments of stillness is essential, as it enables you to avoid overwhelm and maintain your sense of authentic self in the face of external pressures."
+      },
+      {
+        "id": "e77e5aef-53c5-4494-8dbd-0d6877be61fb",
+        "index": 80,
+        "text": "You carry a subtle but persistent urge to understand your place and purpose in the world, sometimes feeling caught between confidence and vulnerability. You crave a balance between independence and connection, thriving best when surrounded by trusted individuals who appreciate your unique contributions. It is natural for you to be reflective about past experiences, learning from them deeply while simultaneously looking eagerly toward what’s next. Your capacity to inspire and lead others arises not just from your charisma but from an authentic commitment to fairness, optimism, and improvement — both for yourself and those around you."
+      },
+      {
+        "id": "7d85f506-d8c1-4d7d-8a7c-e0f7f043bc44",
+        "index": 90,
+        "text": "At times, you might grapple with complex emotions that shift rapidly, coupled with moments of self-doubt beneath your confident exterior. These moments can spark frustration or occasional bitterness when things don’t align with your vision or sense of justice. You may find it challenging to fully trust your instincts or decision-making because of an overactive mind seeking clarity and assurance. Still, your ability to listen deeply, gather perspectives, and reflect before acting is a powerful tool that guides you toward sound decisions, especially when you allow yourself the patience to engage this process fully."
+      },
+      {
+        "id": "b7e64225-29f3-48b7-8c51-f6c9ebc49d8f",
+        "index": 100,
+        "text": "When you embrace your full potential, your energy becomes a beacon that uplifts those around you. Your natural leadership emerges from a genuine desire to serve and empower others, creating environments where people feel valued, inspired, and motivated to grow. By honoring both your need for freedom and your ability to focus with precision, you can move through life with grace and success. Your journey of self-discovery and authentic expression ultimately enables you to make a meaningful and lasting impact, transforming challenges into opportunities to shine and lead with heart."
+      },
+      {
+        "id": "dd79c8f9-53bf-4d1c-bcd0-89943d4e7b31",
+        "index": 110,
+        "title": "Overview",
+        "text": "Your Soulprint reveals a dynamic individual who combines energy, intellect, and a clear purpose to navigate life with a blend of enthusiasm and pragmatism. You approach challenges with determination and a pragmatic mindset, seeking to lead and influence your environment thoughtfully. There is a consistent focus on continuous learning and refining ideas, balanced with a need for social connection and practical achievements."
+      },
+      {
+        "id": "1a6162eb-c128-454d-82d4-8081eca9c4b2",
+        "index": 120,
+        "title": "What you are great at",
+        "text": "You excel at breaking down complex concepts into clear, actionable steps and communicating them with confidence. Your ability to analyze patterns and foresee potential outcomes allows you to make informed decisions and guide others effectively. You are skilled at managing resources, leading teams, and fostering environments where practical progress and innovation coexist. Your decisiveness, paired with an ability to rally support, positions you well as a leader and problem solver."
+      },
+      {
+        "id": "89f522f2-6759-4f04-8291-699c270f3d54",
+        "index": 130,
+        "title": "What drives you",
+        "text": "A pursuit of tangible success and recognition motivates your actions. You are driven by a need to understand your environment clearly and apply that knowledge to improve your circumstances and those of people around you. Your inner motivation pushes you to act with both assertiveness and strategic patience, seeking stability and progress simultaneously. There is a deep-seated desire to create lasting value and establish a secure foundation for yourself and your close ones."
+      },
+      {
+        "id": "31d1e994-5850-4b6f-b2cf-1a5d9aea094d",
+        "index": 140,
+        "title": "Core Wiring",
+        "text": "You process the world primarily through thoughtful analysis and mental clarity, favoring reliable frameworks and consistent patterns. Your mental focus is supplemented by moments of intuitive insight, enabling you to resolve uncertainties and move forward strategically. You are wired to operate best when you engage with your community and trusted circle, leveraging relationships to refine your decisions. Your energy balance needs space for mental reflection as well as social interaction, with a preference for environments that provide a vantage point different from immediate surroundings."
+      },
+      {
+        "id": "3aea3f78-32be-4e07-9ce8-cca3ddf826bc",
+        "index": 150,
+        "title": "Likes",
+        "text": "You appreciate activities that combine mental and physical engagement, such as attending cultural events, intellectual discussions, and leadership roles where your input has a clear impact. You find satisfaction in refining ideas, supporting causes you believe in, and environments where your talents for communication and organization can flourish. Social settings where you can influence, inspire, and connect with others on meaningful levels are particularly rewarding."
+      },
+      {
+        "id": "4f6db65d-1311-4bd0-b1cf-64e19ff98fcb",
+        "index": 160,
+        "title": "Dislikes",
+        "text": "Situations that demand uninvited initiating or pressure to conform to rigid structures tend to frustrate you. You resist environments where your autonomy is compromised or where superficial interactions replace genuine connection and understanding. You do not respond well to chaos without clear purpose or to emotional volatility that obstructs logical assessment. Intrusive scrutiny into your private life or distractions from your goals can also be sources of discomfort."
+      },
+      {
+        "id": "6fe5f147-d283-4ca8-b561-2067bd6e6994",
+        "index": 170,
+        "title": "Strategies",
+        "text": "Your best approach involves waiting for invitations or clear signals before engaging deeply. By allowing others to initiate, you conserve energy and position yourself to contribute more effectively. Seeking input from a small, trusted group before making significant decisions helps you gain clarity and confidence. Simplifying your focus and tackling one challenge at a time improves your effectiveness by avoiding mental overload and fostering consistency."
+      },
+      {
+        "id": "4b03665a-3d4a-450e-80cb-070d106bc8d2",
+        "index": 180,
+        "title": "Impact of Strategies",
+        "text": "Employing these approaches tends to increase your sense of confidence and reduces emotional strain or feelings of impatience. Waiting for the right moment to act allows you to build influence naturally without overextension. Consulting trusted voices lends perspective that balances your driven nature, enabling decisions that are both bold and well-considered. This strategic patience supports sustainable progress and helps maintain your reputation as a reliable leader."
+      },
+      {
+        "id": "71fa4a6d-592f-46ef-8b69-b763526cc6a6",
+        "index": 190,
+        "title": "What is great about you",
+        "text": "You possess a rare combination of intellectual rigor and personable charm that allows you to lead with both authority and approachability. Your energy level and enthusiasm make you a natural motivator and innovator. Your determination is matched by your honesty and straightforward communication style. You blend quick thinking with a solid grounding in reality, making you resilient and adaptive in varied circumstances."
+      },
+      {
+        "id": "a454fb6f-d4e5-42b3-b919-171c21dfe1d8",
+        "index": 200,
+        "title": "Attention goes to",
+        "text": "Focus on balancing your drive for achievement with moments of pause to reflect and recharge. Pay close attention to how your impatience might affect relationships and decision-making. Cultivating deeper trust in your decision-making process while remaining open to outside perspectives will improve outcomes. Being mindful of environments that nurture your mental clarity and provide fresh perspectives will help maintain your momentum and overall well-being."
+      }
+    ]
+  },
+  {
+    "topic": "inner_world",
+    "page": "soulprint",
+    "index": 20,
+    "title": "SOULPRINT",
+    "subtitle": "Inner World",
+    "blocks": [
+      {
+        "id": "e81d1399-4a86-45b3-aa1d-a3c9a2f7125f",
+        "index": 10,
+        "title": "Core Fears",
+        "text": "You have an underlying fear of instability and being misunderstood, which stems from your Mental Inner Authority that requires time and trusted reflection for clarity. The undefined centers in your Human Design indicate vulnerabilities around pressure, insecurity, and inconsistent willpower, which can feed a fear of losing control or recognition. Numerology and Chinese Astrology point to a drive for material and social security, making unpredictability and unfairness particularly threatening to you.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "e7fcf0ce-c559-43bb-8c42-d1ba9ab940b6",
+        "index": 20,
+        "title": "Core Desires",
+        "text": "You desire to be recognized and validated for your unique contributions, supported by your Projector type and defined Ajna and Head centers that enable consistent mental processing. Your Lifepath 8 underlines ambition and leadership, reinforcing your drive to ascend professionally and personally while managing resources effectively. The Horse’s energetic and sociable nature from Chinese Astrology complements this, emphasizing your need for engagement and influence within your network.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "1fe272ff-3a41-44d4-80da-5ef4dc669cf3",
+        "index": 30,
+        "title": "Core Needs",
+        "text": "You need a stable yet stimulating environment that respects your mental process and allows space for reflection, signaled by your Design Sense of Taste favoring simplicity and sequential digestion. The 4/1 profile shows your reliance on close social networks and foundational knowledge, indicating you require trusted relationships for support and opportunities. Your Mental Inner Authority necessitates external dialogue before making decisions, underscoring the importance of patience and trusted feedback for your well-being.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "7139e678-d105-458b-b950-dc0a0a3af65b",
+        "index": 40,
+        "title": "Core Beliefs",
+        "text": "You believe that success comes from a combination of strategic action, careful management, and optimistic leadership, consistent with the traits of your incarnation cross and 4/1 profile. Your Human Design indicates a conviction that listening and logical evaluation of experiences lead to clarity and empowerment. The Horse’s personality traits reinforce a belief in independence paired with social impact, while your numerology suggests a material and ethical framework that guides your ambitions and interactions.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "1e3e9b80-118d-4171-966f-696ca4bb365c",
+        "index": 50,
+        "title": "At Your Best",
+        "text": "You function optimally when you wait for invitations to engage, leveraging your Projector strategy to guide others effectively without overextending yourself. Your defined Ajna and Head centers facilitate clear, consistent thinking that can influence and elevate those around you, particularly when combined with your natural talent for leadership and management. Engaging socially in meaningful ways aligned with your environment’s supportive edges enables you to harness your energy productively and maintain emotional equilibrium.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "dc42ccce-94aa-4d2b-8d96-a7fb5384e808",
+        "index": 60,
+        "title": "Under Stress",
+        "text": "Stress manifests when you try to initiate or act without external prompts, leading to impatience and frustration as your open centers amplify pressures and insecurity. Your quick temper and impulsivity, noted in the Chinese Astrology Horse traits, can escalate under stress, causing regret and communication breakdowns. The undefined Heart and Root centers may cause inconsistent willpower and an overwhelming sense of pressure, exacerbating feelings of bitterness and depletion if your core needs are unmet.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "40fd5a49-482a-477d-9f9e-7e70cc1b2150",
+        "index": 70,
+        "title": "What Holds You Back",
+        "text": "Your challenge lies in balancing your energetic drive with the need for patience inherent in your Mental Inner Authority and Projector strategy, often leading to premature decisions or overcommitment. The openness in multiple centers makes you susceptible to external emotional and energetic influences, which can obscure your clarity and cause self-doubt. Additionally, your tendency to seek validation and control in both material and social domains may restrict your flexibility and adaptation to unforeseen circumstances.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "b894d59e-1a2e-4f8b-bc27-d0d76c72509b",
+        "index": 80,
+        "title": "Coping Strategy",
+        "text": "You cope best by grounding yourself through structured reflection and engaging trusted confidants to process your thoughts, aligning with your Mental Authority’s guidance to delay decisions. Embracing environments that support your need for both social engagement and personal autonomy, as indicated by your environmental preference for 'Shores,' helps manage your energetic fluctuations. Simplifying inputs and experiences, consistent with your Consecutive Digestion, reduces overwhelm and enhances mental clarity.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "ddcb16dc-25ce-4eda-918b-afda01b1c9e5",
+        "index": 90,
+        "title": "Defense Strategy",
+        "text": "When feeling threatened, you may defensively retreat into intellectualization, relying heavily on your defined Ajna and Head centers to over-analyze situations and justify your stance. Your natural leadership can shift into control attempts, especially around resource management and community direction, as a means to restore security. The Horse’s impulsiveness could surface as reactive outbursts or impatience in social settings, distancing others despite your intention to connect and lead.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "369d547e-81ae-498f-be96-ff0b56ad6c5d",
+        "index": 100,
+        "title": "Hot Buttons And Triggers",
+        "text": "You are triggered by experiences of injustice, unpredictability, and social rejection, which challenge your optimism and self-confidence rooted in the Horse archetype and Projector type. Pressure from undefined centers, especially the Root and Heart, provoke feelings of overwhelm and depletion, pushing you toward reactive behaviors. Situations that deny you autonomy or insist on premature action can exacerbate your stress response and cloud your mental clarity.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "264d3966-b43e-4c29-b9bf-f3649d66e491",
+        "index": 110,
+        "title": "Blind Spots",
+        "text": "A key blind spot is your difficulty in recognizing when patience and surrender are necessary, given your strong mental drive to resolve and act quickly. You may underestimate the impact of absorbing emotional and energetic pressures due to many open centers, mistaking it for personal failure or disinterest rather than inherent design. Your high expectations for fairness and productivity can make you overlook subtle interpersonal dynamics and needs for compromise.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "2c5b8226-ec50-4876-933c-60a6afafdfd1",
+        "index": 120,
+        "title": "Mistaken Beliefs Trap",
+        "text": "You risk falling into the trap of believing that constant activity and leadership control guarantee success, leading to burnout and disconnection from your core authority. Misinterpreting your impulsivity as strength rather than potential impatience can cause strained relationships and missed opportunities for collaborative growth. Assuming that your logical mental process alone suffices for decision-making may cause you to discount the value of emotional intelligence and timing.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "1ee5d839-d6aa-4a81-924b-82bbfc1bdd82",
+        "index": 130,
+        "title": "Transformation Journey",
+        "text": "Your Soulprint reveals a person driven by a complex synthesis of mental clarity, social engagement, and strategic insight. With a Human Design Projector type and Mental Inner Authority, you operate best when you take time to process your thoughts, seeking counsel from trusted individuals before making decisions. This aligns with your Enneagram 4/1 profile, highlighting your need for both deep connection and factual understanding. The Chinese Astrology Horse energy underscores your enthusiastic, independent nature and your ceaseless drive for new experiences and challenges. Your numerology numbers—especially your Life Path 8 and Expression 7—reflect a blend of ambition and analytical depth, informing your quest for both material success and personal meaning. Collectively, you navigate transformation by balancing your craving for intellectual mastery with the need for meaningful relationships and self-expression."
+      },
+      {
+        "id": "6cd407e8-c9e1-45cc-8de6-98779269cf18",
+        "index": 130,
+        "title": "Under Stress",
+        "text": "When under pressure, you may exhibit impatience and mood swings, consistent with the Horse's fiery temper and the Human Design open emotional centers that make you sensitive to external emotional influx. Bitterness, the 'Not-Self Theme' from your Human Design, often arises when you feel unrecognized or constrained, exacerbated by your Chinese astrology traits of impulsiveness and a hot-headed disposition. Your mental authority may become overwhelmed, leading to hasty decisions without the usual reflection, which can trigger feelings of regret and self-centeredness, as noted in your Horse traits. Numerologically, challenge numbers 2 and 3 suggest struggles with harmonizing partnerships and communication, compounding stress responses in social or work contexts."
+      },
+      {
+        "id": "2336ded1-1d69-4082-89aa-12c89b691b20",
+        "index": 130,
+        "title": "Average Day",
+        "text": "In a typical day reflecting average health for your Enneagram and Soulprint, you experience a steady flow of mental activity and engagement with your environment, yet might struggle with balancing your social needs against your internal processing. Your Projector strategy of waiting for invitations requires patience, but in an average state, you might feel compelled to initiate prematurely, leading to exhaustion due to your open Sacral and Root centers. Your Horse energy pushes you toward activity and socialization like parties or cultural events, but impulsivity may cause occasional overextension. Your digestion style favors simplicity, so straightforward meals and clear information delivery help maintain equilibrium. You likely approach your work with determination but can experience fluctuations in motivation and mood."
+      },
+      {
+        "id": "34de748b-0d54-4f4a-b797-6286cf2c4d40",
+        "index": 130,
+        "title": "In The Zone",
+        "text": "At your highest functioning, you embody the successful Projector, leveraging your single definition defined Ajna and Head centers to process information quickly and share insights effectively. You utilize your mental authority by thoughtfully consulting trusted peers, allowing you to make clear, impactful decisions. Your Enneagram 4/1 profile facilitates deep authenticity and scholarly rigor, attracting opportunities through your network and charisma. The Horse’s indefatigable energy is channeled productively into leadership and strategic innovation, supported by your Life Path 8 drive for success and Jupiter gate activations linked to expansion and reward. In this state, your balanced environment, optimal digestion, and the right social context enable you to maintain emotional stability while inspiring others with your ideas."
+      },
+      {
+        "id": "b012a1ac-fda7-4229-a67e-52f9d25bb843",
+        "index": 130,
+        "title": "Keys To Growth",
+        "text": "Growth requires mastering patience and self-awareness: adhering to your Human Design strategy to wait for invitations helps avoid burnout and bitterness. Working on emotional regulation is vital given your open Solar Plexus and Heart centers, to prevent impulsive reactions intrinsic to your Horse energy. Developing consistent routines, as suggested by your gate 5 satisfaction, along with disciplined pursuit of your ambitions (Life Path 8) will help curb tendencies toward impatience and egoism. Engaging deeply with your network harnesses your 4/1 profile, expanding your influence while grounding your identity. Embracing simplicity in both diet and information processing aligns with your consecutive digestion style, reducing overwhelm. Recognizing and utilizing your mental authority by seeking diverse perspectives before decisions is essential for clarity."
+      },
+      {
+        "id": "f8aa162e-45b0-4641-a2c6-c21145caf03c",
+        "index": 130,
+        "title": "What Careers Match Your Type",
+        "text": "You are well-suited for careers involving management, leadership, strategic consultation, and roles that require deep analysis combined with strong interpersonal skills. Positions in finance, culture and arts administration, supervision, and execution where you help others optimize their potential fit your Soulprint well. Your capacity to influence and inspire, grounded in your 4/1 profile networking skills and the Horse’s natural leadership, also makes you effective in talent development, client relations, and as a facilitator in cultural or sporting events. Your mental clarity and ability to communicate complex ideas simply are valuable in roles like strategic planning, education, or research."
+      },
+      {
+        "id": "774fc82f-b4fa-479f-b498-dda270b5f6b3",
+        "index": 130,
+        "title": "What Careers Could Spell Disaster",
+        "text": "High-stress, fast-paced careers demanding continuous self-initiation without recognition or invitation are likely detrimental. Roles that require prolonged solitary labor or rigid adherence to external structures without opportunity for social engagement and mental reflection could lead to burnout. Positions that neglect interpersonal dynamics or require emotional suppression fail to align with your open emotional centers and your need for authentic connection. Excessive repetitive, rote, or micro-managed work would counter your need for autonomy and exploration and clash with your impulsive, energetic Chinese Horse traits."
+      },
+      {
+        "id": "b3ff89e1-5284-42a9-9fa0-31f6a0b7a9ed",
+        "index": 130,
+        "title": "How You Relate To Health And Diet",
+        "text": "You thrive on simplicity and routine, which supports both your physical digestion and mental processing. Consecutive digestion indicates you do better with clear, separate intake of foods or information rather than mixed or complex combinations. Your active energy levels, influenced by the Horse, require regular physical and mental exercise to maintain balance. You are prone to stress-related burnout if you overextend yourself socially or professionally, so maintaining a nurturing environment, like your 'Shores' environment type suggests—a place balancing contrasting elements—supports your overall health. Being conscientious about emotional absorption and managing energy expenditure is important due to multiple open centers in your design."
+      }
+    ]
+  },
+  {
+    "topic": "western_astrology",
+    "page": "soulprint",
+    "index": 30,
+    "title": "SOULPRINT",
+    "subtitle": "Western Astrology",
+    "blocks": [
+      {
+        "id": "44b90364-ad89-4554-804a-abaa3833e83a",
+        "title": "Your Ascendant in Virgo — Methodical Approach to Life and First Impressions",
+        "text": "With Virgo as your Ascendant, you approach the world with analytical precision, practicality, and a focus on detail. The Ascendant shapes your outward behavior and initial impressions you make on others. Virgo’s mutable earth qualities manifest as a service-oriented, adaptive demeanor with an emphasis on health, organization, and improvement. You prefer to assess situations carefully before acting, often coming across as reserved or conscientious. Your communication style tends to be clear, cautious, and well-considered, making you appear reliable and methodical. However, the tendency toward perfectionism can sometimes impede spontaneity. This Ascendant endows you with a natural ability to problem-solve and refine both your environment and interactions, projecting an image of competence and thoughtful efficiency."
+      },
+      {
+        "id": "0b51e5ae-369a-4cfe-800f-15e510c96d00",
+        "index": 10,
+        "title": "Your Sun in Leo in the 10th House — Radiant Leadership and Ambition",
+        "text": "With your Sun positioned in Leo in the 10th House, your identity centers around visible leadership and personal authority within the public or professional realm. Leo’s bold, expressive nature amplifies your drive for recognition, while the 10th House places this energy firmly on career, status, and long-term goals. You exhibit a natural charisma that attracts attention and inspires others, but your sense of self is tightly tied to your achievements and social standing. Balancing personal ego with public responsibility is key, as your strong will and creative flair may sometimes border on dominating. This synthesis creates a persona that thrives under scrutiny, seeking opportunities to shine where your authority can be acknowledged and your authentic self expressed."
+      },
+      {
+        "id": "55875ab5-7646-4818-84bc-58dbf0effa22",
+        "index": 20,
+        "title": "Your Moon in Cancer in the 4th House — Deep Emotional Security and Home Focus",
+        "text": "Your Moon in Cancer embedded within the 4th House intensifies your emotional depth and attachment to home and family. Cancer’s nurturing qualities align seamlessly with the 4th House’s domain of roots and private life, making emotional security and familial bonds core to your psychological well-being. Your feelings are processed through a highly sensitive lens and your intuition is finely tuned to the moods within your personal sanctuary. This combination sometimes leads to protective or even retentive behaviors toward your inner circle, emphasizing comfort and tradition. Emotional resilience is cultivated through stable home foundations, yet you may also experience fluctuations in mood corresponding to your environment and relational dynamics at home."
+      },
+      {
+        "id": "76bf5fc8-2011-4dde-8fec-2f9d333bf05b",
+        "index": 30,
+        "title": "Your Mercury in Gemini in the 3rd House — Agile Thinker and Communicator",
+        "text": "Mercury residing in Gemini in the 3rd House creates a profile of rapid mental activity and versatile communication. Gemini's mutable air influences Mercury's thinking with curiosity and adaptability, while the 3rd House intensifies focus on learning, local environments, and exchanges of information. You possess an agile intellect, quickly grasping new concepts and effectively relaying ideas. This synthesis encourages multitasking and networking, as you thrive on connecting diverse subjects and people. Challenges may arise when dispersing your focus, potentially leading to superficial knowledge or scattered attention. Your precision and clarity in verbal or written communication are strengths, but grounding your thoughts for depth alongside breadth enhances your mental power."
+      },
+      {
+        "id": "56fac097-447d-49a2-bccf-6730fb1dad95",
+        "index": 40,
+        "title": "Your Venus in Taurus in the 2nd House — Steadfast Values and Sensual Appreciation",
+        "text": "With Venus in its earthly, sensual domicile Taurus in the 2nd House of values and possessions, your approach to love and pleasure is grounded, stable, and materially focused. You find security and satisfaction in tangible expressions of affection and comfort. This placement highlights a desire for long-lasting relationships built on trust, loyalty, and shared resources. Aesthetic appreciation and physical pleasures are not superficial but vital to your sense of well-being. Financial stability also plays a key role in your emotional contentment. You exercise patience and persistence in matters of the heart, valuing quality over quantity. Watch for tendencies toward possessiveness or resistance to change, as you prioritize security and the sensory experience in love and life."
+      },
+      {
+        "id": "babe3ea3-34f2-48c2-b146-dfe81d991114",
+        "index": 50,
+        "title": "Your Mars in Aries in the 1st House — Dynamic Self-Starter with Direct Energy",
+        "text": "Mars in Aries in the 1st House places assertiveness and pioneering spirit at the forefront of your personality expression. The 1st House governs your self-presentation and approach to life, and Aries is Mars’s natural domicile, further energizing your urge to initiate action. You come across as bold, competitive, and straightforward, often diving headfirst into new challenges without hesitation. Your physical energy and drive are palpable, compelling others to recognize your determination. However, this combination demands discipline to temper impulsivity and impatience. Your forceful nature can catalyze progress but may also risk impatience with process or opposition. You embody the archetype of the warrior forging your own path through sheer courage and directness."
+      },
+      {
+        "id": "3f7cd2b4-8d82-437a-adfb-a35157d2a970",
+        "index": 60,
+        "title": "Your Jupiter in Sagittarius in the 9th House — Expansive Growth through Exploration",
+        "text": "Jupiter in Sagittarius positioned in the 9th House perfectly aligns your expansive nature with pursuits of philosophy, higher education, travel, and spirituality. Sagittarius amplifies Jupiter’s optimism and quest for meaning, while the 9th House governs belief systems and global perspectives. This concentration nurtures a strong desire for exploration beyond boundaries—intellectual, cultural, or geographic. You are predisposed to embrace new ideas with enthusiasm and have a natural talent for inspiring others through optimistic vision. However, there is a need to balance idealism with critical judgment to avoid overextension or dogmatism. Your growth is fueled by continual learning and broadening horizons, making you a lifelong seeker of truth and wisdom."
+      },
+      {
+        "id": "0325b80f-8bdc-45e3-af3d-4806f91bc3a7",
+        "index": 70,
+        "title": "Your Saturn in Capricorn in the 8th House — Disciplined Transformation and Responsibility",
+        "text": "Saturn placed in Capricorn within the 8th House marks a serious, structured approach to transformation, shared resources, and psychological depth. Capricorn intensifies Saturn’s themes of discipline, responsibility, and ambition, while the 8th House involves intimacy, death, rebirth, and financial partnerships. You may experience lessons around trust and vulnerability, facing limitations in deep connections or inheritances. Your resilience is demonstrated through pragmatic management of crisis and change. You have the capacity to rebuild after upheaval with strategic planning and perseverance. Emotional intensity requires balancing control with openness. This synthesis fosters a mature understanding that true power arises from disciplined engagement with life's deeper mysteries and joint ventures."
+      },
+      {
+        "id": "70ce62d8-d450-4f74-aaae-2994e9474059",
+        "index": 80,
+        "title": "Your Uranus in Aquarius in the 11th House — Innovative Visionary in Social Realms",
+        "text": "Uranus stationed in Aquarius within the 11th House underscores your role as an innovative, forward-thinking individual deeply invested in groups and social causes. Aquarius governs originality, technology, and humanitarian ideals, while the 11th House centers on friendships, community, and future-oriented goals. Your uniqueness is expressed through progressive ideas and a rebellious streak challenging conventional norms. You champion collective progress and are drawn to unconventional circles. Sudden insights and changes often manifest through social interactions or networks. While your detachment empowers objectivity, emotional connection within groups may demand conscious effort. This planetary fusion equips you to be a catalyst for change within your social environment, continually pushing the limits of what’s possible."
+      },
+      {
+        "id": "2d67764f-839d-4382-9097-95b166642ca8",
+        "index": 90,
+        "title": "Your Neptune in Pisces in the 12th House — Deep Spiritual Sensitivity and Mysticism",
+        "text": "Neptune residing in its home sign Pisces within the 12th House intensifies your spiritual sensitivity, compassion, and connection to the unconscious. The 12th House governs hidden realms, dreams, and inner dissolution, making this placement a wellspring of mysticism and imagination. Boundaries between self and other can blur, fueling empathy and creative inspiration but also vulnerability to escapism or confusion. You may possess psychic or artistic talents that arise from your deep inner worlds. However, navigating illusions and maintaining clear self-identity is crucial. This synthesis invites you toward surrender, healing, and transcendence through spiritual practices or creative expression, transforming unseen emotional or karmic material into insight and compassion."
+      },
+      {
+        "id": "89655075-23bd-4f4a-a6bb-b88f9e0ad4a4",
+        "index": 100,
+        "title": "Your Pluto in Scorpio in the 7th House — Intense Transformation in Partnerships",
+        "text": "Pluto positioned in Scorpio within the 7th House creates a powerful dynamic around deep, intense transformation within one-on-one relationships. Scorpio’s domain of emotional depth, power, and regeneration magnifies Pluto’s themes of destruction and rebirth. The 7th House governs intimacy and committed partnerships, indicating that your relationships are arenas for profound psychological growth and sometimes crisis. Power struggles, control issues, and profound bonding characterize your interactions, compelling both you and your partner to evolve or face dissolution. You wield tremendous influence in partnerships, capable of catalyzing change and healing but also danger if shadow patterns dominate. Mastering these transformative forces results in relationships that are not only passionate but also profoundly regenerative."
+      }
+    ]
+  },
+  {
+    "topic": "human_design",
+    "page": "soulprint",
+    "index": 35,
+    "title": "SOULPRINT",
+    "subtitle": "Human Design",
+    "blocks": [
+      {
+        "id": "0903a80b-4854-4551-a754-c200c5598586",
+        "text": "The next part of your Soulprint is your Human Design. Human Design is an innovative system that combines principles from astrology, the I Ching, the Hindu Chakra System to offer a unique approach to understanding your personality and life purpose."
+      },
+      {
+        "id": "1456a5a6-9820-446b-807e-69a2702cf276",
+        "index": 20,
+        "title": "Human Design Type Overview",
+        "text": "You are a natural guide with an innate ability to understand and direct others. In Human Design, you are identified as a Projector, endowed with the gift of insight into systems and people. Your aura is focused and penetrating, allowing you to see deeply into others and what makes them tick. As a Projector, your success hinges on being recognized and invited to share your wisdom. This recognition allows you to wield your influence effectively, guiding those around you towards greater efficiency and understanding. Embrace your role as an advisor; by waiting for the right invitations, you ensure that your insights are valued and impactful."
+      },
+      {
+        "id": "fdc4036b-1520-42a1-bd9f-be782a90ab56",
+        "index": 30,
+        "title": "How You Make Your Best Decisions (Your Human Design Authority)",
+        "text": "As a Projector with Mental Authority in Human Design, your decision-making process is intricately linked to your mental perceptions and the discussions you have with others. This authority type encourages you to engage in conversations that help articulate and refine your thoughts. By talking things out, you gain clarity and can better assess how to guide or direct situations effectively. This communicative approach allows you to leverage your natural ability to understand others deeply, ensuring that your insights are well-informed and thoroughly considered. Trusting this process helps you make decisions that not only respect your wisdom but also enhance your capacity to lead and advise effectively."
+      }
+    ]
+  },
+  {
+    "topic": "self_understanding",
+    "page": "soulprint",
+    "index": 40,
+    "title": "SOULPRINT",
+    "subtitle": "Self Understanding",
+    "blocks": [
+      {
+        "id": "3d997e88-6a5e-4dc6-b284-2f04ea16363c",
+        "index": 10,
+        "text": "You have a vibrant and multifaceted personality that blends intellectual depth with dynamic energy, marked by a unique complexity that sets you apart. In Chinese Astrology, your Horse sign brings enthusiasm, charm, and an independent spirit; you are lively and adventurous, thriving in social settings yet craving personal freedom. Your innate leadership, combined with a razor-sharp intuition, allows you to navigate life’s challenges with confidence, though your impulsiveness and impatience can sometimes cause internal conflict. Your Human Design as a Projector with Single Definition and Mental Inner Authority highlights your natural role as a guide who processes information internally before acting. You excel by waiting for the right invitations and consulting trusted voices, reflecting a strategy of patient influence rather than direct initiation.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "61881ae9-6c39-46a6-853f-9ea0bf0de9b0",
+        "index": 20,
+        "text": "Numerology further enriches this picture: your Life Path 8 fuels your drive for success and authority, emphasizing ambition, power, and the material manifestation of your efforts. The Expression and Soul Urge numbers at 7 indicate a deeper desire for knowledge, wisdom, and introspection, which balances your outward assertiveness with an internal quest for understanding. This intellectual tension is echoed in your Human Design defined Ajna and Head Centers, grounding your thoughts in clarity and consistent processing, while your numerous open centers (including Throat and Heart) expose you to external emotional and communicative influences, making your environment crucial for maintaining your equilibrium. Your strategic environment is one that allows both stability and perspective—on the 'edge' of contrasting settings—supporting your need to see diverse viewpoints and foster growth.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "fda76eab-94e7-4016-809f-132e13143d97",
+        "index": 30,
+        "text": "Your complex interplay of traits positions you as a dynamic yet reflective individual, energized by social interaction yet needing meaningful connections, guided by mental clarity but vulnerable to external emotional pressures. Your Chinese Horse energy drives your independence and vivacity, while your Human Design Projector status reminds you to embrace patience and selective engagement to maximize impact without burnout. Numerology’s combination of power-seeking and contemplative numbers reinforces this internal balancing act. Altogether, you are someone who naturally inspires and leads with both heart and mind, but whose greatest strength lies in harmonizing your intense curiosity, impulsive passion, and the wisdom gained from thoughtful reflection.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "b58ef153-217d-46fd-9471-0f2fe55b2f63",
+        "index": 130,
+        "text": "You cope with stress through a dynamic, multi-layered process shaped by your unique energetic blueprint. As a Projector with a Single Definition in Human Design, you naturally seek clarity before acting, relying heavily on your Mental Inner Authority. You find relief in talking over your challenges with a small trusted circle, allowing your mind to sort through complexity. Your Ajna and Head centers’ defined nature means you internally process stress by thinking and conceptualizing deeply, but an undefined Root and other centers mean you can absorb external pressures, making it crucial for you to manage your environment and avoid burnout. Numerologically, your Lifepath 8 adds ambition and the will to overcome hardships through discipline and control, while your Soul Urge 7 craves introspection and understanding, making you inclined to analyze your stressors rather than react impulsively. Being a Metal Horse in Chinese Astrology, you gallop through difficulties with enthusiasm and resilience, though your impulsivity and quick temper might sometimes exacerbate stress until you consciously slow down.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "6df0728a-de66-4ddc-8e3f-03901739142d",
+        "index": 140,
+        "text": "Your environment and interpersonal relationships significantly influence how stress manifests and is managed. Your 4/1 profile points to dependency on your close network for stability, making social support an essential buffer. The Horse’s extroverted and lively nature contrasts with your need for mental space to process, creating tension that demands a balanced interplay between social interaction and reflective solitude. The Mental Inner Authority urges you to take time before decisions, resisting the urge to respond immediately. Spiral Dynamics and your Human Design environment preference for 'Shores' suggest you thrive when positioned between differing perspectives, giving you the vantage point to see stressors holistically and devise strategic responses. Your challenge numbers (2, 3, 1, 1) also hint at learning adaptability, communication, and leadership under pressure, reinforcing your ability to reframe stress into growth opportunities.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "83adfbad-c211-4466-8711-2386489544fc",
+        "index": 150,
+        "text": "Overall, your stress response is intellectual, strategic, and socially nuanced but requires conscious management of energy uptake due to your open centers. You cope best when you honor your need for mental clarity, seek input from trusted confidants before acting, and allow yourself room to roam and reset, honoring the Horse’s free-spirited nature. Your bitterness theme in Human Design serves as a warning sign that you may be overextending or connecting with the wrong people or situations. When grounded by your discipline (numerology 8) and inspired by your innate optimism and leadership (Chinese Horse), you transform stress from a source of overwhelm into a catalyst for personal growth and empowerment.",
+        "action": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "gene_keys",
+    "page": "soulprint",
+    "index": 40,
+    "title": "SOULPRINT",
+    "subtitle": "Gene Keys",
+    "blocks": [
+      {
+        "id": "31f2eca4-a98d-4b0b-9ddd-b5054e9c6185",
+        "index": 10,
+        "title": "Summary",
+        "text": "You are a dynamic soul forged at the intersection of intense mental clarity, transformative insight, and steadfast leadership. Your journey revolves around harnessing the power of reflection and breaking free from the mental churn of uncertainty, while cultivating a magnetic presence of communal abundance and effective stewardship. Deeply intuitive, you carry a radiant calm that inspires trust and invites others to follow your unique vision. Your essence is crafted by the harmony of mental exploration and grounded influence, making you a catalyst for breakthroughs both within yourself and your wider community."
+      },
+      {
+        "id": "db115c3f-f550-47ea-b859-98410f12b61d",
+        "index": 20,
+        "title": "Your Life's Work Gene Key is 64  —  Transcending Mental Chaos",
+        "text": "At the core of your life's work lies a poignant gift: the ability to transform mental complexity and confusion into flashes of profound insight. You embody a rare grace that does not shy away from the swirling fog of thought but instead dances with it, recognizing that through patience and reflection, clarity emerges. The line 4 here infuses your expression with a natural social ease and a networking ability that helps you connect fragmented ideas and people alike. The influence of color 6 adds a layer of grace and interpersonal diplomacy, allowing you to gracefully navigate through misunderstandings and fragmented thought patterns. Your base 2 rooting grounds this mental fluidity in a steady, receptive presence, giving you the power to wait and listen until the right moment for revelation arrives. You do not rush enlightenment; you nurture it. This ultimately makes you a beacon of hope to others caught in the loop of mental overwhelm, showing them how serenity can birth genius."
+      },
+      {
+        "id": "c229fd6f-73c6-4d29-827f-4ef5021592df",
+        "index": 30,
+        "title": "Your Evolution Gene Key is 63  —  Cultivating Truth through Inquiry",
+        "text": "In your evolutionary journey, you are called to refine your relationship with doubt and questioning, embracing uncertainty not as a burden but as the fertile soil of innovation. The fourth line here brings an intellectual charisma that inspires your social circles to engage in honest inquiry and to question established norms thoughtfully. With the same color 6 influence that graces your life’s work, you carry a responsible yet diplomatic approach, which tempers skeptical energy into constructive dialogue rather than destructive criticism. Your foundation in base 2 continues to support your receptivity—allowing you not just to question but to deeply understand and ultimately embody a higher truth. This evolving process is about shifting from cycles of mental fragmentation to the mastery of actionable ideas that serve not only you but ripple gently into your community, bridging minds and hearts alike."
+      },
+      {
+        "id": "ae745a00-ca14-44f8-9f68-fffc7bb89773",
+        "index": 40,
+        "title": "Your Radiance Gene Key is 45  —  The Leader through Collective Prosperity",
+        "text": "Your radiance shines as an undeniable force of leadership grounded in generosity and communal wealth. The first line in this position empowers you with a pioneering energy, making your presence both innovative and deeply anchored. Color 1 here enhances your brilliance with a freshness and purity of intent, providing you with authentic magnetism and pioneering spirit. Your base 1 indicates a natural alignment with creative forces, infusing your leadership style with spontaneity and originality. Without any fixing state, your aura emanates effortless charm and a wellspring of vitality that inspires others to rally around shared goals. You are the steward who understands that true prosperity flows from collective effort and wise resource management. Your presence is not just bright but nourishing, making you a catalyst for growth and sustained success within any group you influence."
+      },
+      {
+        "id": "e0cd6be2-fd47-4145-8267-199c31486f30",
+        "index": 50,
+        "title": "Your Purpose Gene Key is 26  —  Mastering the Art of Influence",
+        "text": "At the heart of your purpose lies a sophisticated mastery of communication and influence, where your words and actions carry transformative power. The first line combined with color 1 brings a crisp originality and clarity to your self-expression, making your purpose vivid and unmistakable. Your base 1 further anchors you in creative force and confident selfhood, empowering you to navigate complex social dynamics with ease and purpose. This gene key reflects your ability to turn manipulation into meaningful persuasion, employing wisdom, intuition, and grace rather than force. Absence of fixing state means your influence flows naturally, refined by your internal compass rather than external pressures. You embody the archetype of the alchemist, turning everyday interaction into transformational exchange, inspiring others to align with higher principles and collective betterment."
+      }
+    ]
+  },
+  {
+    "topic": "relationship",
+    "page": "soulprint",
+    "index": 50,
+    "title": "SOULPRINT",
+    "subtitle": "Romantic Relationships",
+    "blocks": [
+      {
+        "id": "887f71d1-ca6f-4888-bbc9-93c934181b39",
+        "index": 10,
+        "text": "You approach emotional intimacy in romantic relationships with a dynamic mix of enthusiasm and complexity. As a Projector with a Mental Inner Authority in your Human Design, you rely heavily on thoughtful reflection and trusted feedback before fully engaging emotionally, making you cautious but deeply aware of the emotional currents around you. Your defined Ajna and Head centers give you a stable and reliable mental process, allowing you to analyze and understand emotions intellectually, yet your many open centers make you sensitive to external influences, which can lead to feeling overwhelmed or uncertain in intimate connections. Your natural optimism and charisma (reflected in your 4/1 Profile) draw others to you, but you require invitations and validation to fully open up. Emotionally, your Chinese Astrology Horse nature makes you spirited and independent, craving freedom and space within intimacy even while valuing loyalty and connection, sometimes creating tension between desire for closeness and your need to roam freely.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "43a6b6fa-200e-4ded-80b3-6c85efb16cd8",
+        "index": 20,
+        "text": "Numerologically, your Life Path 8 lends you a strong drive for control and power which can translate into a desire to manage the emotional landscape of your relationships, balancing vulnerability with a need for security and success. Your Soul Urge and Expression numbers (both 7) deepen your introspective nature, encouraging you to seek meaning and truth in emotional bonds rather than superficial attachments. This aligns with your Human Design Mental Authority that demands mental clarity and input from your environment before making heartfelt commitments. The Juxtaposition Cross of Confusion highlights your challenge in integrating past experiences and navigating mixed emotional signals, sometimes causing emotional uncertainty or self-doubt in relationships, but also offering potential for growth through deep understanding and adaptation.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "a0b4b6a7-219b-449f-925d-dda40aa6ea84",
+        "index": 30,
+        "text": "Overall, your emotional intimacy style balances a vibrant, open-hearted enthusiasm with intellectual caution and a strong need for autonomy. You thrive when partners respect your need for mental space and trust your reflective process, allowing your vivacious Horse spirit to shine without feeling confined. You can be impulsive and passionate yet sensitive to emotional dynamics, requiring patience and honest communication to overcome your occasional impatience and mood swings. The interplay of your Human Design openness, Chinese Astrology independence, and numerological depth mean that true emotional intimacy for you is a journey of finding freedom within connection and clarity within emotional complexity.",
+        "action": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "vedic_astrology",
+    "page": "soulprint",
+    "index": 50,
+    "title": "SOULPRINT",
+    "subtitle": "Vedic Astrology",
+    "blocks": [
+      {
+        "id": "da639b3e-eb71-4597-8ee4-41da7abc31a9",
+        "index": 10,
+        "title": "The Ketu Life Stage — Birth to 3y 8m ~ (Foundation & Spiritual Awakening)",
+        "text": "The Ketu Dasha begins your life journey, starting at your birth on September 7, 1990, and lasting approximately 7 years and 4 months in total, but you experience the second half from birth until around the age of 3 years and 8 months. As Ketu is a shadow planet associated with detachment, spirituality, and karmic lessons, this phase marks the foundational stage where subtle spiritual influences are seeded in your young consciousness. Given Ketu’s placement in your chart, likely in a house emphasizing spirituality and past life connections (often the 9th or 12th), early childhood may include a natural inclination towards introspection or a sensitive disposition. Physically, you may have been delicate or prone to mild ailments, reflecting Ketu’s elusive nature. Your parents or caregivers may have sensed your uniqueness or precociousness. This period is about disconnection from mundane attachments and setting karmic patterns, which manifest in your temperament and approach to life’s beginnings. The early education and environment could have emphasized values subtly geared toward inner growth rather than worldly achievement. This initial Dasha forms the filter through which you view relationships and experiences for years to come, planting seeds for detachment, intuition, and an innate interest in metaphysical realms."
+      },
+      {
+        "id": "94752aa3-d8bd-4b23-86f6-d3336d103b43",
+        "index": 20,
+        "title": "The Venus Life Stage — Ages 3y 8m to 13y 8m — (Emotional Growth & Artistic Expression)",
+        "text": "Venus, the planet of love, beauty, creativity, and harmony, governs this Dasha period, marking your childhood through early adolescence from approximately 3 years and 8 months to 13 years and 8 months of age. Venus’s house and sign placement balance the energies of your emotional development, social skills, and appreciation of aesthetics. If Venus occupies a favorable sign like Libra or Taurus, or a beneficial house such as the 5th or 7th, this time likely highlights strong relationships with peers, a love of arts—music, dance, drawing—and a burgeoning social charm that makes you attractive to others. You probably begin to explore your identity through friendships and creative outlets, gaining pleasure from harmony and emotional bonding. This is a formative phase where your values around love, beauty, and relationships embed deeply, influencing how you later seek connection. As Venus also governs senses and comfort, your early environment may have catered to sensory stimulation and affection, reinforcing security. Challenges here could relate to balancing indulgence and discipline; learning to navigate relationships introduces important lessons on fairness and empathy. Overall, this Dasha nurtures your capacity to offer and receive love, cultivating your attraction to the arts and social life."
+      },
+      {
+        "id": "06f20c6a-2ec9-4967-be0b-f2932d56c493",
+        "index": 30,
+        "title": "The Sun Life Stage — Ages 13y 8m to 19y 2m — (Identity & Leadership Emergence)",
+        "text": "As you transition from early adolescence into late teens, the Sun Dasha imparts themes of self-expression, leadership, and ego development, spanning from about 13 years and 8 months to 19 years and 2 months. The Sun’s positioning in your birth chart, particularly its sign and house placement, frames how your confidence and authority evolve. If the Sun is strong, especially in the 1st or 10th house, this period will spotlight your ambitions, personal identity, and the desire to shine independently. You may have felt an urge to distinguish yourself in school, sports, or public forums, experimenting with authority and recognition. This is often a time of heightened self-awareness and potential clashes with parental figures or societal expectations, as your individuality asserts itself. Challenges include balancing ego with humility, learning personal responsibility, and overcoming insecurity or pride. Physically, your vitality peaks, and you may engage in activities promoting strength and health. Mentally, your clarity sharpens, helping you set goals. The Sun’s energy here gifts you courage and a burgeoning sense of purpose, preparing you for adult roles and responsibilities."
+      },
+      {
+        "id": "16d38762-ea27-45c5-881b-e9ecee6b8991",
+        "index": 40,
+        "title": "The Moon Life Stage — Ages 19y 2m to 28y 8m — (Emotional Maturity & Domestic Foundations)",
+        "text": "Between roughly 19 years and 2 months to 28 years and 8 months, the Moon Dasha governs your emotional landscape and domestic life. The Moon’s sign and house position in your chart indicate where you seek comfort, nurture, and belonging. This period coincides with early adulthood when you develop emotional maturity, often building a home, forming intimate relationships, and stabilizing your personal life. You are highly attuned to others’ feelings and may show heightened empathy or sensitivity. The Moon rules the mind and fluctuating emotions, so this phase could include mood variability, but also growth in intuition and caregiving roles. Professionally, you might be attracted to fields involving care, service, or creativity. Instinctual responses and memory deepen, influencing decisions. Your relationship with family may evolve, as you balance dependence and independence. Domestic security and emotional wellbeing are key themes, as are romantic partnerships that offer nurturing and growth. The Moon Dasha encourages inner reflection and the creation of a compassionate, supportive environment."
+      },
+      {
+        "id": "c959e0cf-9566-487e-8059-f196fc50292f",
+        "index": 50,
+        "title": "The Mars Life Stage — Ages 28y 8m to 35y 1m — (Drive, Ambition & Dynamic Action)",
+        "text": "The Mars Dasha spanning from approximately 28 years and 8 months to 35 years and 1 month ignites your drive, ambition, and courage. Mars, the fiery warrior, represents energy, assertiveness, and conflict resolution. The sign and house Mars occupies in your chart detail how you assert yourself and handle challenges. During this period, you may experience a surge in motivation to pursue career goals, assert independence, and take bold actions. This is often a high-energy, sometimes competitive phase characterized by rapid progress and occasional confrontations or struggles. Physically, stamina and vitality are heightened, supporting athletic or demanding activities. You are more willing to take risks and break through barriers, which can lead to significant accomplishments if channeled constructively. Relationships might be passionate but occasionally volatile, reflecting Mars’s impulsive tendencies. Challenges may include managing anger or impatience and avoiding burnout. This phase teaches you tactical assertion, courage, and leadership through action, a time to build your legacy through willpower and initiative."
+      },
+      {
+        "id": "5d891276-9326-46c9-bd6c-f528be5a4171",
+        "index": 60,
+        "title": "The Rahu Life Stage — Ages 35y 1m to 54y 9m — (Transformation & Unconventional Growth)",
+        "text": "Spanning almost two decades from around 35 years and 1 month to 54 years and 9 months, Rahu’s Dasha is a powerful phase of transformation, often marked by the pursuit of unconventional goals and lessons related to desire, illusion, and material success. Rahu is a shadow node associated with foreignness, obsession, and unexpected changes. Its placement by sign and house in your chart highlights the life domains where these themes unfold. During this period, you may encounter significant breakthroughs or disruptions, pushing you out of your comfort zone. There is a strong urge to innovate, explore new spiritual or material horizons, and challenge societal norms. Career shifts, lifestyle changes, or long-distance connections may feature prominently. Rahu’s tendency to create illusions requires vigilance to avoid deception or over-ambition. Nevertheless, this Dasha enhances your ability to adapt, absorb new knowledge, and reinvent yourself. Spiritually, it can trigger deep questioning and awakening. The intense, restless energy demands balancing worldly desires with inner truth to harness Rahu’s potential for growth and success."
+      },
+      {
+        "id": "9c0f9982-34d8-4ab7-a947-07e11b6d00dc",
+        "index": 70,
+        "title": "The Jupiter Life Stage — Ages 54y 9m to 74y 6m — (Wisdom, Expansion & Spiritual Leadership)"
+      },
+      {
+        "id": "89abed4d-7016-44ad-98fd-e90405388b61",
+        "index": 80,
+        "title": "The Saturn Life Stage — Ages 74y 6m to 98y 3m — (Discipline, Legacy & Reflection)"
+      },
+      {
+        "id": "24310117-efee-411c-b947-d18bd8b9d5ad",
+        "index": 90,
+        "title": "The Mercury Life Stage — Ages 98y 3m to 120y — (Mental Clarity & Communication Fulfillment)"
+      },
+      {
+        "id": "5a9789db-f10c-4ae0-bb74-424d2b6424e8",
+        "index": 99,
+        "title": "The Life Stage (Dasha) You Were In Previously"
+      },
+      {
+        "id": "0953642b-532c-44a4-853c-103266690b83",
+        "index": 100,
+        "title": "Ketu Mahadasha — The Spiritual Awakening and Detachment Phase",
+        "text": "Reflecting on the Ketu Mahadasha that you experienced prior to your current period, this was a deeply transformative phase marked by introspection, spiritual seeking, and a sense of detachment from the material pursuits that might have dominated your earlier life. Ketu, a shadow planet known for its karmic influence, typically encourages a turning inward towards the spiritual self and away from worldly attachments. During your Ketu Mahadasha, which approximately spanned from your late teens into your late twenties given your birth in 1990 and the typical sequence of Vimshottari Dashas, you likely experienced moments of sudden insight, detachment, and perhaps even confusion or loss as old structures in life, relationships, or ambitions dissolved or lost their significance. This phase often acts as a karmic cleanser or purifier, pushing you to release what no longer serves your higher purpose."
+      },
+      {
+        "id": "99d921e2-02f9-4d2c-a51e-b09358af08a6",
+        "index": 110,
+        "text": "In your natal chart, Ketu resides in the 12th house, positioned in the sign of Scorpio, amplifying this period’s emphasis on hidden realms, subconscious realms, and karmic liberation. The 12th house governs aspects such as moksha (liberation), foreign lands, isolation, and spiritual practices like meditation and retreats. With Ketu here, your previous Mahadasha may have drawn you into explorations of deeper psychological and mystical matters. Scorpio’s intense, probing nature would have added depth to your journey, exposing you to the shadow aspects of the psyche, prompting profound transformation. You might have felt an urge to withdraw, to study occult sciences, or to engage in healing modalities. Emotional purging and facing buried fears or traumas were likely key features of this time. The house lord’s status and any aspects to Ketu would further color this experience—if Ketu was aspected by malefics like Mars or Saturn, challenges would have been greater but also more transformative."
+      },
+      {
+        "id": "a00b082f-266b-4ed8-aeda-3a786e7ee833",
+        "index": 120,
+        "text": "The Ketu Mahadasha’s karmic lessons prepared you for the next phase of your life by encouraging a detachment from ego-driven desires and an alignment with your soul’s purpose. You may have felt little interest in material success or societal validation, instead craving inner peace and meaning. However, this period’s intensity might also have brought confusion or times when you felt misunderstood or isolated. Given today’s date in 2026 and your birthdate in 1990, this phase now belongs fully to your past, but its impact persists. You carry its spiritual insights and any awakenings forward, which can strengthen your present Mahadasha. By understanding this, you can integrate the wisdom gained during Ketu’s influence and continue evolving with greater clarity and purpose, tapping into the spiritual foundation laid during this important chapter of your life."
+      },
+      {
+        "id": "3718960b-d36e-46f2-b62f-12a013487ac8",
+        "index": 129,
+        "title": "The Life Stage (Dasha) You’re In Now"
+      },
+      {
+        "id": "764ea385-778f-4cdb-8318-20a7e1050a38",
+        "index": 130,
+        "title": "Currently Unspecified Mahadasha — Awaiting Planetary Clarification",
+        "text": "At 35 years old, having been born on September 7, 1990, you stand at a significant point in your Vedic astrological journey. However, since the specific Mahadasha you are currently running is unspecified in the data, an exact, personalized reading centered solely around this specific planetary period is challenging. Generally speaking, in Vedic astrology, the Mahadasha period governs significant phases of your life's unfolding and influences your experiences through the planetary significations connected to that particular planet's energies, position in your birth chart, and its lordship over houses. Without the Mahadasha planet name or details on its placement, we must consider the critical components required for an insightful interpretation."
+      },
+      {
+        "id": "54234c35-3fa2-4f8f-af76-03f8c4d95b5f",
+        "index": 140,
+        "text": "To offer a tailored understanding, it is essential to know the native's current Mahadasha lord, including the sign it resides in and the house it rules and occupies. For instance, if this unidentified Mahadasha planet is placed in an auspicious house such as the 1st, 5th, or 9th house in your natal chart, it would bring constructive outcomes related to self-development, creativity, intelligence, or fortune, respectively. Conversely, placement in challenging houses (6th, 8th, or 12th) or afflicted by malefics might indicate a testing period with obstacles, transformative challenges, or health-related concerns. Without this information, the analysis must remain generalized, encouraging you to focus on self-awareness and adaptability during your current life stage."
+      },
+      {
+        "id": "eac2a6c3-9438-4552-bb40-cd5a3e57748a",
+        "index": 150,
+        "text": "Given your present age of 35 years as of June 3, 2026, your current Mahadasha likely falls into the mid-to-late planetary cycles, which traditionally represent a phase rich in karmic fruition and significant life decisions. Your chart’s Ascendant sign and ruler, along with the Moon’s placement, would further color your experience during this period. The balance of Raja Yoga or Paap Yoga in your chart—indicating auspicious or challenging configurations—also dramatically influences how you experience your Dasha. Since this crucial contextual data and the Dasha planet remain blank, the best guidance would be to consult your full Vedic chart with an astrologer who can integrate planetary positions, aspects, divisional charts, and transits to offer you targeted guidance. In doing so, you will uncover how your current Mahadasha aligns with your personal dharma, career, relationships, and spiritual evolution."
+      }
+    ]
+  },
+  {
+    "topic": "parenting",
+    "page": "soulprint",
+    "index": 60,
+    "title": "SOULPRINT",
+    "subtitle": "Parenting",
+    "blocks": [
+      {
+        "id": "94cb5c81-a083-4d7b-a7c0-f7babba4d08d",
+        "index": 10,
+        "text": "As a parent, you bring an energetic, enthusiastic presence fueled by your Chinese Astrology Horse sign and your Projector Human Design, which together create a natural charisma and leadership in guiding your children. Your defined Ajna and Head centers give you a consistent way of thinking and processing information, making you a reliable source of wisdom. Your mental inner authority means you make decisions best when you’ve had time to reflect and discuss with trusted people, so in parenting, patience and thoughtful dialogue are vital. Numerologically, your Life Path 8 brings ambition and drive to provide material stability, while your Expression and Soul Urge numbers (7) emphasize deep introspection, allowing you to understand your children’s inner worlds profoundly. However, your open emotional centers mean you absorb others’ feelings strongly, so balancing your energy and emotions is crucial to avoid overwhelm and ensure clarity in guiding them.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "b80538fc-4fbe-4904-ba87-5e6e6caeb915",
+        "index": 20,
+        "text": "Your Horse traits manifest in a lively, independent parenting style, encouraging freedom and exploration while showing warmth and cheerfulness. This is complemented by your Enneagram (though unspecified) and Spiral Dynamics perspectives, which would likely emphasize personal growth and adaptability. Your Human Design strategy to wait for invitations means fostering open communication with your children, allowing them to come to you when ready, rather than forcing guidance. You tend to be a party animal with a vibrant social life, which can model joy and sociability but might sometimes conflict with your children’s need for stability and calm. Your impatience and spontaneous energy call for developing greater emotional regulation, especially given your open Solar Plexus center to avoid mood swings affecting family dynamics.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "db7b58ef-cfe1-47c2-bf3f-27f258fbf12e",
+        "index": 30,
+        "text": "To improve as a parent, lean into your strengths as a natural leader and communicator, using your mental clarity to provide structure and guidance, while consciously cultivating patience and emotional sensitivity. Create an environment that balances freedom with responsibility, honoring your children’s individuality while providing consistent boundaries. Your Human Design’s ‘Shores’ environment suggests you thrive and can impart growth best when blending differing viewpoints and spaces—this can translate to encouraging your kids to explore diverse ideas and experiences. Harness your drive and determination from your numerology and life experiences, channeling these toward nurturing your children’s talents and emotional well-being. Above all, listen deeply, wait for them to engage with you, and use your rich well of knowledge and energy to support their unique journeys.",
+        "action": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "career",
+    "page": "soulprint",
+    "index": 80,
+    "title": "SOULPRINT",
+    "subtitle": "Career",
+    "blocks": [
+      {
+        "id": "940ca577-6f88-4a4f-a7c2-06a7737ae78e",
+        "index": 10,
+        "text": "In your professional life, you bring a dynamic, energetic presence that makes you a natural leader and a person who influences others strongly. Your Human Design as a Projector with Mental Inner Authority means you excel when you wait for the right invitations and gather trusted feedback before making decisions, leveraging your clear, stable Ajna and Head centers to process information quickly and deeply. Your Chinese Astrology sign, the Horse, adds enthusiasm, charisma, and a restless drive to seek new opportunities, while your Numerology Life Path 8 underscores a focus on material success, authority, and the ability to manage resources effectively. Though you don't have explicit Enneagram or Spiral Dynamics data, your profile shows a complex blend of intellect, strategy, and social savvy rooted in your 4/1 Human Design profile, which highlights your talent for networking and detailed research.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "051d4941-c579-464b-a40e-ebf64ea22786",
+        "index": 20,
+        "text": "Your most prominent strengths include leadership, strategic thinking, and adaptability. You have a deep mental clarity and a quick mind that can rationalize complex concepts and present them persuasively, drawing others in with your natural charisma. This is enhanced by your Metal element and Yang force in Chinese Astrology, giving you resilience and vigor. Your ability to assess community needs and manage resources comes from your defined centers and gates focused on administration and influence (e.g., Gate 26). Numerologically, your expression number 7 and soul urge 7 point to strong analytical and spiritual insight, enabling you to bring wisdom and reflective depth to leadership roles. Your people skills and networking abilities allow you to progress by influencing others and creating opportunities within your circle. Your mental authority ensures that you make well-considered choices when you take the necessary time to seek external input.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "d1239c3d-1103-47b7-b000-399c908b0903",
+        "index": 30,
+        "text": "Your challenges mainly stem from impatience, impulsiveness, and occasional ego-driven behaviors, traits accentuated by your Horse sign's fire and your mental inner authority. You may struggle with mood swings or frustration when others don't respond quickly or when your insights aren't immediately recognized. The openness of many centers in your Human Design can lead you to absorb external pressures and emotions, causing fatigue or bitterness if you aren’t mindful of your energy boundaries. Your drive for success and control (Life Path 8) can lead to burnout or difficulty delegating. You must avoid pushing decisions prematurely and watch for moments when your need for affirmation causes you to overextend. Balancing your restless nature with periods of reflection and rest will be key to sustaining long-term productivity and satisfaction."
+      }
+    ]
+  },
+  {
+    "topic": "chinese_astrology",
+    "page": "soulprint",
+    "index": 90,
+    "title": "SOULPRINT",
+    "subtitle": "Chinese Astrology",
+    "blocks": [
+      {
+        "id": "22eb349c-ee09-4d90-821c-54b3c0e9b0f7",
+        "index": 10,
+        "title": "Metal Horse with Dominant Yang Energy",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "548ba8b5-05b9-4ba3-ae63-e05a7d66ea0e",
+        "index": 20,
+        "text": "The Metal Horse with dominant Yang energy represents a strong, lively spirit who thrives on action and independence. This combination mixes the Horse's natural love for freedom, adventure, and movement with Metal's qualities of determination and clarity. The Yang energy adds a bold, assertive edge, making someone who is confident, direct, and ready to tackle challenges head-on. People with this sign tend to approach life with a clear mind and steady resolve, but they're also warm-hearted and dynamic, always wanting to make progress and leave a meaningful mark.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "6227ef84-543d-454f-bd25-8ce99acda8aa",
+        "index": 30,
+        "title": "More on your animal: the Horse",
+        "text": "Your Chinese zodiac animal connects you to an ancient tradition stretching back thousands of years. More than just a symbol, it reflects key aspects of your personality and potential that were shaped by the animal spirit of your birth year. This deep connection links you to others born under the same sign throughout history, all carrying the special qualities of your shared zodiac animal.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "01a39174-d7bc-41d7-9c10-afef0d60a039",
+        "index": 50,
+        "text": "The Horse is known for its dynamic energy and charm. People with this sign are usually outgoing and sociable, making friends easily and thriving in group settings. Their intelligence allows them to think quickly and adapt to new situations, which often leads to success in their pursuits. Horses are also known for their strong work ethic and determination, often pushing themselves to achieve their goals with passion and grace.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "cb7b341d-3d0a-4cab-994c-30906fd325f1",
+        "index": 60,
+        "text": "On the flip side, the Horse's love for freedom and excitement can make them impatient and inconsistent. Their restless nature might lead to difficulty sticking with long-term plans or commitments. Sometimes, their desire to be the center of attention can come off as self-centered or impulsive. It's important for those influenced by the Horse to find balance between their need for independence and the responsibility that comes with it.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "4cfe56e5-417b-4489-95cb-5ab092e80c22",
+        "index": 70,
+        "title": "More on your force: Yang",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "2b47c312-d251-4a29-aa93-30a2b4051c45",
+        "index": 80,
+        "text": "Your force in Chinese astrology represents your unique inner power, which is a dynamic blend of your zodiac animal's spirit and the elemental energy of your birth year. Like a personal signature written in the language of wood, fire, earth, metal, or water, it reveals the natural strengths you carry and how you naturally connect with others. This distinctive combination helps illuminate your path by showing both your innate gifts and the areas where you can grow.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "4188789d-ebf0-40e8-b601-0e35f43ab6f1",
+        "index": 90,
+        "text": "Yang energy brings vitality and drive to life. It’s the force that pushes you to take action, energize your goals, and shine in social or leadership roles. When balanced, Yang encourages confidence, courage, and a proactive mindset that helps people step up and make things happen. It’s the spark behind innovation and the energy that fuels growth and progress.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "24ace4ba-0117-4856-aaa0-cfd765a6256b",
+        "index": 100,
+        "text": "However, too much Yang can lead to impatience, aggression, or a tendency to dominate others without enough consideration. When it overwhelms, it may manifest as restlessness or frustration, pushing people to move too fast or act without thinking things through. The challenge with Yang is learning to temper its fiery energy so it doesn’t burn out potential relationships or opportunities. Balance with its counterpart Yin allows Yang to express itself in a healthier, more measured way.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "88096394-d3fb-4061-9b82-483c5bd4ee0d",
+        "index": 110,
+        "title": "More on your element: Metal",
+        "text": "Your Chinese zodiac element reveals the fundamental energy that shapes how you move through life and connect with the world around you. As part of an ancient cycle where wood, earth, water, fire, and metal flow into one another, your element suggests both your natural strengths and the dynamics of your relationships with others. Understanding this eternal dance of elements can help you recognize when to harness your power and when to find balance in your interactions.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "1f9db0c2-5d03-4e88-95e8-45e70fe1fb22",
+        "index": 130,
+        "text": "Metal carries the energy of clarity and precision. Its influence brings a strong sense of fairness, responsibility, and integrity. Individuals shaped by Metal tend to be very organized and reliable, with a natural sense of leadership and an ability to finish what they start. Metal's strength lies in its ability to create order out of chaos, and those under its influence often have the courage to stand firm in their beliefs and values, much like a sword cutting through confusion to reveal the truth.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "9ac084e3-4e32-4cb7-8410-c2d00836ca0f",
+        "index": 140,
+        "text": "On the flip side, Metal's strength can sometimes become rigidity. This stubbornness can make people resistant to change, overly critical, or emotionally closed off. Since Metal represents structure and rules, it can also lead to perfectionism or being too harsh with oneself and others. Balancing Metal’s firmness with flexibility is key; otherwise, its sharp edges might cause conflict or isolation rather than connection.",
+        "action": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "numerology",
+    "page": "soulprint",
+    "index": 100,
+    "title": "SOULPRINT",
+    "subtitle": "Numerology",
+    "blocks": [
+      {
+        "id": "3414970e-f974-4ac7-bd1c-c19b77507417",
+        "index": 10,
+        "title": "Your life path number is Life Path Number 8",
+        "text": "Your life path number serves as a cosmic compass, pointing to the core purpose and journey of your soul. Like a sacred blueprint woven into your birth date, it reveals both the gifts you're meant to share with the world and the meaningful challenges that will shape your growth. This fundamental number illuminates the unique path you're destined to walk and the special role you play in life's grand design.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "8baca711-b32f-48c8-8f61-9dfffe12adae",
+        "index": 20,
+        "text": "People with Life Path Number 8 have a remarkable ability to focus on goals and work hard to achieve them. They are natural-born leaders who inspire confidence and respect in those around them. Their practical mindset and excellent decision-making skills help them navigate complex challenges, especially in careers involving money or management. Their ambition is paired with a strong sense of responsibility, which often makes them trusted and reliable in both personal and professional roles.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "442e3483-a53b-4012-9abb-9dab40cd8942",
+        "index": 30,
+        "text": "On the flip side, the number 8’s strong drive for success can sometimes lead to workaholism or an overly controlling nature. They may struggle with balancing their material ambitions with emotional needs, which can create stress or distance in relationships. When out of balance, their desire for power might manifest as stubbornness or a tendency to dominate situations, risking alienation from others. Learning to soften their approach and prioritize inner fulfillment alongside outer achievements is key to their growth.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "f4b52c84-8ad4-4141-8322-295468353610",
+        "index": 40,
+        "title": "Your personality number is The Humanitarian",
+        "text": "Your personality number unveils the essence of how you naturally shine in the world. Like a signature frequency that others recognize in you, it illuminates the authentic qualities you bring to every interaction and relationship. This number acts as a mirror, reflecting back the unique way you express yourself and showing how your natural presence touches the lives of those around you.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "a99dea23-e213-4b58-9cf2-3b50a8c1471a",
+        "index": 50,
+        "text": "Individuals with the Personality Number 9 are natural-born leaders in kindness. They are selfless and often put the needs of others before their own, making them the go-to person for support and encouragement. Their idealism pushes them to fight for justice and equality, often sparking positive change in their communities. Creativity and a broad worldview also mark their personality, allowing them to connect with people from all walks of life with genuine understanding.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "fa9d1a69-4f26-426c-b7a8-dc37abeca514",
+        "index": 60,
+        "text": "On the flip side, those with this number can sometimes struggle with feeling overwhelmed by the world's problems because they care so deeply. This can lead them to be overly self-sacrificing or even attract people who take advantage of their kindness. Their idealism, while inspiring, might also make them prone to disappointment, especially when others don’t live up to the high standards they set. Learning to find balance between giving and taking care of themselves is a key lesson for Personality Number 9.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "9397c0d0-4029-4762-a459-3877dd6809dd",
+        "index": 70,
+        "title": "Your expression number is Expression Number 7",
+        "text": "Your expression number reveals the remarkable gifts encoded in your very name, as the talents and abilities that naturally flow through you. Like a personal North Star, it illuminates the path where your innate strengths can blossom into their fullest potential, showing you the unique ways you're meant to make your mark on the world and find deep fulfillment.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "490c8bcd-742e-4cbe-9dbe-852d66155dbe",
+        "index": 80,
+        "text": "People with Expression Number 7 tend to be deeply thoughtful and wise beyond their years. They love to dive beneath the surface, seek out knowledge, and explore spiritual or philosophical ideas. Their analytical skills help them to solve complex problems, and their intuition often guides them in the right direction. They enjoy solitude and time to reflect, which recharges their mental energy and sparks creativity. Their natural curiosity makes them lifelong learners and seekers of deeper truths.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "aab509a1-befc-4ffe-ac04-1bd71ab74c9a",
+        "index": 90,
+        "text": "On the flip side, the 7 can sometimes become overly withdrawn or skeptical. Their love of solitude might turn into isolation, making it hard for them to connect with others emotionally. They might get caught up in overanalyzing situations, which can lead to indecision or a reluctance to take action. Because they value truth so highly, they may struggle with cynicism or a suspicion that others lack honesty or depth. Finding balance between introspection and engagement with the world is key for those with this number.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "56bc73dd-5161-4572-8c76-86cbb1ba75f2",
+        "index": 100,
+        "title": "Your soul urge number is Soul Urge Number 7",
+        "text": "Your soul urge number unveils the deepest whispers of your heart, as the inner longings and dreams that truly move you. Like a compass pointing to your soul's true north, it reveals what brings you genuine joy and satisfaction beneath the surface of daily life. This intimate number shows the authentic desires that guide your choices and light up your path to fulfillment.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "e63f764f-2b09-41b9-b73b-9a4625dbb8d4",
+        "index": 110,
+        "text": "Soul Urge Number 7 people have a natural curiosity and a keen analytical mind. They excel at research, problem-solving, and thinking deeply about complex ideas. Their love for truth and wisdom makes them excellent listeners and thoughtful advisors. They tend to be independent and value their alone time, which helps them recharge and gain insight. This deep thoughtfulness often leads them to become wise and insightful, able to see beyond the surface to what really matters.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "69a9510a-4d1d-48a6-9478-e058e5855253",
+        "index": 120,
+        "text": "On the flip side, the intensity of their introspection can sometimes lead to feelings of isolation or detachment from others. They might get caught up in overthinking and second-guessing, which can make decision-making harder for them. At times, their desire for solitude and perfection might make them come across as distant or reserved, making it difficult for others to get close. It's important for them to balance their inward focus with connection and to remember that not all answers come from within or need to be found immediately.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "e8cc9402-b04e-4ab8-8c8c-4e3707f8ee01",
+        "index": 130,
+        "title": "Your subconscious self number is Number 5",
+        "text": "Your subconscious self number reveals your hidden reserves of strength and adaptability in life's unexpected moments. Like an inner barometer of confidence, it shows the natural wisdom you carry in handling challenges and responding to change. This revealing number maps your deeper patterns of resilience, highlighting both the situations where you naturally thrive and the areas where you can build greater trust in yourself.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "4d3ae034-cb49-477b-a4e6-299e9fad465a",
+        "index": 140,
+        "text": "Having a subconscious self number 5 means you are lively and adaptable. You love to embrace change and are never afraid to try new things or take risks. This gives you a natural curiosity and a zest for life that inspires those around you. You're also very resourceful and able to handle different situations with ease, making you a great problem solver and a fun person to be around. Your openness and love of variety can keep life exciting and full of surprises.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "1d4bc143-8ae8-4e83-99b0-7faa5629b595",
+        "index": 150,
+        "text": "On the flip side, the need for constant change and excitement can sometimes lead to restlessness or impatience. People with a subconscious self number 5 might struggle with commitment or staying focused because the routine feels dull and stifling. There’s also a risk of taking unnecessary risks or being impulsive without fully thinking things through. Sometimes, the pursuit of freedom can cause you to avoid responsibilities, which might create challenges in your relationships or personal life if not balanced thoughtfully.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "9fd5f17f-7914-4594-9a30-76d6a0c4fa26",
+        "index": 160,
+        "title": "Your challenge numbers are 2, 3, and 1",
+        "text": "Your challenge numbers reveal the meaningful hurdles placed along your life's journey, as opportunities for profound growth disguised as obstacles. Like stepping stones across a river, these numbers show where you're meant to strengthen your character and transform limitations into wisdom. Understanding them helps you recognize these pivotal moments of challenge as gateways to becoming your fullest self.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "5d038573-5861-4c1e-b0c7-ef1a8e8251e4",
+        "index": 170,
+        "text": "The number 2 brings a gentle, cooperative energy. It encourages diplomacy, patience, and the ability to work well with others. With the 3 challenge, creativity and communication rise to the forefront, inspiring you to express yourself more freely and find joy in sharing ideas. The 1 challenges provide an empowering push toward independence, leadership, and taking initiative. Together, these numbers suggest a balance of teamwork, creative expression, and self-assertion, which can lead to well-rounded personal growth.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "b1c0326d-e5b5-4580-97a2-83c0bf4f4df6",
+        "index": 180,
+        "text": "On the flip side, the 2 challenge can sometimes show up as indecisiveness or people-pleasing, causing you to neglect your own needs to keep peace. The 3 challenge might lead to scattered energy, impatience, or superficiality when expressing yourself, making it harder to focus deeply or follow through. The 1 challenge can bring about stubbornness or an overly strong desire for control, which may create tension in relationships and block collaboration. Recognizing these shadow aspects gives you the chance to soften your approach, stay grounded, and use these challenges as tools to build a stronger, more flexible self.",
+        "action": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "system_interaction",
+    "page": "soulprint",
+    "index": 200,
+    "title": "SOULPRINT",
+    "subtitle": "Soulprint Combinations",
+    "blocks": [
+      {
+        "id": "705c16ab-b9b2-445c-9520-f971e183f0d1",
+        "title": "Spiral Dynamics for your Enneagram Type",
+        "text": "error parsing Text template: template: prompt:1:15: executing \"prompt\" at : error calling index: index of untyped nil",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "9a40c0d3-940b-4d0b-bb81-a923e3751024",
+        "index": 10,
+        "title": "How Your Enneagram Types Interact with your Human Design",
+        "text": "Without a specified Enneagram type, the analysis focuses on how your Human Design characteristics — Projector type, Mental Inner Authority, and 4/1 Profile — create a foundational energetic blueprint that interacts with any potential Enneagram dynamics. As a Projector, your strategy is to \"Wait for the Invitation,\" highlighting a style of energy that thrives on recognition and response rather than initiating. Your Mental Inner Authority means that your decision-making process relies heavily on mental clarity achieved through external dialogue and environmental feedback rather than internal somatic cues. The 4/1 Profile combines the Opportunist (4) with the Investigator (1), indicating a natural tendency to build deep knowledge and cultivate relationships that can eventually open doors. These Human Design elements together foster a strategic and reflective approach to life, grounded in community and mental analysis.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "a05a3b31-4e6f-4463-a022-4b5a50faf15c",
+        "index": 20,
+        "text": "When an Enneagram type is introduced, we can explore the synergies and tensions between your Human Design and your Enneagram core motivations and coping mechanisms. For example, if you were an Enneagram Type 1 (The Reformer), your inner drive for integrity and improvement could align well with your Investigator (1) line, reinforcing a need for structured, correct understanding before you act in response to invitations. Conversely, the mental authority requires you to discuss decisions with trusted others, which can help balance a Type 1’s inclination for internal critical judgment. However, tension may arise if your Enneagram type involves a strong urge to initiate or control (e.g., Type 8 or Type 3), conflicting with the Projector’s strategy of waiting and responding. This mismatch could result in frustration, which is the Projector’s key not-self theme, triggered by pushing against your energetic design to lead without invitation.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "687bbc6d-a6da-4668-b18d-349ad0751f06",
+        "index": 30,
+        "text": "The 4/1 profile’s focus on community and deep research complements many Enneagram types by bringing a grounding social network (Line 4) and a solid knowledge base (Line 1) to any energetic interplay. This combination enhances your capacity to validate mental decisions through trusted relationships, a critical component given your Mental Authority that demands external sounding boards. However, some Enneagram-driven emotional patterns—such as the Type 4’s identity-seeking or Type 6’s anxiety—might create inner conflicts with the Projector’s need for calm, patient waiting and mental clarity. Overall, understanding how your Enneagram type’s emotional and motivational patterns either support or challenge your Projector strategy and mental authority can help you refine your approach to decision-making and interaction, turning potential contradictions into functional balance.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "2c6fe81b-405a-4ae8-816b-91d397ab8d32",
+        "index": 40,
+        "title": "How Your Enneagram Types Interact with your Numerology",
+        "text": "Your Enneagram challenge numbers (2, 3, 1, 1) indicate core personality dynamics revolving around the Helper (Type 2), Achiever (Type 3), and Reformer (Type 1) archetypes. Type 2’s focus on interpersonal connection and support contrasts with Type 3’s drive for success and image management, while Type 1 emphasizes integrity and perfectionism. These challenge numbers suggest an internal push-pull between nurturing others, accomplishing goals, and upholding high standards. Numerologically, your Life Path 8 brings authoritative, ambitious energy that aligns with the achievement orientation of Type 3, reinforcing your drive to manifest power and control in the material world. Meanwhile, your Expression Number 7 and Soul Urge Number 7 emphasize introspection, intellectual inquiry, and a quest for deeper understanding, which somewhat contrast with the outward-focused energy of Type 3 and Type 8’s pragmatic assertiveness.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "329e21a8-d613-4d26-bc62-7a77bea6c7e1",
+        "index": 50,
+        "text": "Your Personality Number 9 introduces themes of universality, empathy, and peacemaking, which resonate strongly with Type 2’s interpersonal warmth but may come into tension with the more individualistic and success-driven aspects of Type 3 and your aggressive Life Path 8 energy. This blend creates a dynamic where your natural inclination toward harmony might be challenged by the need to assert authority and achieve tangible results. The Subconscious Self Number 5 injects elements of adaptability, curiosity, and a desire for freedom, adding complexity to the otherwise structured and goal-oriented profile. This number’s influence can conflict with the rigidity and discipline indicated by your two Type 1s and the controlled energy of the Life Path 8, giving rise to internal contradictions between order and spontaneity.",
+        "action": [
+          ""
+        ]
+      },
+      {
+        "id": "55c45790-2fde-4d3f-b60f-b2e061159221",
+        "index": 50,
+        "text": "In summary, your Enneagram and Numerology profile portrays a multifaceted personality balancing aspiration and introspection, control and flexibility, as well as connection and achievement. The synergy between your Life Path 8 and Type 3 establishes a strong foundation for leadership and accomplishment, while your twin Type 1s enhance diligence and ethical rigor. However, the introspective 7s and the adaptable 5 bring reflective and exploratory tendencies that may challenge the more directive aspects of your profile. Understanding these complex interactions can help you harness the strengths of each trait and navigate their inherent tensions to cultivate a balanced and authentic expression of self."
+      }
+    ]
+  }
+]
