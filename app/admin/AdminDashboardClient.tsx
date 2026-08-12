@@ -4,7 +4,14 @@ import { useAuth } from "@/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, Users, BarChart3, Building2, MessageSquare, Mail, Shield, ArrowLeft, TrendingUp, Zap, Activity } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Loader2, Users, BarChart3, Building2, MessageSquare, Mail, Shield, ArrowLeft, TrendingUp, Zap, Activity, Download, Globe, Calendar } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState, useMemo } from "react";
 
@@ -14,6 +21,14 @@ const ROLE_COLORS: Record<string, string> = {
   Filter: "#8b5cf6",
   Ground: "#10b981",
   Conductor: "#ef4444",
+};
+
+const ROLE_TAGLINES: Record<string, string> = {
+  Spark: "The Innovator",
+  Amplifier: "The Expander",
+  Filter: "The Refiner",
+  Ground: "The Executor",
+  Conductor: "The Orchestrator",
 };
 
 export default function AdminDashboard() {
@@ -35,6 +50,37 @@ export default function AdminDashboard() {
 
   const [generatedEmail, setGeneratedEmail] = useState<string>('');
   const [generatingFor, setGeneratingFor] = useState<number | null>(null);
+  const [selectedAssessment, setSelectedAssessment] = useState<any | null>(null);
+  const [generatingPDF, setGeneratingPDF] = useState<number | null>(null);
+  const generateIndividualPDF = trpc.admin.generateIndividualPDF.useMutation();
+
+  const handleGenerateIndividualPDF = async (assessment: any) => {
+    setGeneratingPDF(assessment.id);
+    try {
+      const rawScores = assessment.scores as Record<string, unknown> | null;
+      const scores: Record<string, number> = {};
+      if (rawScores) {
+        for (const [k, v] of Object.entries(rawScores)) {
+          scores[k] = typeof v === 'number' ? v : 0;
+        }
+      }
+      const result = await generateIndividualPDF.mutateAsync({
+        assessmentId: assessment.id,
+        name: assessment.guestName || "Anonymous",
+        email: assessment.guestEmail || undefined,
+        role: assessment.role,
+        score: assessment.score,
+        scores,
+        shareToken: assessment.shareToken || undefined,
+        origin: window.location.origin,
+      });
+      window.open(result.url, "_blank");
+    } catch (err) {
+      console.error("Failed to generate PDF:", err);
+    } finally {
+      setGeneratingPDF(null);
+    }
+  };
 
   if (authLoading || isLoading) {
     return (
@@ -269,7 +315,11 @@ export default function AdminDashboard() {
                 </thead>
                 <tbody className="divide-y">
                   {stats.recentAssessments.map((a: any) => (
-                    <tr key={a.id} className="hover:bg-gray-50">
+                    <tr
+                      key={a.id}
+                      onClick={() => setSelectedAssessment(a)}
+                      className="hover:bg-gray-50 cursor-pointer"
+                    >
                       <td className="py-2 px-3 font-medium">{a.guestName || '—'}</td>
                       <td className="py-2 px-3 text-muted-foreground">{a.guestEmail || '—'}</td>
                       <td className="py-2 px-3 text-muted-foreground">{a.domain || '—'}</td>
@@ -445,6 +495,89 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Full Report Modal */}
+      <Dialog open={!!selectedAssessment} onOpenChange={(open) => !open && setSelectedAssessment(null)}>
+        <DialogContent className="sm:max-w-xl max-h-[85vh] overflow-y-auto">
+          {selectedAssessment && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl">
+                  {selectedAssessment.guestName || "Anonymous"}
+                </DialogTitle>
+              </DialogHeader>
+
+              <div className="space-y-5">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                  {selectedAssessment.guestEmail && (
+                    <span className="flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5" /> {selectedAssessment.guestEmail}
+                    </span>
+                  )}
+                  {selectedAssessment.domain && (
+                    <span className="flex items-center gap-1.5">
+                      <Globe className="w-3.5 h-3.5" /> {selectedAssessment.domain}
+                    </span>
+                  )}
+                  {selectedAssessment.createdAt && (
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {new Date(selectedAssessment.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </span>
+                  )}
+                </div>
+
+                <div className="p-4 rounded-lg border" style={{ borderColor: ROLE_COLORS[selectedAssessment.role], backgroundColor: `${ROLE_COLORS[selectedAssessment.role]}1a` }}>
+                  <div className="text-lg font-bold" style={{ color: ROLE_COLORS[selectedAssessment.role] }}>
+                    {selectedAssessment.role} — {ROLE_TAGLINES[selectedAssessment.role]}
+                  </div>
+                  <div className="text-sm text-muted-foreground mt-1">
+                    Dominant Score: <strong className="text-foreground">{selectedAssessment.score}%</strong>
+                  </div>
+                </div>
+
+                {selectedAssessment.scores && Object.keys(selectedAssessment.scores).length > 0 && (
+                  <div>
+                    <h3 className="text-sm font-semibold mb-3">Energy Distribution</h3>
+                    <div className="space-y-3">
+                      {Object.entries(selectedAssessment.scores as Record<string, number>)
+                        .sort(([, a], [, b]) => (b as number) - (a as number))
+                        .map(([role, score]) => (
+                          <div key={role} className="space-y-1">
+                            <div className="flex justify-between text-sm">
+                              <span className="text-muted-foreground">{role}</span>
+                              <span className="text-muted-foreground">{score}%</span>
+                            </div>
+                            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                              <div
+                                className="h-full rounded-full"
+                                style={{ width: `${score}%`, backgroundColor: ROLE_COLORS[role] || '#6b7280' }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <DialogFooter>
+                <Button
+                  onClick={() => handleGenerateIndividualPDF(selectedAssessment)}
+                  disabled={generatingPDF === selectedAssessment.id}
+                >
+                  {generatingPDF === selectedAssessment.id ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Download className="w-4 h-4 mr-2" />
+                  )}
+                  Download PDF Report
+                </Button>
+              </DialogFooter>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

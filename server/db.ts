@@ -548,6 +548,8 @@ export async function getAdminStats() {
     domain: assessments.domain,
     role: assessments.role,
     score: assessments.score,
+    scores: assessments.scores,
+    shareToken: assessments.shareToken,
     createdAt: assessments.createdAt,
   }).from(assessments)
     .orderBy(desc(assessments.createdAt))

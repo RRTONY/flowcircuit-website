@@ -1,16 +1,27 @@
 import PDFDocument from "pdfkit";
+import sharp from "sharp";
 import { storagePut } from "./storage";
 import { getAssessmentsByDomain } from "./db";
 
-// ── Logo (fetched from CDN, cached in memory) ──────────────
+// ── Logo (fetched from CDN, downscaled, cached in memory) ──
+// Source CDN asset is a full-resolution, several-MB PNG; the PDF only
+// ever renders it at 20pt, so it's resized down before embedding to
+// keep generated report PDFs from ballooning past storage limits.
 const LOGO_CDN_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663242884547/58a5XX7atDPJGob9D9jfHU/flow-circuit-logo_05a4bbaa.png";
+const LOGO_MAX_DIMENSION = 160;
 let logoBuf: Buffer | null = null;
 let logoLoaded = false;
 async function getLogo(): Promise<Buffer | null> {
   if (logoLoaded) return logoBuf;
   try {
     const res = await fetch(LOGO_CDN_URL);
-    if (res.ok) logoBuf = Buffer.from(await res.arrayBuffer());
+    if (res.ok) {
+      const raw = Buffer.from(await res.arrayBuffer());
+      logoBuf = await sharp(raw)
+        .resize(LOGO_MAX_DIMENSION, LOGO_MAX_DIMENSION, { fit: "inside" })
+        .png({ compressionLevel: 9 })
+        .toBuffer();
+    }
   } catch { /* logo is optional */ }
   logoLoaded = true;
   return logoBuf;
