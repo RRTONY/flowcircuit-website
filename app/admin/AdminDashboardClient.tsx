@@ -131,13 +131,21 @@ export default function AdminDashboard() {
               Flow Circuit adoption metrics and management
             </p>
           </div>
-          <Button
-            onClick={() => router.push("/")}
-            variant="outline"
-            className="gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Site
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => router.push("/reports")}
+              className="gap-2"
+            >
+              <Users className="h-4 w-4" /> View All Assessments
+            </Button>
+            <Button
+              onClick={() => router.push("/")}
+              variant="outline"
+              className="gap-2"
+            >
+              <ArrowLeft className="h-4 w-4" /> Back to Site
+            </Button>
+          </div>
         </div>
 
         {/* ═══ KPI Cards ═══ */}
@@ -297,8 +305,16 @@ export default function AdminDashboard() {
 
         {/* ═══ Recent Assessments ═══ */}
         <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Recent Assessments</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0">
+            <CardTitle>Recent Assessments (last 20)</CardTitle>
+            <Button
+              onClick={() => router.push("/reports")}
+              variant="ghost"
+              size="sm"
+              className="gap-2"
+            >
+              View all <Users className="h-4 w-4" />
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
